@@ -13,6 +13,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="611.0" prefWidth="318.0">
          <children>
+            <Button layoutX="121.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleRandom" text="随机填充" />
             <TextField fx:id="ipTextField" layoutX="85.0" layoutY="28.0" promptText="10.0.100.160" />
             <Label layoutX="22.0" layoutY="33.0" text="ip:" />
             <TextField fx:id="addressTextField" layoutX="84.0" layoutY="106.0" prefWidth="202.0" promptText="R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK" />
@@ -21,17 +22,17 @@
             <Label layoutX="16.0" layoutY="159.0" text="公钥:" />
             <TextField fx:id="priKeyTextField" layoutX="83.0" layoutY="201.0" prefWidth="202.0" promptText="MIGNAgEAMBAGByqGSM49AgEGBSuBBAAKBHYwdAIBAQQguML2lEXwVVYEkpNN19AcIxQ4AuYBndHrYcTjxBMvyb2gBwYFK4EEAAqhRANCAASPJveHbTGv5CEXmib0+XoXMA3xi1aNNC55FlRFwQhgeeLZSpATYvXZ0i33Hknlh9aqEDKDLBrRFBa7oVb5djGS" />
             <Label layoutX="15.0" layoutY="206.0" text="私钥:" />
-            <TextField fx:id="coinbaseValueTextField" layoutX="107.0" layoutY="358.0" prefHeight="30.0" prefWidth="131.0" promptText="100" />
+            <TextField fx:id="coinbaseValueTextField" layoutX="107.0" layoutY="358.0" prefHeight="30.0" prefWidth="131.0" promptText="10000" />
             <Button layoutX="245.0" layoutY="358.0" mnemonicParsing="false" onAction="#handleCoinbase" text="生成" />
             <Label layoutX="17.0" layoutY="363.0" text="凤币数量:" />
-            <Button layoutX="168.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleQueryAccount" text="查询账户" />
-            <Button layoutX="43.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleConnection" text="连接fabric" />
+            <Button layoutX="168.0" layoutY="276.0" mnemonicParsing="false" onAction="#handleQueryAccount" text="查询账户" />
+            <Button layoutX="43.0" layoutY="276.0" mnemonicParsing="false" onAction="#handleConnection" text="连接fabric" />
             <TextField fx:id="transferAddressTextField" layoutX="107.0" layoutY="452.0" prefHeight="30.0" prefWidth="131.0" promptText="ga7Lm7i45tDgT26TVEB7XSnhiGoPayFfU" />
             <Button layoutX="245.0" layoutY="452.0" mnemonicParsing="false" onAction="#handleTransfer" text="转账" />
             <Label layoutX="17.0" layoutY="457.0" text="地址:" />
-            <TextField fx:id="transferValueTextField" layoutX="106.0" layoutY="502.0" prefHeight="30.0" prefWidth="131.0" promptText="100" />
+            <TextField fx:id="transferValueTextField" layoutX="106.0" layoutY="502.0" prefHeight="30.0" prefWidth="131.0" promptText="10000" />
             <Label layoutX="16.0" layoutY="507.0" text="凤币数量:" />
-            <Button layoutX="102.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleQueryPhxCoinInfo" prefHeight="30.0" prefWidth="91.0" text="凤币信息" />
+            <Button layoutX="102.0" layoutY="313.0" mnemonicParsing="false" onAction="#handleQueryPhxCoinInfo" prefHeight="30.0" prefWidth="91.0" text="凤币信息" />
             <TextField fx:id="coinbaseUntilTextField" layoutX="107.0" layoutY="398.0" prefHeight="30.0" prefWidth="131.0" promptText="-1" />
             <Label layoutX="17.0" layoutY="403.0" text="时间锁/ms:" />
             <TextField fx:id="transferUntilTextField" layoutX="105.0" layoutY="547.0" prefHeight="30.0" prefWidth="131.0" promptText="-1" />
