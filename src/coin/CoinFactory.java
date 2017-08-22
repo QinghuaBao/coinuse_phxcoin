@@ -37,6 +37,7 @@ public class CoinFactory {
     private static final class Coin implements PhxCoinInterface {
         private String ADD_URL;
         private String returnJson = "";
+        private String sendJson = "";
 
 //        public String ADD_URL;
         /**
@@ -386,6 +387,7 @@ public class CoinFactory {
             Collections.addAll(ctorMsg, param);
             JSONObject jsonObject = generateJson(method, chaincodeName, ctorMsg.toArray(new String[ctorMsg.size()]),
                     id);
+            sendJson = jsonObject.toString();
 
             out.writeBytes(jsonObject.toString());
             out.flush();
@@ -437,6 +439,10 @@ public class CoinFactory {
             jsonObject.put("id", id);
 
             return jsonObject;
+        }
+
+        public String getSendJson() {
+            return sendJson;
         }
 
         public String getReturnJson() {

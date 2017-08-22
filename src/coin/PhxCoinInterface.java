@@ -135,4 +135,5 @@ public interface PhxCoinInterface{
     public String getReturnJson();
     public String doCoinbase(String addr, String pubKey, long value, long until)throws IOException;
     public void setADD_URL(String ADD_URL);
+    public String getSendJson();
 }
