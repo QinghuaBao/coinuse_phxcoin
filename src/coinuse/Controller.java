@@ -78,6 +78,7 @@ public class Controller {
             transferAddressTextField.setText("YvLqmtUfYC3XqWLtkaXkLC6fR8fnD2bAY");
             transferUntilTextField.setText("-1");
             transferValueTextField.setText("100000");
+            handleConnection();
         } catch (NoSuchAlgorithmException |NoSuchProviderException |InvalidAlgorithmParameterException |IOException |InvalidKeySpecException e) {
             warning("未找到相应算法，请自行填充数据");
         }
