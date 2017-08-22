@@ -1,5 +1,7 @@
 package coinuse;
 
+import address.Address;
+import address.AddressUtil;
 import coin.CoinFactory;
 import coin.PhxCoinInterface;
 import javafx.fxml.FXML;
@@ -9,6 +11,10 @@ import javafx.scene.control.TextField;
 import utils.JsonFormatTool;
 
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,7 +55,6 @@ public class Controller {
     private long coinbaseUntil = -1L;
     private long transferUntil = -1L;
     private String transferAddress = "ga7Lm7i45tDgT26TVEB7XSnhiGoPayFfU";
-    private boolean flag = false;
 
     @FXML
     private void initialize(){
@@ -57,6 +62,25 @@ public class Controller {
         parseInfo.setWrapText(true);
         CoinFactory factory = new CoinFactory();
         post = factory.getCoinInstance();
+    }
+
+    @FXML
+    private void handleRandom(){
+        try {
+            Address addr = AddressUtil.generatAddress();
+            ipTextField.setText("127.0.0.1");
+            portTextField.setText("7051");
+            addressTextField.setText(addr.getAddress());
+            priKeyTextField.setText(addr.getPrivateKeyBase64());
+            pubKeyTextField.setText(addr.getPublicKeyBase64());
+            coinbaseValueTextField.setText("100000");
+            coinbaseUntilTextField.setText("-1");
+            transferAddressTextField.setText("YvLqmtUfYC3XqWLtkaXkLC6fR8fnD2bAY");
+            transferUntilTextField.setText("-1");
+            transferValueTextField.setText("100000");
+        } catch (NoSuchAlgorithmException |NoSuchProviderException |InvalidAlgorithmParameterException |IOException |InvalidKeySpecException e) {
+            warning("未找到相应算法，请自行填充数据");
+        }
     }
 
     @FXML
@@ -178,7 +202,7 @@ public class Controller {
             transferAddress = transferAddressTextField.getText();
         }
 
-        String param = null;
+        String param;
         try {
             param = post.getTransferParam(address, transferAddress, transferValue, "foam_java_pc",transferUntil, pubKey, priKey);
             String result = post.doTransferByParam(param);
@@ -214,9 +238,7 @@ public class Controller {
 
         Matcher mat = pat.matcher(addr);
 
-        boolean ipAddress = mat.find();
-
-        return ipAddress;
+        return mat.matches();
     }
 
     private boolean isValidNum(String str){
