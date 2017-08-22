@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.json.JSONObject;
 import utils.JsonFormatTool;
 
 import java.io.IOException;
@@ -43,6 +44,8 @@ public class Controller {
     private TextArea returnInfo;
     @FXML
     private TextArea parseInfo;
+    @FXML
+    private TextArea sendInfo;
 
     private PhxCoinInterface post;
     private String address = "R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK";
@@ -58,8 +61,8 @@ public class Controller {
 
     @FXML
     private void initialize(){
-        returnInfo.setWrapText(true);
-        parseInfo.setWrapText(true);
+        //returnInfo.setWrapText(true);
+        //parseInfo.setWrapText(true);
         CoinFactory factory = new CoinFactory();
         post = factory.getCoinInstance();
     }
@@ -102,7 +105,9 @@ public class Controller {
 
         post.setADD_URL(ipTextField.getText() + ":" + portTextField.getText());
         //post.connectToBlockChain();
-        returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+        sendInfo.setText("");
+        returnInfo.setText(JsonFormatTool.formatJson(""));
+        parseInfo.setText("");
         warning("初始化成功！");
 //        if (!flag){
 //            warning("连接成功！");
@@ -120,6 +125,7 @@ public class Controller {
             String result = post.getAccountInfo(address);
             returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
             parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
         } catch (IOException e) {
             warning(e.getMessage());
         }
@@ -167,6 +173,7 @@ public class Controller {
             String result = post.doCoinbase(address, pubKey, coinbaseValue, coinbaseUntil);
             returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
             parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
         } catch (IOException e) {
             warning(e.getMessage());
         }
@@ -209,6 +216,7 @@ public class Controller {
             String result = post.doTransferByParam(param);
             returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
             parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
         } catch (IOException e) {
             warning(e.getMessage());
         }

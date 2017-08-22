@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.3150259067357513" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coinuse.Controller">
+<SplitPane dividerPositions="0.2951582867783985" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1076.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coinuse.Controller">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="611.0" prefWidth="318.0">
          <children>
@@ -49,10 +49,20 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="returnInfo" editable="false" prefHeight="263.0" prefWidth="657.0">
+                  <TextArea fx:id="returnInfo" editable="false" prefHeight="220.0" prefWidth="680.0">
                      <font>
                         <Font size="18.0" />
                      </font></TextArea>
+                  <Label prefHeight="20.0" prefWidth="90.0" text="发送信息：">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="sendInfo" editable="false" prefHeight="307.0" prefWidth="657.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
                   <Label prefHeight="20.0" prefWidth="90.0" text="解析信息：">
                      <font>
                         <Font size="18.0" />
