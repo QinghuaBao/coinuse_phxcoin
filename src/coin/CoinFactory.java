@@ -201,13 +201,6 @@ public class CoinFactory {
             return js.toString();
         }
 
-//        public boolean getAddressUrl() throws IOException {
-//            UrlPool urlPool = UrlPool.getUrlPoolInstance();
-//            urlPool.readUrlList();
-//            ADD_URL = urlPool.getUrl();
-//            return true;
-//        }
-
         /**
          * @Description: generate account information
          * @param: arg
