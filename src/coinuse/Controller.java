@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.json.JSONObject;
 import utils.JsonFormatTool;
 
 import java.io.IOException;
@@ -46,6 +45,8 @@ public class Controller {
     private TextArea parseInfo;
     @FXML
     private TextArea sendInfo;
+    @FXML
+    private TextField jsonFormat;
 
     private PhxCoinInterface post;
     private String address = "R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK";
@@ -222,6 +223,13 @@ public class Controller {
         }
     }
 
+    @FXML
+    private void handleJsonFormat(){
+        returnInfo.setText("");
+        sendInfo.setText("");
+        parseInfo.setText(JsonFormatTool.formatJson(jsonFormat.getText()));
+        jsonFormat.setText("");
+    }
 
     public static void warning(String contentText){
         Alert alert = new Alert(Alert.AlertType.WARNING);
