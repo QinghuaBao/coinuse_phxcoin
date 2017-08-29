@@ -47,6 +47,8 @@ public class Controller {
     private TextArea sendInfo;
     @FXML
     private TextField jsonFormat;
+    @FXML
+    private TextField historyIdTextField;
 
     private PhxCoinInterface post;
     private String address = "R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK";
@@ -109,7 +111,7 @@ public class Controller {
         sendInfo.setText("");
         returnInfo.setText(JsonFormatTool.formatJson(""));
         parseInfo.setText("");
-        warning("初始化成功！");
+        warning("初始化参数成功！");
 //        if (!flag){
 //            warning("连接成功！");
 //            flag = true;
@@ -229,6 +231,27 @@ public class Controller {
         sendInfo.setText("");
         parseInfo.setText(JsonFormatTool.formatJson(jsonFormat.getText()));
         jsonFormat.setText("");
+    }
+
+    @FXML
+    private void handleFindHistory(){
+        returnInfo.setText("");
+        sendInfo.setText("");
+        parseInfo.setText("");
+        if (historyIdTextField.getText().equals("")){
+            warning("请输入历史交易的id");
+            return;
+        }
+
+        String s;
+        try {
+            s = post.getTransaction(historyIdTextField.getText());
+            returnInfo.setText(post.getReturnJson());
+            sendInfo.setText(post.getSendJson());
+            parseInfo.setText(s);
+        } catch (IOException e) {
+            warning(e.getMessage());
+        }
     }
 
     public static void warning(String contentText){
