@@ -45,6 +45,7 @@
             <TextField fx:id="historyIdTextField" layoutX="8.0" layoutY="623.0" />
             <Button layoutX="216.0" layoutY="623.0" mnemonicParsing="false" onAction="#handleFindHistory" text="查询历史记录" />
             <Label layoutX="14.0" layoutY="596.0" text="历史纪录查询：" />
+            <Button layoutX="219.0" layoutY="755.0" mnemonicParsing="false" onAction="#handleBatchCoinbase" prefWidth="91.0" text="批量coinbase" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="506.0">
          <children>
