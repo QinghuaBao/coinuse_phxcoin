@@ -10,7 +10,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import utils.JsonFormatTool;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -73,7 +77,9 @@ public class Controller {
     @FXML
     private void handleRandom(){
         try {
+            warning("test");
             Address addr = AddressUtil.generatAddress();
+            warning("test");
             ipTextField.setText("127.0.0.1");
             portTextField.setText("7051");
             addressTextField.setText(addr.getAddress());
@@ -251,6 +257,28 @@ public class Controller {
             parseInfo.setText(s);
         } catch (IOException e) {
             warning(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleBatchCoinbase(){
+        try {
+            BufferedReader reader = Files.newBufferedReader(Paths.get("phxchain.txt"), Charset.forName("UTF-8"));
+//            System.out.println("sdf");
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                String[] param = line.split(",");
+                String addr = param[0];
+                String pubkey = param[1];
+                String result = post.doCoinbase(addr, pubkey, 100000000, -1);
+//                returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+//                parseInfo.setText(JsonFormatTool.formatJson(result));
+//                sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+            }
+            returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+//                parseInfo.setText(JsonFormatTool.formatJson(result));
+                sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+        } catch (IOException xe) {
+            warning(xe.getMessage());
         }
     }
 
