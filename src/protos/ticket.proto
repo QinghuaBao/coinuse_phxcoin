@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package protos;
+
+message TicketElem{
+	string Order_id = 1;
+	string Ticket_id = 2;       //UID recorded by back_end
+	int64 Ticket_unit_price = 3;
+	int64 Ticket_number = 4;
+	int64 Time_of_buy_ticket = 5;
+	string Buy_TXhash = 6;
+	int64 Ticket_state = 7;    //0,unuse; 1,used; 2,refund
+	int64 Time_of_state_changed = 8;
+	string Refund_TXhash = 9;
+	string Admin_pass = 10;
+}
+
+//the key is "ticket_Phonenumber"
+message TicketOfUser{
+	string Phonenumber = 1;    //UUID
+	int64 Unused_ticket_number = 2;   //record the number
+	repeated TicketElem TicketInfo = 3;
+}
+
+message UnusedTicketElem{
+	string Order_id = 1;
+	string Ticket_id = 2;
+	int64 Ticket_unit_price = 3;
+	int64 Ticket_number = 4;
+	string Buy_TXhash = 5;
+}
+
+//return the result of query_buying_ticket
+message UnusedTicket{
+	int64 Unused_ticket_number = 1;
+	repeated UnusedTicketElem UnsedTicketInfo = 2;
+}
+
+//for checking ticket
+message CheckTicketElem{
+	string Order_id = 1;
+	string Admin_pass = 2;
+}
+
+//for refunding ticket
+message RefundTicketElem{
+	string Order_id = 1;
+	string Refund_TXhash = 2;
+	string Admin_pass = 3;
+}

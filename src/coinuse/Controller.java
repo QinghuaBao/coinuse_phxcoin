@@ -72,14 +72,82 @@ public class Controller {
         //parseInfo.setWrapText(true);
         CoinFactory factory = new CoinFactory();
         post = factory.getCoinInstance();
+        ipTextField.setText("61.183.76.102");
+        portTextField.setText("20015");
+        handleConnection();
+    }
+
+    @FXML
+    private void handleBuyTicket(){
+
+        if (!addressTextField.getText().equals("")){
+            address = addressTextField.getText();
+        }
+        if (!priKeyTextField.getText().equals("")){
+            priKey = priKeyTextField.getText();
+        }
+        if (!pubKeyTextField.getText().equals("")){
+            pubKey = pubKeyTextField.getText();
+        }
+        String txhash= null;
+        String tranParam = null;
+        try {
+            tranParam = post.getTransferParam(address,
+                    "ga7Lm7i45tDgT26TVEB7XSnhiGoPayFfU", 100000000, "foam",-1, pubKey, priKey);
+            //得到交易hash
+            txhash = post.getTxHash(tranParam);
+            //调用方法
+            //方法参数（电话，订单id，门票id，门票单价,门票数量,交易hash，转账参数）；
+            post.invokeBuyTicket("15000000001", "P5aa7fd360d54412daaf39089ed2010t", "95", 10000, 1, txhash, tranParam);
+        } catch (IOException e) {
+            warning(e.getMessage());
+            return;
+        }
+    }
+
+
+    @FXML
+    private void handleQueryCoin(){
+        try {
+            String result = post.getPhxCoinInfo();
+            returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+            parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+        } catch (IOException e) {
+            warning(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleQueryTest(){
+        try {
+            String result = post.getTest();
+            returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+            parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+        } catch (IOException e) {
+            warning(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void handleSetTest(){
+        try {
+            String result = post.doTest(500000, 30, 20*100000);
+            returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
+            parseInfo.setText(JsonFormatTool.formatJson(result));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+        } catch (IOException e) {
+            warning(e.getMessage());
+        }
     }
 
     @FXML
     private void handleRandom(){
         try {
-            warning("test");
+//            warning("test");
             Address addr = AddressUtil.generatAddress();
-            warning("test");
+//            warning("test");
             ipTextField.setText("127.0.0.1");
             portTextField.setText("7051");
             addressTextField.setText(addr.getAddress());
@@ -265,6 +333,7 @@ public class Controller {
         try {
             BufferedReader reader = Files.newBufferedReader(Paths.get("phxchain.txt"), Charset.forName("UTF-8"));
 //            System.out.println("sdf");
+            long begin = System.currentTimeMillis();
             for (String line = reader.readLine(); line != null; line = reader.readLine()) {
                 String[] param = line.split(",");
                 String addr = param[0];
@@ -274,9 +343,11 @@ public class Controller {
 //                parseInfo.setText(JsonFormatTool.formatJson(result));
 //                sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
             }
+            long end = System.currentTimeMillis();
+            warning(Long.toString(end- begin));
             returnInfo.setText(JsonFormatTool.formatJson(post.getReturnJson()));
 //                parseInfo.setText(JsonFormatTool.formatJson(result));
-                sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
+            sendInfo.setText(JsonFormatTool.formatJson(post.getSendJson()));
         } catch (IOException xe) {
             warning(xe.getMessage());
         }
@@ -329,5 +400,6 @@ public class Controller {
         }
         return true;
     }
+
 
 }

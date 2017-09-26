@@ -21,7 +21,7 @@ public final class Foamcoin {
     /**
      * <code>optional string addr = 1;</code>
      */
-    String getAddr();
+    java.lang.String getAddr();
     /**
      * <code>optional string addr = 1;</code>
      */
@@ -41,31 +41,31 @@ public final class Foamcoin {
      * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
      */
     boolean containsTxouts(
-            String key);
+        java.lang.String key);
     /**
      * Use {@link #getTxoutsMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, TX.TXOUT>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT>
     getTxouts();
     /**
      * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
      */
-    java.util.Map<String, TX.TXOUT>
+    java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT>
     getTxoutsMap();
     /**
      * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
      */
 
     protos.Foamcoin.TX.TXOUT getTxoutsOrDefault(
-            String key,
-            protos.Foamcoin.TX.TXOUT defaultValue);
+        java.lang.String key,
+        protos.Foamcoin.TX.TXOUT defaultValue);
     /**
      * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
      */
 
     protos.Foamcoin.TX.TXOUT getTxoutsOrThrow(
-            String key);
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -87,7 +87,7 @@ public final class Foamcoin {
       balance_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -113,7 +113,7 @@ public final class Foamcoin {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               addr_ = s;
               break;
@@ -129,7 +129,7 @@ public final class Foamcoin {
                     TxoutsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000004;
               }
-              com.google.protobuf.MapEntry<String, protos.Foamcoin.TX.TXOUT>
+              com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.TX.TXOUT>
               txouts = input.readMessage(
                   TxoutsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               txouts_.getMutableMap().put(txouts.getKey(), txouts.getValue());
@@ -171,18 +171,18 @@ public final class Foamcoin {
 
     private int bitField0_;
     public static final int ADDR_FIELD_NUMBER = 1;
-    private volatile Object addr_;
+    private volatile java.lang.Object addr_;
     /**
      * <code>optional string addr = 1;</code>
      */
-    public String getAddr() {
-      Object ref = addr_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getAddr() {
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         addr_ = s;
         return s;
       }
@@ -192,11 +192,11 @@ public final class Foamcoin {
      */
     public com.google.protobuf.ByteString
         getAddrBytes() {
-      Object ref = addr_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         addr_ = b;
         return b;
       } else {
@@ -216,18 +216,18 @@ public final class Foamcoin {
     public static final int TXOUTS_FIELD_NUMBER = 3;
     private static final class TxoutsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, protos.Foamcoin.TX.TXOUT> defaultEntry =
+          java.lang.String, protos.Foamcoin.TX.TXOUT> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, protos.Foamcoin.TX.TXOUT>newDefaultInstance(
-                  protos.Foamcoin.internal_static_protos_Account_TxoutsEntry_descriptor,
+              .<java.lang.String, protos.Foamcoin.TX.TXOUT>newDefaultInstance(
+                  protos.Foamcoin.internal_static_protos_Account_TxoutsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protos.Foamcoin.TX.TXOUT.getDefaultInstance());
     }
     private com.google.protobuf.MapField<
-        String, protos.Foamcoin.TX.TXOUT> txouts_;
-    private com.google.protobuf.MapField<String, protos.Foamcoin.TX.TXOUT>
+        java.lang.String, protos.Foamcoin.TX.TXOUT> txouts_;
+    private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.TX.TXOUT>
     internalGetTxouts() {
       if (txouts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -244,22 +244,22 @@ public final class Foamcoin {
      */
 
     public boolean containsTxouts(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetTxouts().getMap().containsKey(key);
     }
     /**
      * Use {@link #getTxoutsMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, TX.TXOUT> getTxouts() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> getTxouts() {
       return getTxoutsMap();
     }
     /**
      * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
      */
 
-    public java.util.Map<String, TX.TXOUT> getTxoutsMap() {
+    public java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> getTxoutsMap() {
       return internalGetTxouts().getMap();
     }
     /**
@@ -267,10 +267,10 @@ public final class Foamcoin {
      */
 
     public protos.Foamcoin.TX.TXOUT getTxoutsOrDefault(
-        String key,
+        java.lang.String key,
         protos.Foamcoin.TX.TXOUT defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, TX.TXOUT> map =
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> map =
           internalGetTxouts().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -279,12 +279,12 @@ public final class Foamcoin {
      */
 
     public protos.Foamcoin.TX.TXOUT getTxoutsOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, TX.TXOUT> map =
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> map =
           internalGetTxouts().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
@@ -307,9 +307,9 @@ public final class Foamcoin {
       if (balance_ != 0L) {
         output.writeInt64(2, balance_);
       }
-      for (java.util.Map.Entry<String, TX.TXOUT> entry
+      for (java.util.Map.Entry<java.lang.String, protos.Foamcoin.TX.TXOUT> entry
            : internalGetTxouts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, protos.Foamcoin.TX.TXOUT>
+        com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.TX.TXOUT>
         txouts = TxoutsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -330,9 +330,9 @@ public final class Foamcoin {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, balance_);
       }
-      for (java.util.Map.Entry<String, TX.TXOUT> entry
+      for (java.util.Map.Entry<java.lang.String, protos.Foamcoin.TX.TXOUT> entry
            : internalGetTxouts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, protos.Foamcoin.TX.TXOUT>
+        com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.TX.TXOUT>
         txouts = TxoutsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -345,8 +345,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -365,7 +365,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -457,7 +457,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -636,20 +636,20 @@ public final class Foamcoin {
       }
       private int bitField0_;
 
-      private Object addr_ = "";
+      private java.lang.Object addr_ = "";
       /**
        * <code>optional string addr = 1;</code>
        */
-      public String getAddr() {
-        Object ref = addr_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getAddr() {
+        java.lang.Object ref = addr_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           addr_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -657,11 +657,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getAddrBytes() {
-        Object ref = addr_;
+        java.lang.Object ref = addr_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           addr_ = b;
           return b;
         } else {
@@ -672,11 +672,11 @@ public final class Foamcoin {
        * <code>optional string addr = 1;</code>
        */
       public Builder setAddr(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         addr_ = value;
         onChanged();
         return this;
@@ -685,7 +685,7 @@ public final class Foamcoin {
        * <code>optional string addr = 1;</code>
        */
       public Builder clearAddr() {
-
+        
         addr_ = getDefaultInstance().getAddr();
         onChanged();
         return this;
@@ -699,7 +699,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         addr_ = value;
         onChanged();
         return this;
@@ -716,7 +716,7 @@ public final class Foamcoin {
        * <code>optional int64 balance = 2;</code>
        */
       public Builder setBalance(long value) {
-
+        
         balance_ = value;
         onChanged();
         return this;
@@ -725,15 +725,15 @@ public final class Foamcoin {
        * <code>optional int64 balance = 2;</code>
        */
       public Builder clearBalance() {
-
+        
         balance_ = 0L;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.MapField<
-          String, protos.Foamcoin.TX.TXOUT> txouts_;
-      private com.google.protobuf.MapField<String, protos.Foamcoin.TX.TXOUT>
+          java.lang.String, protos.Foamcoin.TX.TXOUT> txouts_;
+      private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.TX.TXOUT>
       internalGetTxouts() {
         if (txouts_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -741,7 +741,7 @@ public final class Foamcoin {
         }
         return txouts_;
       }
-      private com.google.protobuf.MapField<String, protos.Foamcoin.TX.TXOUT>
+      private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.TX.TXOUT>
       internalGetMutableTxouts() {
         onChanged();;
         if (txouts_ == null) {
@@ -762,22 +762,22 @@ public final class Foamcoin {
        */
 
       public boolean containsTxouts(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetTxouts().getMap().containsKey(key);
       }
       /**
        * Use {@link #getTxoutsMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, TX.TXOUT> getTxouts() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> getTxouts() {
         return getTxoutsMap();
       }
       /**
        * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
        */
 
-      public java.util.Map<String, TX.TXOUT> getTxoutsMap() {
+      public java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> getTxoutsMap() {
         return internalGetTxouts().getMap();
       }
       /**
@@ -785,10 +785,10 @@ public final class Foamcoin {
        */
 
       public protos.Foamcoin.TX.TXOUT getTxoutsOrDefault(
-          String key,
+          java.lang.String key,
           protos.Foamcoin.TX.TXOUT defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, TX.TXOUT> map =
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> map =
             internalGetTxouts().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -797,12 +797,12 @@ public final class Foamcoin {
        */
 
       public protos.Foamcoin.TX.TXOUT getTxoutsOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, TX.TXOUT> map =
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> map =
             internalGetTxouts().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -816,16 +816,16 @@ public final class Foamcoin {
        */
 
       public Builder removeTxouts(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         getMutableTxouts().remove(key);
         return this;
       }
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, TX.TXOUT>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT>
       getMutableTxouts() {
         return internalGetMutableTxouts().getMutableMap();
       }
@@ -833,10 +833,10 @@ public final class Foamcoin {
        * <code>map&lt;string, .protos.TX.TXOUT&gt; txouts = 3;</code>
        */
       public Builder putTxouts(
-          String key,
+          java.lang.String key,
           protos.Foamcoin.TX.TXOUT value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         getMutableTxouts().put(key, value);
         return this;
       }
@@ -845,7 +845,7 @@ public final class Foamcoin {
        */
 
       public Builder putAllTxouts(
-          java.util.Map<String, TX.TXOUT> values) {
+          java.util.Map<java.lang.String, protos.Foamcoin.TX.TXOUT> values) {
         getMutableTxouts().putAll(values);
         return this;
       }
@@ -887,7 +887,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Account> getParserForType() {
       return PARSER;
     }
@@ -905,7 +905,7 @@ public final class Foamcoin {
     /**
      * <code>optional string addr = 1;</code>
      */
-    String getAddr();
+    java.lang.String getAddr();
     /**
      * <code>optional string addr = 1;</code>
      */
@@ -920,7 +920,7 @@ public final class Foamcoin {
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
      */
-    java.util.List<TxoutMap>
+    java.util.List<protos.Foamcoin.TxoutMap> 
         getTxoutmapList();
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
@@ -933,13 +933,13 @@ public final class Foamcoin {
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
      */
-    java.util.List<? extends TxoutMapOrBuilder>
+    java.util.List<? extends protos.Foamcoin.TxoutMapOrBuilder> 
         getTxoutmapOrBuilderList();
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
      */
     protos.Foamcoin.TxoutMapOrBuilder getTxoutmapOrBuilder(
-            int index);
+        int index);
   }
   /**
    * Protobuf type {@code protos.AccountSlice}
@@ -958,7 +958,7 @@ public final class Foamcoin {
       txoutmap_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -984,7 +984,7 @@ public final class Foamcoin {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               addr_ = s;
               break;
@@ -996,7 +996,7 @@ public final class Foamcoin {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                txoutmap_ = new java.util.ArrayList<TxoutMap>();
+                txoutmap_ = new java.util.ArrayList<protos.Foamcoin.TxoutMap>();
                 mutable_bitField0_ |= 0x00000004;
               }
               txoutmap_.add(
@@ -1031,18 +1031,18 @@ public final class Foamcoin {
 
     private int bitField0_;
     public static final int ADDR_FIELD_NUMBER = 1;
-    private volatile Object addr_;
+    private volatile java.lang.Object addr_;
     /**
      * <code>optional string addr = 1;</code>
      */
-    public String getAddr() {
-      Object ref = addr_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getAddr() {
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         addr_ = s;
         return s;
       }
@@ -1052,11 +1052,11 @@ public final class Foamcoin {
      */
     public com.google.protobuf.ByteString
         getAddrBytes() {
-      Object ref = addr_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = addr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         addr_ = b;
         return b;
       } else {
@@ -1074,17 +1074,17 @@ public final class Foamcoin {
     }
 
     public static final int TXOUTMAP_FIELD_NUMBER = 3;
-    private java.util.List<TxoutMap> txoutmap_;
+    private java.util.List<protos.Foamcoin.TxoutMap> txoutmap_;
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
      */
-    public java.util.List<TxoutMap> getTxoutmapList() {
+    public java.util.List<protos.Foamcoin.TxoutMap> getTxoutmapList() {
       return txoutmap_;
     }
     /**
      * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
      */
-    public java.util.List<? extends TxoutMapOrBuilder>
+    public java.util.List<? extends protos.Foamcoin.TxoutMapOrBuilder> 
         getTxoutmapOrBuilderList() {
       return txoutmap_;
     }
@@ -1152,8 +1152,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -1172,7 +1172,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1264,7 +1264,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -1419,7 +1419,7 @@ public final class Foamcoin {
               txoutmapBuilder_ = null;
               txoutmap_ = other.txoutmap_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              txoutmapBuilder_ =
+              txoutmapBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTxoutmapFieldBuilder() : null;
             } else {
@@ -1454,20 +1454,20 @@ public final class Foamcoin {
       }
       private int bitField0_;
 
-      private Object addr_ = "";
+      private java.lang.Object addr_ = "";
       /**
        * <code>optional string addr = 1;</code>
        */
-      public String getAddr() {
-        Object ref = addr_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getAddr() {
+        java.lang.Object ref = addr_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           addr_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1475,11 +1475,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getAddrBytes() {
-        Object ref = addr_;
+        java.lang.Object ref = addr_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           addr_ = b;
           return b;
         } else {
@@ -1490,11 +1490,11 @@ public final class Foamcoin {
        * <code>optional string addr = 1;</code>
        */
       public Builder setAddr(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         addr_ = value;
         onChanged();
         return this;
@@ -1503,7 +1503,7 @@ public final class Foamcoin {
        * <code>optional string addr = 1;</code>
        */
       public Builder clearAddr() {
-
+        
         addr_ = getDefaultInstance().getAddr();
         onChanged();
         return this;
@@ -1517,7 +1517,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         addr_ = value;
         onChanged();
         return this;
@@ -1534,7 +1534,7 @@ public final class Foamcoin {
        * <code>optional int64 balance = 2;</code>
        */
       public Builder setBalance(long value) {
-
+        
         balance_ = value;
         onChanged();
         return this;
@@ -1543,17 +1543,17 @@ public final class Foamcoin {
        * <code>optional int64 balance = 2;</code>
        */
       public Builder clearBalance() {
-
+        
         balance_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.util.List<TxoutMap> txoutmap_ =
+      private java.util.List<protos.Foamcoin.TxoutMap> txoutmap_ =
         java.util.Collections.emptyList();
       private void ensureTxoutmapIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          txoutmap_ = new java.util.ArrayList<TxoutMap>(txoutmap_);
+          txoutmap_ = new java.util.ArrayList<protos.Foamcoin.TxoutMap>(txoutmap_);
           bitField0_ |= 0x00000004;
          }
       }
@@ -1564,7 +1564,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
        */
-      public java.util.List<TxoutMap> getTxoutmapList() {
+      public java.util.List<protos.Foamcoin.TxoutMap> getTxoutmapList() {
         if (txoutmapBuilder_ == null) {
           return java.util.Collections.unmodifiableList(txoutmap_);
         } else {
@@ -1687,7 +1687,7 @@ public final class Foamcoin {
        * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
        */
       public Builder addAllTxoutmap(
-          Iterable<? extends TxoutMap> values) {
+          java.lang.Iterable<? extends protos.Foamcoin.TxoutMap> values) {
         if (txoutmapBuilder_ == null) {
           ensureTxoutmapIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1744,7 +1744,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
        */
-      public java.util.List<? extends TxoutMapOrBuilder>
+      public java.util.List<? extends protos.Foamcoin.TxoutMapOrBuilder> 
            getTxoutmapOrBuilderList() {
         if (txoutmapBuilder_ != null) {
           return txoutmapBuilder_.getMessageOrBuilderList();
@@ -1770,12 +1770,12 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TxoutMap txoutmap = 3;</code>
        */
-      public java.util.List<TxoutMap.Builder>
+      public java.util.List<protos.Foamcoin.TxoutMap.Builder> 
            getTxoutmapBuilderList() {
         return getTxoutmapFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          protos.Foamcoin.TxoutMap, protos.Foamcoin.TxoutMap.Builder, protos.Foamcoin.TxoutMapOrBuilder>
+          protos.Foamcoin.TxoutMap, protos.Foamcoin.TxoutMap.Builder, protos.Foamcoin.TxoutMapOrBuilder> 
           getTxoutmapFieldBuilder() {
         if (txoutmapBuilder_ == null) {
           txoutmapBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -1826,7 +1826,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<AccountSlice> getParserForType() {
       return PARSER;
     }
@@ -1844,7 +1844,7 @@ public final class Foamcoin {
     /**
      * <code>optional string key = 1;</code>
      */
-    String getKey();
+    java.lang.String getKey();
     /**
      * <code>optional string key = 1;</code>
      */
@@ -1879,7 +1879,7 @@ public final class Foamcoin {
       key_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -1905,7 +1905,7 @@ public final class Foamcoin {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key_ = s;
               break;
@@ -1947,18 +1947,18 @@ public final class Foamcoin {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private volatile Object key_;
+    private volatile java.lang.Object key_;
     /**
      * <code>optional string key = 1;</code>
      */
-    public String getKey() {
-      Object ref = key_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key_ = s;
         return s;
       }
@@ -1968,11 +1968,11 @@ public final class Foamcoin {
      */
     public com.google.protobuf.ByteString
         getKeyBytes() {
-      Object ref = key_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key_ = b;
         return b;
       } else {
@@ -2038,8 +2038,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -2059,7 +2059,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2148,7 +2148,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -2300,20 +2300,20 @@ public final class Foamcoin {
         return this;
       }
 
-      private Object key_ = "";
+      private java.lang.Object key_ = "";
       /**
        * <code>optional string key = 1;</code>
        */
-      public String getKey() {
-        Object ref = key_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2321,11 +2321,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getKeyBytes() {
-        Object ref = key_;
+        java.lang.Object ref = key_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key_ = b;
           return b;
         } else {
@@ -2336,11 +2336,11 @@ public final class Foamcoin {
        * <code>optional string key = 1;</code>
        */
       public Builder setKey(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         key_ = value;
         onChanged();
         return this;
@@ -2349,7 +2349,7 @@ public final class Foamcoin {
        * <code>optional string key = 1;</code>
        */
       public Builder clearKey() {
-
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -2363,7 +2363,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         key_ = value;
         onChanged();
         return this;
@@ -2454,7 +2454,7 @@ public final class Foamcoin {
        * <code>optional .protos.TX.TXOUT txouts = 2;</code>
        */
       public protos.Foamcoin.TX.TXOUT.Builder getTxoutsBuilder() {
-
+        
         onChanged();
         return getTxoutsFieldBuilder().getBuilder();
       }
@@ -2473,7 +2473,7 @@ public final class Foamcoin {
        * <code>optional .protos.TX.TXOUT txouts = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          protos.Foamcoin.TX.TXOUT, protos.Foamcoin.TX.TXOUT.Builder, protos.Foamcoin.TX.TXOUTOrBuilder>
+          protos.Foamcoin.TX.TXOUT, protos.Foamcoin.TX.TXOUT.Builder, protos.Foamcoin.TX.TXOUTOrBuilder> 
           getTxoutsFieldBuilder() {
         if (txoutsBuilder_ == null) {
           txoutsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2523,7 +2523,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TxoutMap> getParserForType() {
       return PARSER;
     }
@@ -2555,7 +2555,7 @@ public final class Foamcoin {
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
      */
-    java.util.List<TX.TXIN>
+    java.util.List<protos.Foamcoin.TX.TXIN> 
         getTxinList();
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
@@ -2568,18 +2568,18 @@ public final class Foamcoin {
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
      */
-    java.util.List<? extends TX.TXINOrBuilder>
+    java.util.List<? extends protos.Foamcoin.TX.TXINOrBuilder> 
         getTxinOrBuilderList();
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
      */
     protos.Foamcoin.TX.TXINOrBuilder getTxinOrBuilder(
-            int index);
+        int index);
 
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
      */
-    java.util.List<TX.TXOUT>
+    java.util.List<protos.Foamcoin.TX.TXOUT> 
         getTxoutList();
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
@@ -2592,13 +2592,13 @@ public final class Foamcoin {
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
      */
-    java.util.List<? extends TX.TXOUTOrBuilder>
+    java.util.List<? extends protos.Foamcoin.TX.TXOUTOrBuilder> 
         getTxoutOrBuilderList();
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
      */
     protos.Foamcoin.TX.TXOUTOrBuilder getTxoutOrBuilder(
-            int index);
+        int index);
 
     /**
      * <pre>
@@ -2607,7 +2607,7 @@ public final class Foamcoin {
      *
      * <code>optional string founder = 5;</code>
      */
-    String getFounder();
+    java.lang.String getFounder();
     /**
      * <pre>
      * who created this tx
@@ -2641,7 +2641,7 @@ public final class Foamcoin {
       founder_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -2678,7 +2678,7 @@ public final class Foamcoin {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                txin_ = new java.util.ArrayList<TXIN>();
+                txin_ = new java.util.ArrayList<protos.Foamcoin.TX.TXIN>();
                 mutable_bitField0_ |= 0x00000004;
               }
               txin_.add(
@@ -2687,7 +2687,7 @@ public final class Foamcoin {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                txout_ = new java.util.ArrayList<TXOUT>();
+                txout_ = new java.util.ArrayList<protos.Foamcoin.TX.TXOUT>();
                 mutable_bitField0_ |= 0x00000008;
               }
               txout_.add(
@@ -2695,7 +2695,7 @@ public final class Foamcoin {
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               founder_ = s;
               break;
@@ -2741,7 +2741,7 @@ public final class Foamcoin {
       /**
        * <code>optional string sourceHash = 2;</code>
        */
-      String getSourceHash();
+      java.lang.String getSourceHash();
       /**
        * <code>optional string sourceHash = 2;</code>
        */
@@ -2755,7 +2755,7 @@ public final class Foamcoin {
        *
        * <code>optional string addr = 3;</code>
        */
-      String getAddr();
+      java.lang.String getAddr();
       /**
        * <pre>
        * indicate owner's addr
@@ -2769,7 +2769,7 @@ public final class Foamcoin {
       /**
        * <code>optional string script = 4;</code>
        */
-      String getScript();
+      java.lang.String getScript();
       /**
        * <code>optional string script = 4;</code>
        */
@@ -2779,7 +2779,7 @@ public final class Foamcoin {
       /**
        * <code>optional string undefined = 5;</code>
        */
-      String getUndefined();
+      java.lang.String getUndefined();
       /**
        * <code>optional string undefined = 5;</code>
        */
@@ -2809,7 +2809,7 @@ public final class Foamcoin {
         undefined_ = "";
       }
 
-      @Override
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -2840,25 +2840,25 @@ public final class Foamcoin {
                 break;
               }
               case 18: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 sourceHash_ = s;
                 break;
               }
               case 26: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 addr_ = s;
                 break;
               }
               case 34: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 script_ = s;
                 break;
               }
               case 42: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 undefined_ = s;
                 break;
@@ -2896,18 +2896,18 @@ public final class Foamcoin {
       }
 
       public static final int SOURCEHASH_FIELD_NUMBER = 2;
-      private volatile Object sourceHash_;
+      private volatile java.lang.Object sourceHash_;
       /**
        * <code>optional string sourceHash = 2;</code>
        */
-      public String getSourceHash() {
-        Object ref = sourceHash_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getSourceHash() {
+        java.lang.Object ref = sourceHash_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           sourceHash_ = s;
           return s;
         }
@@ -2917,11 +2917,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getSourceHashBytes() {
-        Object ref = sourceHash_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = sourceHash_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           sourceHash_ = b;
           return b;
         } else {
@@ -2930,7 +2930,7 @@ public final class Foamcoin {
       }
 
       public static final int ADDR_FIELD_NUMBER = 3;
-      private volatile Object addr_;
+      private volatile java.lang.Object addr_;
       /**
        * <pre>
        * indicate owner's addr
@@ -2938,14 +2938,14 @@ public final class Foamcoin {
        *
        * <code>optional string addr = 3;</code>
        */
-      public String getAddr() {
-        Object ref = addr_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getAddr() {
+        java.lang.Object ref = addr_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           addr_ = s;
           return s;
         }
@@ -2959,11 +2959,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getAddrBytes() {
-        Object ref = addr_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = addr_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           addr_ = b;
           return b;
         } else {
@@ -2972,18 +2972,18 @@ public final class Foamcoin {
       }
 
       public static final int SCRIPT_FIELD_NUMBER = 4;
-      private volatile Object script_;
+      private volatile java.lang.Object script_;
       /**
        * <code>optional string script = 4;</code>
        */
-      public String getScript() {
-        Object ref = script_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getScript() {
+        java.lang.Object ref = script_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           script_ = s;
           return s;
         }
@@ -2993,11 +2993,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getScriptBytes() {
-        Object ref = script_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = script_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           script_ = b;
           return b;
         } else {
@@ -3006,18 +3006,18 @@ public final class Foamcoin {
       }
 
       public static final int UNDEFINED_FIELD_NUMBER = 5;
-      private volatile Object undefined_;
+      private volatile java.lang.Object undefined_;
       /**
        * <code>optional string undefined = 5;</code>
        */
-      public String getUndefined() {
-        Object ref = undefined_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getUndefined() {
+        java.lang.Object ref = undefined_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           undefined_ = s;
           return s;
         }
@@ -3027,11 +3027,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getUndefinedBytes() {
-        Object ref = undefined_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = undefined_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           undefined_ = b;
           return b;
         } else {
@@ -3094,8 +3094,8 @@ public final class Foamcoin {
       }
 
       private static final long serialVersionUID = 0L;
-      @Override
-      public boolean equals(final Object obj) {
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
          return true;
         }
@@ -3118,7 +3118,7 @@ public final class Foamcoin {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -3211,7 +3211,7 @@ public final class Foamcoin {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @Override
+      @java.lang.Override
       protected Builder newBuilderForType(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
@@ -3391,7 +3391,7 @@ public final class Foamcoin {
          * <code>optional uint32 ix = 1;</code>
          */
         public Builder setIx(int value) {
-
+          
           ix_ = value;
           onChanged();
           return this;
@@ -3400,26 +3400,26 @@ public final class Foamcoin {
          * <code>optional uint32 ix = 1;</code>
          */
         public Builder clearIx() {
-
+          
           ix_ = 0;
           onChanged();
           return this;
         }
 
-        private Object sourceHash_ = "";
+        private java.lang.Object sourceHash_ = "";
         /**
          * <code>optional string sourceHash = 2;</code>
          */
-        public String getSourceHash() {
-          Object ref = sourceHash_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getSourceHash() {
+          java.lang.Object ref = sourceHash_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             sourceHash_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -3427,11 +3427,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getSourceHashBytes() {
-          Object ref = sourceHash_;
+          java.lang.Object ref = sourceHash_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             sourceHash_ = b;
             return b;
           } else {
@@ -3442,11 +3442,11 @@ public final class Foamcoin {
          * <code>optional string sourceHash = 2;</code>
          */
         public Builder setSourceHash(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           sourceHash_ = value;
           onChanged();
           return this;
@@ -3455,7 +3455,7 @@ public final class Foamcoin {
          * <code>optional string sourceHash = 2;</code>
          */
         public Builder clearSourceHash() {
-
+          
           sourceHash_ = getDefaultInstance().getSourceHash();
           onChanged();
           return this;
@@ -3469,13 +3469,13 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           sourceHash_ = value;
           onChanged();
           return this;
         }
 
-        private Object addr_ = "";
+        private java.lang.Object addr_ = "";
         /**
          * <pre>
          * indicate owner's addr
@@ -3483,16 +3483,16 @@ public final class Foamcoin {
          *
          * <code>optional string addr = 3;</code>
          */
-        public String getAddr() {
-          Object ref = addr_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getAddr() {
+          java.lang.Object ref = addr_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             addr_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -3504,11 +3504,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getAddrBytes() {
-          Object ref = addr_;
+          java.lang.Object ref = addr_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             addr_ = b;
             return b;
           } else {
@@ -3523,11 +3523,11 @@ public final class Foamcoin {
          * <code>optional string addr = 3;</code>
          */
         public Builder setAddr(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           addr_ = value;
           onChanged();
           return this;
@@ -3540,7 +3540,7 @@ public final class Foamcoin {
          * <code>optional string addr = 3;</code>
          */
         public Builder clearAddr() {
-
+          
           addr_ = getDefaultInstance().getAddr();
           onChanged();
           return this;
@@ -3558,26 +3558,26 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           addr_ = value;
           onChanged();
           return this;
         }
 
-        private Object script_ = "";
+        private java.lang.Object script_ = "";
         /**
          * <code>optional string script = 4;</code>
          */
-        public String getScript() {
-          Object ref = script_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getScript() {
+          java.lang.Object ref = script_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             script_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -3585,11 +3585,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getScriptBytes() {
-          Object ref = script_;
+          java.lang.Object ref = script_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             script_ = b;
             return b;
           } else {
@@ -3600,11 +3600,11 @@ public final class Foamcoin {
          * <code>optional string script = 4;</code>
          */
         public Builder setScript(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           script_ = value;
           onChanged();
           return this;
@@ -3613,7 +3613,7 @@ public final class Foamcoin {
          * <code>optional string script = 4;</code>
          */
         public Builder clearScript() {
-
+          
           script_ = getDefaultInstance().getScript();
           onChanged();
           return this;
@@ -3627,26 +3627,26 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           script_ = value;
           onChanged();
           return this;
         }
 
-        private Object undefined_ = "";
+        private java.lang.Object undefined_ = "";
         /**
          * <code>optional string undefined = 5;</code>
          */
-        public String getUndefined() {
-          Object ref = undefined_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getUndefined() {
+          java.lang.Object ref = undefined_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             undefined_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -3654,11 +3654,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getUndefinedBytes() {
-          Object ref = undefined_;
+          java.lang.Object ref = undefined_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             undefined_ = b;
             return b;
           } else {
@@ -3669,11 +3669,11 @@ public final class Foamcoin {
          * <code>optional string undefined = 5;</code>
          */
         public Builder setUndefined(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           undefined_ = value;
           onChanged();
           return this;
@@ -3682,7 +3682,7 @@ public final class Foamcoin {
          * <code>optional string undefined = 5;</code>
          */
         public Builder clearUndefined() {
-
+          
           undefined_ = getDefaultInstance().getUndefined();
           onChanged();
           return this;
@@ -3696,7 +3696,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           undefined_ = value;
           onChanged();
           return this;
@@ -3739,7 +3739,7 @@ public final class Foamcoin {
         return PARSER;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Parser<TXIN> getParserForType() {
         return PARSER;
       }
@@ -3766,7 +3766,7 @@ public final class Foamcoin {
        *
        * <code>optional string addr = 2;</code>
        */
-      String getAddr();
+      java.lang.String getAddr();
       /**
        * <pre>
        * who will receive this txout
@@ -3789,7 +3789,7 @@ public final class Foamcoin {
       /**
        * <code>optional string scriptPubKey = 4;</code>
        */
-      String getScriptPubKey();
+      java.lang.String getScriptPubKey();
       /**
        * <code>optional string scriptPubKey = 4;</code>
        */
@@ -3799,7 +3799,7 @@ public final class Foamcoin {
       /**
        * <code>optional string undefined = 5;</code>
        */
-      String getUndefined();
+      java.lang.String getUndefined();
       /**
        * <code>optional string undefined = 5;</code>
        */
@@ -3825,7 +3825,7 @@ public final class Foamcoin {
         undefined_ = "";
       }
 
-      @Override
+      @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -3856,7 +3856,7 @@ public final class Foamcoin {
                 break;
               }
               case 18: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 addr_ = s;
                 break;
@@ -3867,13 +3867,13 @@ public final class Foamcoin {
                 break;
               }
               case 34: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 scriptPubKey_ = s;
                 break;
               }
               case 42: {
-                String s = input.readStringRequireUtf8();
+                java.lang.String s = input.readStringRequireUtf8();
 
                 undefined_ = s;
                 break;
@@ -3911,7 +3911,7 @@ public final class Foamcoin {
       }
 
       public static final int ADDR_FIELD_NUMBER = 2;
-      private volatile Object addr_;
+      private volatile java.lang.Object addr_;
       /**
        * <pre>
        * who will receive this txout
@@ -3919,14 +3919,14 @@ public final class Foamcoin {
        *
        * <code>optional string addr = 2;</code>
        */
-      public String getAddr() {
-        Object ref = addr_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getAddr() {
+        java.lang.Object ref = addr_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           addr_ = s;
           return s;
         }
@@ -3940,11 +3940,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getAddrBytes() {
-        Object ref = addr_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = addr_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           addr_ = b;
           return b;
         } else {
@@ -3966,18 +3966,18 @@ public final class Foamcoin {
       }
 
       public static final int SCRIPTPUBKEY_FIELD_NUMBER = 4;
-      private volatile Object scriptPubKey_;
+      private volatile java.lang.Object scriptPubKey_;
       /**
        * <code>optional string scriptPubKey = 4;</code>
        */
-      public String getScriptPubKey() {
-        Object ref = scriptPubKey_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getScriptPubKey() {
+        java.lang.Object ref = scriptPubKey_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           scriptPubKey_ = s;
           return s;
         }
@@ -3987,11 +3987,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getScriptPubKeyBytes() {
-        Object ref = scriptPubKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = scriptPubKey_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           scriptPubKey_ = b;
           return b;
         } else {
@@ -4000,18 +4000,18 @@ public final class Foamcoin {
       }
 
       public static final int UNDEFINED_FIELD_NUMBER = 5;
-      private volatile Object undefined_;
+      private volatile java.lang.Object undefined_;
       /**
        * <code>optional string undefined = 5;</code>
        */
-      public String getUndefined() {
-        Object ref = undefined_;
-        if (ref instanceof String) {
-          return (String) ref;
+      public java.lang.String getUndefined() {
+        java.lang.Object ref = undefined_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
         } else {
-          com.google.protobuf.ByteString bs =
+          com.google.protobuf.ByteString bs = 
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           undefined_ = s;
           return s;
         }
@@ -4021,11 +4021,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getUndefinedBytes() {
-        Object ref = undefined_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+        java.lang.Object ref = undefined_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           undefined_ = b;
           return b;
         } else {
@@ -4089,8 +4089,8 @@ public final class Foamcoin {
       }
 
       private static final long serialVersionUID = 0L;
-      @Override
-      public boolean equals(final Object obj) {
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
          return true;
         }
@@ -4113,7 +4113,7 @@ public final class Foamcoin {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
@@ -4208,7 +4208,7 @@ public final class Foamcoin {
             ? new Builder() : new Builder().mergeFrom(this);
       }
 
-      @Override
+      @java.lang.Override
       protected Builder newBuilderForType(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
@@ -4383,7 +4383,7 @@ public final class Foamcoin {
          * <code>optional int64 value = 1;</code>
          */
         public Builder setValue(long value) {
-
+          
           value_ = value;
           onChanged();
           return this;
@@ -4392,13 +4392,13 @@ public final class Foamcoin {
          * <code>optional int64 value = 1;</code>
          */
         public Builder clearValue() {
-
+          
           value_ = 0L;
           onChanged();
           return this;
         }
 
-        private Object addr_ = "";
+        private java.lang.Object addr_ = "";
         /**
          * <pre>
          * who will receive this txout
@@ -4406,16 +4406,16 @@ public final class Foamcoin {
          *
          * <code>optional string addr = 2;</code>
          */
-        public String getAddr() {
-          Object ref = addr_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getAddr() {
+          java.lang.Object ref = addr_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             addr_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -4427,11 +4427,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getAddrBytes() {
-          Object ref = addr_;
+          java.lang.Object ref = addr_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             addr_ = b;
             return b;
           } else {
@@ -4446,11 +4446,11 @@ public final class Foamcoin {
          * <code>optional string addr = 2;</code>
          */
         public Builder setAddr(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           addr_ = value;
           onChanged();
           return this;
@@ -4463,7 +4463,7 @@ public final class Foamcoin {
          * <code>optional string addr = 2;</code>
          */
         public Builder clearAddr() {
-
+          
           addr_ = getDefaultInstance().getAddr();
           onChanged();
           return this;
@@ -4481,7 +4481,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           addr_ = value;
           onChanged();
           return this;
@@ -4506,7 +4506,7 @@ public final class Foamcoin {
          * <code>optional int64 until = 3;</code>
          */
         public Builder setUntil(long value) {
-
+          
           until_ = value;
           onChanged();
           return this;
@@ -4519,26 +4519,26 @@ public final class Foamcoin {
          * <code>optional int64 until = 3;</code>
          */
         public Builder clearUntil() {
-
+          
           until_ = 0L;
           onChanged();
           return this;
         }
 
-        private Object scriptPubKey_ = "";
+        private java.lang.Object scriptPubKey_ = "";
         /**
          * <code>optional string scriptPubKey = 4;</code>
          */
-        public String getScriptPubKey() {
-          Object ref = scriptPubKey_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getScriptPubKey() {
+          java.lang.Object ref = scriptPubKey_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             scriptPubKey_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -4546,11 +4546,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getScriptPubKeyBytes() {
-          Object ref = scriptPubKey_;
+          java.lang.Object ref = scriptPubKey_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             scriptPubKey_ = b;
             return b;
           } else {
@@ -4561,11 +4561,11 @@ public final class Foamcoin {
          * <code>optional string scriptPubKey = 4;</code>
          */
         public Builder setScriptPubKey(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           scriptPubKey_ = value;
           onChanged();
           return this;
@@ -4574,7 +4574,7 @@ public final class Foamcoin {
          * <code>optional string scriptPubKey = 4;</code>
          */
         public Builder clearScriptPubKey() {
-
+          
           scriptPubKey_ = getDefaultInstance().getScriptPubKey();
           onChanged();
           return this;
@@ -4588,26 +4588,26 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           scriptPubKey_ = value;
           onChanged();
           return this;
         }
 
-        private Object undefined_ = "";
+        private java.lang.Object undefined_ = "";
         /**
          * <code>optional string undefined = 5;</code>
          */
-        public String getUndefined() {
-          Object ref = undefined_;
-          if (!(ref instanceof String)) {
+        public java.lang.String getUndefined() {
+          java.lang.Object ref = undefined_;
+          if (!(ref instanceof java.lang.String)) {
             com.google.protobuf.ByteString bs =
                 (com.google.protobuf.ByteString) ref;
-            String s = bs.toStringUtf8();
+            java.lang.String s = bs.toStringUtf8();
             undefined_ = s;
             return s;
           } else {
-            return (String) ref;
+            return (java.lang.String) ref;
           }
         }
         /**
@@ -4615,11 +4615,11 @@ public final class Foamcoin {
          */
         public com.google.protobuf.ByteString
             getUndefinedBytes() {
-          Object ref = undefined_;
+          java.lang.Object ref = undefined_;
           if (ref instanceof String) {
-            com.google.protobuf.ByteString b =
+            com.google.protobuf.ByteString b = 
                 com.google.protobuf.ByteString.copyFromUtf8(
-                    (String) ref);
+                    (java.lang.String) ref);
             undefined_ = b;
             return b;
           } else {
@@ -4630,11 +4630,11 @@ public final class Foamcoin {
          * <code>optional string undefined = 5;</code>
          */
         public Builder setUndefined(
-            String value) {
+            java.lang.String value) {
           if (value == null) {
     throw new NullPointerException();
   }
-
+  
           undefined_ = value;
           onChanged();
           return this;
@@ -4643,7 +4643,7 @@ public final class Foamcoin {
          * <code>optional string undefined = 5;</code>
          */
         public Builder clearUndefined() {
-
+          
           undefined_ = getDefaultInstance().getUndefined();
           onChanged();
           return this;
@@ -4657,7 +4657,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+          
           undefined_ = value;
           onChanged();
           return this;
@@ -4700,7 +4700,7 @@ public final class Foamcoin {
         return PARSER;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Parser<TXOUT> getParserForType() {
         return PARSER;
       }
@@ -4735,17 +4735,17 @@ public final class Foamcoin {
     }
 
     public static final int TXIN_FIELD_NUMBER = 3;
-    private java.util.List<TXIN> txin_;
+    private java.util.List<protos.Foamcoin.TX.TXIN> txin_;
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
      */
-    public java.util.List<TXIN> getTxinList() {
+    public java.util.List<protos.Foamcoin.TX.TXIN> getTxinList() {
       return txin_;
     }
     /**
      * <code>repeated .protos.TX.TXIN txin = 3;</code>
      */
-    public java.util.List<? extends TXINOrBuilder>
+    public java.util.List<? extends protos.Foamcoin.TX.TXINOrBuilder> 
         getTxinOrBuilderList() {
       return txin_;
     }
@@ -4770,17 +4770,17 @@ public final class Foamcoin {
     }
 
     public static final int TXOUT_FIELD_NUMBER = 4;
-    private java.util.List<TXOUT> txout_;
+    private java.util.List<protos.Foamcoin.TX.TXOUT> txout_;
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
      */
-    public java.util.List<TXOUT> getTxoutList() {
+    public java.util.List<protos.Foamcoin.TX.TXOUT> getTxoutList() {
       return txout_;
     }
     /**
      * <code>repeated .protos.TX.TXOUT txout = 4;</code>
      */
-    public java.util.List<? extends TXOUTOrBuilder>
+    public java.util.List<? extends protos.Foamcoin.TX.TXOUTOrBuilder> 
         getTxoutOrBuilderList() {
       return txout_;
     }
@@ -4805,7 +4805,7 @@ public final class Foamcoin {
     }
 
     public static final int FOUNDER_FIELD_NUMBER = 5;
-    private volatile Object founder_;
+    private volatile java.lang.Object founder_;
     /**
      * <pre>
      * who created this tx
@@ -4813,14 +4813,14 @@ public final class Foamcoin {
      *
      * <code>optional string founder = 5;</code>
      */
-    public String getFounder() {
-      Object ref = founder_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getFounder() {
+      java.lang.Object ref = founder_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         founder_ = s;
         return s;
       }
@@ -4834,11 +4834,11 @@ public final class Foamcoin {
      */
     public com.google.protobuf.ByteString
         getFounderBytes() {
-      Object ref = founder_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = founder_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         founder_ = b;
         return b;
       } else {
@@ -4904,8 +4904,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -4928,7 +4928,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5027,7 +5027,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -5204,7 +5204,7 @@ public final class Foamcoin {
               txinBuilder_ = null;
               txin_ = other.txin_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              txinBuilder_ =
+              txinBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTxinFieldBuilder() : null;
             } else {
@@ -5230,7 +5230,7 @@ public final class Foamcoin {
               txoutBuilder_ = null;
               txout_ = other.txout_;
               bitField0_ = (bitField0_ & ~0x00000008);
-              txoutBuilder_ =
+              txoutBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTxoutFieldBuilder() : null;
             } else {
@@ -5280,7 +5280,7 @@ public final class Foamcoin {
        * <code>optional uint64 version = 1;</code>
        */
       public Builder setVersion(long value) {
-
+        
         version_ = value;
         onChanged();
         return this;
@@ -5289,7 +5289,7 @@ public final class Foamcoin {
        * <code>optional uint64 version = 1;</code>
        */
       public Builder clearVersion() {
-
+        
         version_ = 0L;
         onChanged();
         return this;
@@ -5314,7 +5314,7 @@ public final class Foamcoin {
        * <code>optional int64 timestamp = 2;</code>
        */
       public Builder setTimestamp(long value) {
-
+        
         timestamp_ = value;
         onChanged();
         return this;
@@ -5327,17 +5327,17 @@ public final class Foamcoin {
        * <code>optional int64 timestamp = 2;</code>
        */
       public Builder clearTimestamp() {
-
+        
         timestamp_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.util.List<TXIN> txin_ =
+      private java.util.List<protos.Foamcoin.TX.TXIN> txin_ =
         java.util.Collections.emptyList();
       private void ensureTxinIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          txin_ = new java.util.ArrayList<TXIN>(txin_);
+          txin_ = new java.util.ArrayList<protos.Foamcoin.TX.TXIN>(txin_);
           bitField0_ |= 0x00000004;
          }
       }
@@ -5348,7 +5348,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXIN txin = 3;</code>
        */
-      public java.util.List<TXIN> getTxinList() {
+      public java.util.List<protos.Foamcoin.TX.TXIN> getTxinList() {
         if (txinBuilder_ == null) {
           return java.util.Collections.unmodifiableList(txin_);
         } else {
@@ -5471,7 +5471,7 @@ public final class Foamcoin {
        * <code>repeated .protos.TX.TXIN txin = 3;</code>
        */
       public Builder addAllTxin(
-          Iterable<? extends TXIN> values) {
+          java.lang.Iterable<? extends protos.Foamcoin.TX.TXIN> values) {
         if (txinBuilder_ == null) {
           ensureTxinIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5528,7 +5528,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXIN txin = 3;</code>
        */
-      public java.util.List<? extends TXINOrBuilder>
+      public java.util.List<? extends protos.Foamcoin.TX.TXINOrBuilder> 
            getTxinOrBuilderList() {
         if (txinBuilder_ != null) {
           return txinBuilder_.getMessageOrBuilderList();
@@ -5554,12 +5554,12 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXIN txin = 3;</code>
        */
-      public java.util.List<TXIN.Builder>
+      public java.util.List<protos.Foamcoin.TX.TXIN.Builder> 
            getTxinBuilderList() {
         return getTxinFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          protos.Foamcoin.TX.TXIN, protos.Foamcoin.TX.TXIN.Builder, protos.Foamcoin.TX.TXINOrBuilder>
+          protos.Foamcoin.TX.TXIN, protos.Foamcoin.TX.TXIN.Builder, protos.Foamcoin.TX.TXINOrBuilder> 
           getTxinFieldBuilder() {
         if (txinBuilder_ == null) {
           txinBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -5573,11 +5573,11 @@ public final class Foamcoin {
         return txinBuilder_;
       }
 
-      private java.util.List<TXOUT> txout_ =
+      private java.util.List<protos.Foamcoin.TX.TXOUT> txout_ =
         java.util.Collections.emptyList();
       private void ensureTxoutIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          txout_ = new java.util.ArrayList<TXOUT>(txout_);
+          txout_ = new java.util.ArrayList<protos.Foamcoin.TX.TXOUT>(txout_);
           bitField0_ |= 0x00000008;
          }
       }
@@ -5588,7 +5588,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXOUT txout = 4;</code>
        */
-      public java.util.List<TXOUT> getTxoutList() {
+      public java.util.List<protos.Foamcoin.TX.TXOUT> getTxoutList() {
         if (txoutBuilder_ == null) {
           return java.util.Collections.unmodifiableList(txout_);
         } else {
@@ -5711,7 +5711,7 @@ public final class Foamcoin {
        * <code>repeated .protos.TX.TXOUT txout = 4;</code>
        */
       public Builder addAllTxout(
-          Iterable<? extends TXOUT> values) {
+          java.lang.Iterable<? extends protos.Foamcoin.TX.TXOUT> values) {
         if (txoutBuilder_ == null) {
           ensureTxoutIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5768,7 +5768,7 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXOUT txout = 4;</code>
        */
-      public java.util.List<? extends TXOUTOrBuilder>
+      public java.util.List<? extends protos.Foamcoin.TX.TXOUTOrBuilder> 
            getTxoutOrBuilderList() {
         if (txoutBuilder_ != null) {
           return txoutBuilder_.getMessageOrBuilderList();
@@ -5794,12 +5794,12 @@ public final class Foamcoin {
       /**
        * <code>repeated .protos.TX.TXOUT txout = 4;</code>
        */
-      public java.util.List<TXOUT.Builder>
+      public java.util.List<protos.Foamcoin.TX.TXOUT.Builder> 
            getTxoutBuilderList() {
         return getTxoutFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          protos.Foamcoin.TX.TXOUT, protos.Foamcoin.TX.TXOUT.Builder, protos.Foamcoin.TX.TXOUTOrBuilder>
+          protos.Foamcoin.TX.TXOUT, protos.Foamcoin.TX.TXOUT.Builder, protos.Foamcoin.TX.TXOUTOrBuilder> 
           getTxoutFieldBuilder() {
         if (txoutBuilder_ == null) {
           txoutBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -5813,7 +5813,7 @@ public final class Foamcoin {
         return txoutBuilder_;
       }
 
-      private Object founder_ = "";
+      private java.lang.Object founder_ = "";
       /**
        * <pre>
        * who created this tx
@@ -5821,16 +5821,16 @@ public final class Foamcoin {
        *
        * <code>optional string founder = 5;</code>
        */
-      public String getFounder() {
-        Object ref = founder_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFounder() {
+        java.lang.Object ref = founder_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           founder_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -5842,11 +5842,11 @@ public final class Foamcoin {
        */
       public com.google.protobuf.ByteString
           getFounderBytes() {
-        Object ref = founder_;
+        java.lang.Object ref = founder_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           founder_ = b;
           return b;
         } else {
@@ -5861,11 +5861,11 @@ public final class Foamcoin {
        * <code>optional string founder = 5;</code>
        */
       public Builder setFounder(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         founder_ = value;
         onChanged();
         return this;
@@ -5878,7 +5878,7 @@ public final class Foamcoin {
        * <code>optional string founder = 5;</code>
        */
       public Builder clearFounder() {
-
+        
         founder_ = getDefaultInstance().getFounder();
         onChanged();
         return this;
@@ -5896,7 +5896,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         founder_ = value;
         onChanged();
         return this;
@@ -5939,7 +5939,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<TX> getParserForType() {
       return PARSER;
     }
@@ -5984,7 +5984,7 @@ public final class Foamcoin {
       sumPriorOutputs_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -6098,8 +6098,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6116,7 +6116,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6205,7 +6205,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -6363,7 +6363,7 @@ public final class Foamcoin {
        * <code>optional int64 sumCurrentOutputs = 1;</code>
        */
       public Builder setSumCurrentOutputs(long value) {
-
+        
         sumCurrentOutputs_ = value;
         onChanged();
         return this;
@@ -6372,7 +6372,7 @@ public final class Foamcoin {
        * <code>optional int64 sumCurrentOutputs = 1;</code>
        */
       public Builder clearSumCurrentOutputs() {
-
+        
         sumCurrentOutputs_ = 0L;
         onChanged();
         return this;
@@ -6389,7 +6389,7 @@ public final class Foamcoin {
        * <code>optional int64 sumPriorOutputs = 2;</code>
        */
       public Builder setSumPriorOutputs(long value) {
-
+        
         sumPriorOutputs_ = value;
         onChanged();
         return this;
@@ -6398,7 +6398,7 @@ public final class Foamcoin {
        * <code>optional int64 sumPriorOutputs = 2;</code>
        */
       public Builder clearSumPriorOutputs() {
-
+        
         sumPriorOutputs_ = 0L;
         onChanged();
         return this;
@@ -6441,7 +6441,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ExecResult> getParserForType() {
       return PARSER;
     }
@@ -6464,31 +6464,31 @@ public final class Foamcoin {
      * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
      */
     boolean containsAccounts(
-            String key);
+        java.lang.String key);
     /**
      * Use {@link #getAccountsMap()} instead.
      */
-    @Deprecated
-    java.util.Map<String, Account>
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, protos.Foamcoin.Account>
     getAccounts();
     /**
      * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
      */
-    java.util.Map<String, Account>
+    java.util.Map<java.lang.String, protos.Foamcoin.Account>
     getAccountsMap();
     /**
      * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
      */
 
     protos.Foamcoin.Account getAccountsOrDefault(
-            String key,
-            protos.Foamcoin.Account defaultValue);
+        java.lang.String key,
+        protos.Foamcoin.Account defaultValue);
     /**
      * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
      */
 
     protos.Foamcoin.Account getAccountsOrThrow(
-            String key);
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -6508,7 +6508,7 @@ public final class Foamcoin {
     private QueryAddrResults() {
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -6539,7 +6539,7 @@ public final class Foamcoin {
                     AccountsDefaultEntryHolder.defaultEntry);
                 mutable_bitField0_ |= 0x00000001;
               }
-              com.google.protobuf.MapEntry<String, protos.Foamcoin.Account>
+              com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.Account>
               accounts = input.readMessage(
                   AccountsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               accounts_.getMutableMap().put(accounts.getKey(), accounts.getValue());
@@ -6582,18 +6582,18 @@ public final class Foamcoin {
     public static final int ACCOUNTS_FIELD_NUMBER = 1;
     private static final class AccountsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
-          String, protos.Foamcoin.Account> defaultEntry =
+          java.lang.String, protos.Foamcoin.Account> defaultEntry =
               com.google.protobuf.MapEntry
-              .<String, protos.Foamcoin.Account>newDefaultInstance(
-                  protos.Foamcoin.internal_static_protos_QueryAddrResults_AccountsEntry_descriptor,
+              .<java.lang.String, protos.Foamcoin.Account>newDefaultInstance(
+                  protos.Foamcoin.internal_static_protos_QueryAddrResults_AccountsEntry_descriptor, 
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "",
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protos.Foamcoin.Account.getDefaultInstance());
     }
     private com.google.protobuf.MapField<
-        String, protos.Foamcoin.Account> accounts_;
-    private com.google.protobuf.MapField<String, protos.Foamcoin.Account>
+        java.lang.String, protos.Foamcoin.Account> accounts_;
+    private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.Account>
     internalGetAccounts() {
       if (accounts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
@@ -6610,22 +6610,22 @@ public final class Foamcoin {
      */
 
     public boolean containsAccounts(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetAccounts().getMap().containsKey(key);
     }
     /**
      * Use {@link #getAccountsMap()} instead.
      */
-    @Deprecated
-    public java.util.Map<String, Account> getAccounts() {
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, protos.Foamcoin.Account> getAccounts() {
       return getAccountsMap();
     }
     /**
      * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
      */
 
-    public java.util.Map<String, Account> getAccountsMap() {
+    public java.util.Map<java.lang.String, protos.Foamcoin.Account> getAccountsMap() {
       return internalGetAccounts().getMap();
     }
     /**
@@ -6633,10 +6633,10 @@ public final class Foamcoin {
      */
 
     public protos.Foamcoin.Account getAccountsOrDefault(
-        String key,
+        java.lang.String key,
         protos.Foamcoin.Account defaultValue) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, Account> map =
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, protos.Foamcoin.Account> map =
           internalGetAccounts().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
     }
@@ -6645,12 +6645,12 @@ public final class Foamcoin {
      */
 
     public protos.Foamcoin.Account getAccountsOrThrow(
-        String key) {
-      if (key == null) { throw new NullPointerException(); }
-      java.util.Map<String, Account> map =
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, protos.Foamcoin.Account> map =
           internalGetAccounts().getMap();
       if (!map.containsKey(key)) {
-        throw new IllegalArgumentException();
+        throw new java.lang.IllegalArgumentException();
       }
       return map.get(key);
     }
@@ -6667,9 +6667,9 @@ public final class Foamcoin {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (java.util.Map.Entry<String, Account> entry
+      for (java.util.Map.Entry<java.lang.String, protos.Foamcoin.Account> entry
            : internalGetAccounts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, protos.Foamcoin.Account>
+        com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.Account>
         accounts = AccountsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -6683,9 +6683,9 @@ public final class Foamcoin {
       if (size != -1) return size;
 
       size = 0;
-      for (java.util.Map.Entry<String, Account> entry
+      for (java.util.Map.Entry<java.lang.String, protos.Foamcoin.Account> entry
            : internalGetAccounts().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<String, protos.Foamcoin.Account>
+        com.google.protobuf.MapEntry<java.lang.String, protos.Foamcoin.Account>
         accounts = AccountsDefaultEntryHolder.defaultEntry.newBuilderForType()
             .setKey(entry.getKey())
             .setValue(entry.getValue())
@@ -6698,8 +6698,8 @@ public final class Foamcoin {
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -6714,7 +6714,7 @@ public final class Foamcoin {
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6801,7 +6801,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -6966,8 +6966,8 @@ public final class Foamcoin {
       private int bitField0_;
 
       private com.google.protobuf.MapField<
-          String, protos.Foamcoin.Account> accounts_;
-      private com.google.protobuf.MapField<String, protos.Foamcoin.Account>
+          java.lang.String, protos.Foamcoin.Account> accounts_;
+      private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.Account>
       internalGetAccounts() {
         if (accounts_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
@@ -6975,7 +6975,7 @@ public final class Foamcoin {
         }
         return accounts_;
       }
-      private com.google.protobuf.MapField<String, protos.Foamcoin.Account>
+      private com.google.protobuf.MapField<java.lang.String, protos.Foamcoin.Account>
       internalGetMutableAccounts() {
         onChanged();;
         if (accounts_ == null) {
@@ -6996,22 +6996,22 @@ public final class Foamcoin {
        */
 
       public boolean containsAccounts(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetAccounts().getMap().containsKey(key);
       }
       /**
        * Use {@link #getAccountsMap()} instead.
        */
-      @Deprecated
-      public java.util.Map<String, Account> getAccounts() {
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, protos.Foamcoin.Account> getAccounts() {
         return getAccountsMap();
       }
       /**
        * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
        */
 
-      public java.util.Map<String, Account> getAccountsMap() {
+      public java.util.Map<java.lang.String, protos.Foamcoin.Account> getAccountsMap() {
         return internalGetAccounts().getMap();
       }
       /**
@@ -7019,10 +7019,10 @@ public final class Foamcoin {
        */
 
       public protos.Foamcoin.Account getAccountsOrDefault(
-          String key,
+          java.lang.String key,
           protos.Foamcoin.Account defaultValue) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, Account> map =
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, protos.Foamcoin.Account> map =
             internalGetAccounts().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
       }
@@ -7031,12 +7031,12 @@ public final class Foamcoin {
        */
 
       public protos.Foamcoin.Account getAccountsOrThrow(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
-        java.util.Map<String, Account> map =
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, protos.Foamcoin.Account> map =
             internalGetAccounts().getMap();
         if (!map.containsKey(key)) {
-          throw new IllegalArgumentException();
+          throw new java.lang.IllegalArgumentException();
         }
         return map.get(key);
       }
@@ -7050,16 +7050,16 @@ public final class Foamcoin {
        */
 
       public Builder removeAccounts(
-          String key) {
-        if (key == null) { throw new NullPointerException(); }
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
         getMutableAccounts().remove(key);
         return this;
       }
       /**
        * Use alternate mutation accessors instead.
        */
-      @Deprecated
-      public java.util.Map<String, Account>
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, protos.Foamcoin.Account>
       getMutableAccounts() {
         return internalGetMutableAccounts().getMutableMap();
       }
@@ -7067,10 +7067,10 @@ public final class Foamcoin {
        * <code>map&lt;string, .protos.Account&gt; accounts = 1;</code>
        */
       public Builder putAccounts(
-          String key,
+          java.lang.String key,
           protos.Foamcoin.Account value) {
-        if (key == null) { throw new NullPointerException(); }
-        if (value == null) { throw new NullPointerException(); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         getMutableAccounts().put(key, value);
         return this;
       }
@@ -7079,7 +7079,7 @@ public final class Foamcoin {
        */
 
       public Builder putAllAccounts(
-          java.util.Map<String, Account> values) {
+          java.util.Map<java.lang.String, protos.Foamcoin.Account> values) {
         getMutableAccounts().putAll(values);
         return this;
       }
@@ -7121,7 +7121,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<QueryAddrResults> getParserForType() {
       return PARSER;
     }
@@ -7157,19 +7157,32 @@ public final class Foamcoin {
     long getTxTotal();
 
     /**
-     * <pre>
-     * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
-     * </pre>
-     *
-     * <code>optional string placeholder = 5;</code>
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
      */
-    String getPlaceholder();
+    boolean hasSession();
+    /**
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+     */
+    protos.Foamcoin.HydruscoinInfo.POVSession getSession();
+    /**
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+     */
+    protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder getSessionOrBuilder();
+
     /**
      * <pre>
      * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
      * </pre>
      *
-     * <code>optional string placeholder = 5;</code>
+     * <code>optional string placeholder = 6;</code>
+     */
+    java.lang.String getPlaceholder();
+    /**
+     * <pre>
+     * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
+     * </pre>
+     *
+     * <code>optional string placeholder = 6;</code>
      */
     com.google.protobuf.ByteString
         getPlaceholderBytes();
@@ -7197,7 +7210,7 @@ public final class Foamcoin {
       placeholder_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -7243,7 +7256,20 @@ public final class Foamcoin {
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              protos.Foamcoin.HydruscoinInfo.POVSession.Builder subBuilder = null;
+              if (session_ != null) {
+                subBuilder = session_.toBuilder();
+              }
+              session_ = input.readMessage(protos.Foamcoin.HydruscoinInfo.POVSession.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(session_);
+                session_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               placeholder_ = s;
               break;
@@ -7269,6 +7295,630 @@ public final class Foamcoin {
       return protos.Foamcoin.internal_static_protos_HydruscoinInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               protos.Foamcoin.HydruscoinInfo.class, protos.Foamcoin.HydruscoinInfo.Builder.class);
+    }
+
+    public interface POVSessionOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:protos.HydruscoinInfo.POVSession)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>optional int64 txCount = 1;</code>
+       */
+      long getTxCount();
+
+      /**
+       * <code>optional int64 threshold = 2;</code>
+       */
+      long getThreshold();
+
+      /**
+       * <code>optional int64 currentTotalIncentive = 3;</code>
+       */
+      long getCurrentTotalIncentive();
+
+      /**
+       * <code>optional float currentAlpha = 4;</code>
+       */
+      float getCurrentAlpha();
+    }
+    /**
+     * Protobuf type {@code protos.HydruscoinInfo.POVSession}
+     */
+    public  static final class POVSession extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:protos.HydruscoinInfo.POVSession)
+        POVSessionOrBuilder {
+      // Use POVSession.newBuilder() to construct.
+      private POVSession(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private POVSession() {
+        txCount_ = 0L;
+        threshold_ = 0L;
+        currentTotalIncentive_ = 0L;
+        currentAlpha_ = 0F;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private POVSession(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+
+                txCount_ = input.readInt64();
+                break;
+              }
+              case 16: {
+
+                threshold_ = input.readInt64();
+                break;
+              }
+              case 24: {
+
+                currentTotalIncentive_ = input.readInt64();
+                break;
+              }
+              case 37: {
+
+                currentAlpha_ = input.readFloat();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protos.Foamcoin.internal_static_protos_HydruscoinInfo_POVSession_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protos.Foamcoin.internal_static_protos_HydruscoinInfo_POVSession_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protos.Foamcoin.HydruscoinInfo.POVSession.class, protos.Foamcoin.HydruscoinInfo.POVSession.Builder.class);
+      }
+
+      public static final int TXCOUNT_FIELD_NUMBER = 1;
+      private long txCount_;
+      /**
+       * <code>optional int64 txCount = 1;</code>
+       */
+      public long getTxCount() {
+        return txCount_;
+      }
+
+      public static final int THRESHOLD_FIELD_NUMBER = 2;
+      private long threshold_;
+      /**
+       * <code>optional int64 threshold = 2;</code>
+       */
+      public long getThreshold() {
+        return threshold_;
+      }
+
+      public static final int CURRENTTOTALINCENTIVE_FIELD_NUMBER = 3;
+      private long currentTotalIncentive_;
+      /**
+       * <code>optional int64 currentTotalIncentive = 3;</code>
+       */
+      public long getCurrentTotalIncentive() {
+        return currentTotalIncentive_;
+      }
+
+      public static final int CURRENTALPHA_FIELD_NUMBER = 4;
+      private float currentAlpha_;
+      /**
+       * <code>optional float currentAlpha = 4;</code>
+       */
+      public float getCurrentAlpha() {
+        return currentAlpha_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (txCount_ != 0L) {
+          output.writeInt64(1, txCount_);
+        }
+        if (threshold_ != 0L) {
+          output.writeInt64(2, threshold_);
+        }
+        if (currentTotalIncentive_ != 0L) {
+          output.writeInt64(3, currentTotalIncentive_);
+        }
+        if (currentAlpha_ != 0F) {
+          output.writeFloat(4, currentAlpha_);
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (txCount_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(1, txCount_);
+        }
+        if (threshold_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(2, threshold_);
+        }
+        if (currentTotalIncentive_ != 0L) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt64Size(3, currentTotalIncentive_);
+        }
+        if (currentAlpha_ != 0F) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeFloatSize(4, currentAlpha_);
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof protos.Foamcoin.HydruscoinInfo.POVSession)) {
+          return super.equals(obj);
+        }
+        protos.Foamcoin.HydruscoinInfo.POVSession other = (protos.Foamcoin.HydruscoinInfo.POVSession) obj;
+
+        boolean result = true;
+        result = result && (getTxCount()
+            == other.getTxCount());
+        result = result && (getThreshold()
+            == other.getThreshold());
+        result = result && (getCurrentTotalIncentive()
+            == other.getCurrentTotalIncentive());
+        result = result && (
+            java.lang.Float.floatToIntBits(getCurrentAlpha())
+            == java.lang.Float.floatToIntBits(
+                other.getCurrentAlpha()));
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptorForType().hashCode();
+        hash = (37 * hash) + TXCOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTxCount());
+        hash = (37 * hash) + THRESHOLD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getThreshold());
+        hash = (37 * hash) + CURRENTTOTALINCENTIVE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCurrentTotalIncentive());
+        hash = (37 * hash) + CURRENTALPHA_FIELD_NUMBER;
+        hash = (53 * hash) + java.lang.Float.floatToIntBits(
+            getCurrentAlpha());
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static protos.Foamcoin.HydruscoinInfo.POVSession parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(protos.Foamcoin.HydruscoinInfo.POVSession prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code protos.HydruscoinInfo.POVSession}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:protos.HydruscoinInfo.POVSession)
+          protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return protos.Foamcoin.internal_static_protos_HydruscoinInfo_POVSession_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return protos.Foamcoin.internal_static_protos_HydruscoinInfo_POVSession_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  protos.Foamcoin.HydruscoinInfo.POVSession.class, protos.Foamcoin.HydruscoinInfo.POVSession.Builder.class);
+        }
+
+        // Construct using protos.Foamcoin.HydruscoinInfo.POVSession.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          txCount_ = 0L;
+
+          threshold_ = 0L;
+
+          currentTotalIncentive_ = 0L;
+
+          currentAlpha_ = 0F;
+
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return protos.Foamcoin.internal_static_protos_HydruscoinInfo_POVSession_descriptor;
+        }
+
+        public protos.Foamcoin.HydruscoinInfo.POVSession getDefaultInstanceForType() {
+          return protos.Foamcoin.HydruscoinInfo.POVSession.getDefaultInstance();
+        }
+
+        public protos.Foamcoin.HydruscoinInfo.POVSession build() {
+          protos.Foamcoin.HydruscoinInfo.POVSession result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public protos.Foamcoin.HydruscoinInfo.POVSession buildPartial() {
+          protos.Foamcoin.HydruscoinInfo.POVSession result = new protos.Foamcoin.HydruscoinInfo.POVSession(this);
+          result.txCount_ = txCount_;
+          result.threshold_ = threshold_;
+          result.currentTotalIncentive_ = currentTotalIncentive_;
+          result.currentAlpha_ = currentAlpha_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof protos.Foamcoin.HydruscoinInfo.POVSession) {
+            return mergeFrom((protos.Foamcoin.HydruscoinInfo.POVSession)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(protos.Foamcoin.HydruscoinInfo.POVSession other) {
+          if (other == protos.Foamcoin.HydruscoinInfo.POVSession.getDefaultInstance()) return this;
+          if (other.getTxCount() != 0L) {
+            setTxCount(other.getTxCount());
+          }
+          if (other.getThreshold() != 0L) {
+            setThreshold(other.getThreshold());
+          }
+          if (other.getCurrentTotalIncentive() != 0L) {
+            setCurrentTotalIncentive(other.getCurrentTotalIncentive());
+          }
+          if (other.getCurrentAlpha() != 0F) {
+            setCurrentAlpha(other.getCurrentAlpha());
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          protos.Foamcoin.HydruscoinInfo.POVSession parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (protos.Foamcoin.HydruscoinInfo.POVSession) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private long txCount_ ;
+        /**
+         * <code>optional int64 txCount = 1;</code>
+         */
+        public long getTxCount() {
+          return txCount_;
+        }
+        /**
+         * <code>optional int64 txCount = 1;</code>
+         */
+        public Builder setTxCount(long value) {
+          
+          txCount_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional int64 txCount = 1;</code>
+         */
+        public Builder clearTxCount() {
+          
+          txCount_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long threshold_ ;
+        /**
+         * <code>optional int64 threshold = 2;</code>
+         */
+        public long getThreshold() {
+          return threshold_;
+        }
+        /**
+         * <code>optional int64 threshold = 2;</code>
+         */
+        public Builder setThreshold(long value) {
+          
+          threshold_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional int64 threshold = 2;</code>
+         */
+        public Builder clearThreshold() {
+          
+          threshold_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private long currentTotalIncentive_ ;
+        /**
+         * <code>optional int64 currentTotalIncentive = 3;</code>
+         */
+        public long getCurrentTotalIncentive() {
+          return currentTotalIncentive_;
+        }
+        /**
+         * <code>optional int64 currentTotalIncentive = 3;</code>
+         */
+        public Builder setCurrentTotalIncentive(long value) {
+          
+          currentTotalIncentive_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional int64 currentTotalIncentive = 3;</code>
+         */
+        public Builder clearCurrentTotalIncentive() {
+          
+          currentTotalIncentive_ = 0L;
+          onChanged();
+          return this;
+        }
+
+        private float currentAlpha_ ;
+        /**
+         * <code>optional float currentAlpha = 4;</code>
+         */
+        public float getCurrentAlpha() {
+          return currentAlpha_;
+        }
+        /**
+         * <code>optional float currentAlpha = 4;</code>
+         */
+        public Builder setCurrentAlpha(float value) {
+          
+          currentAlpha_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional float currentAlpha = 4;</code>
+         */
+        public Builder clearCurrentAlpha() {
+          
+          currentAlpha_ = 0F;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:protos.HydruscoinInfo.POVSession)
+      }
+
+      // @@protoc_insertion_point(class_scope:protos.HydruscoinInfo.POVSession)
+      private static final protos.Foamcoin.HydruscoinInfo.POVSession DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new protos.Foamcoin.HydruscoinInfo.POVSession();
+      }
+
+      public static protos.Foamcoin.HydruscoinInfo.POVSession getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<POVSession>
+          PARSER = new com.google.protobuf.AbstractParser<POVSession>() {
+        public POVSession parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new POVSession(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<POVSession> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<POVSession> getParserForType() {
+        return PARSER;
+      }
+
+      public protos.Foamcoin.HydruscoinInfo.POVSession getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     public static final int COINTOTAL_FIELD_NUMBER = 1;
@@ -7307,23 +7957,44 @@ public final class Foamcoin {
       return txTotal_;
     }
 
-    public static final int PLACEHOLDER_FIELD_NUMBER = 5;
-    private volatile Object placeholder_;
+    public static final int SESSION_FIELD_NUMBER = 5;
+    private protos.Foamcoin.HydruscoinInfo.POVSession session_;
+    /**
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+     */
+    public boolean hasSession() {
+      return session_ != null;
+    }
+    /**
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+     */
+    public protos.Foamcoin.HydruscoinInfo.POVSession getSession() {
+      return session_ == null ? protos.Foamcoin.HydruscoinInfo.POVSession.getDefaultInstance() : session_;
+    }
+    /**
+     * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+     */
+    public protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder getSessionOrBuilder() {
+      return getSession();
+    }
+
+    public static final int PLACEHOLDER_FIELD_NUMBER = 6;
+    private volatile java.lang.Object placeholder_;
     /**
      * <pre>
      * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
      * </pre>
      *
-     * <code>optional string placeholder = 5;</code>
+     * <code>optional string placeholder = 6;</code>
      */
-    public String getPlaceholder() {
-      Object ref = placeholder_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getPlaceholder() {
+      java.lang.Object ref = placeholder_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         placeholder_ = s;
         return s;
       }
@@ -7333,15 +8004,15 @@ public final class Foamcoin {
      * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
      * </pre>
      *
-     * <code>optional string placeholder = 5;</code>
+     * <code>optional string placeholder = 6;</code>
      */
     public com.google.protobuf.ByteString
         getPlaceholderBytes() {
-      Object ref = placeholder_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+      java.lang.Object ref = placeholder_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         placeholder_ = b;
         return b;
       } else {
@@ -7373,8 +8044,11 @@ public final class Foamcoin {
       if (txTotal_ != 0L) {
         output.writeInt64(4, txTotal_);
       }
+      if (session_ != null) {
+        output.writeMessage(5, getSession());
+      }
       if (!getPlaceholderBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, placeholder_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, placeholder_);
       }
     }
 
@@ -7399,16 +8073,20 @@ public final class Foamcoin {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, txTotal_);
       }
+      if (session_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSession());
+      }
       if (!getPlaceholderBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, placeholder_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, placeholder_);
       }
       memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
@@ -7426,12 +8104,17 @@ public final class Foamcoin {
           == other.getTxoutTotal());
       result = result && (getTxTotal()
           == other.getTxTotal());
+      result = result && (hasSession() == other.hasSession());
+      if (hasSession()) {
+        result = result && getSession()
+            .equals(other.getSession());
+      }
       result = result && getPlaceholder()
           .equals(other.getPlaceholder());
       return result;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7450,6 +8133,10 @@ public final class Foamcoin {
       hash = (37 * hash) + TXTOTAL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTxTotal());
+      if (hasSession()) {
+        hash = (37 * hash) + SESSION_FIELD_NUMBER;
+        hash = (53 * hash) + getSession().hashCode();
+      }
       hash = (37 * hash) + PLACEHOLDER_FIELD_NUMBER;
       hash = (53 * hash) + getPlaceholder().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -7528,7 +8215,7 @@ public final class Foamcoin {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
@@ -7582,6 +8269,12 @@ public final class Foamcoin {
 
         txTotal_ = 0L;
 
+        if (sessionBuilder_ == null) {
+          session_ = null;
+        } else {
+          session_ = null;
+          sessionBuilder_ = null;
+        }
         placeholder_ = "";
 
         return this;
@@ -7610,6 +8303,11 @@ public final class Foamcoin {
         result.accountTotal_ = accountTotal_;
         result.txoutTotal_ = txoutTotal_;
         result.txTotal_ = txTotal_;
+        if (sessionBuilder_ == null) {
+          result.session_ = session_;
+        } else {
+          result.session_ = sessionBuilder_.build();
+        }
         result.placeholder_ = placeholder_;
         onBuilt();
         return result;
@@ -7664,6 +8362,9 @@ public final class Foamcoin {
         if (other.getTxTotal() != 0L) {
           setTxTotal(other.getTxTotal());
         }
+        if (other.hasSession()) {
+          mergeSession(other.getSession());
+        }
         if (!other.getPlaceholder().isEmpty()) {
           placeholder_ = other.placeholder_;
           onChanged();
@@ -7705,7 +8406,7 @@ public final class Foamcoin {
        * <code>optional int64 coinTotal = 1;</code>
        */
       public Builder setCoinTotal(long value) {
-
+        
         coinTotal_ = value;
         onChanged();
         return this;
@@ -7714,7 +8415,7 @@ public final class Foamcoin {
        * <code>optional int64 coinTotal = 1;</code>
        */
       public Builder clearCoinTotal() {
-
+        
         coinTotal_ = 0L;
         onChanged();
         return this;
@@ -7731,7 +8432,7 @@ public final class Foamcoin {
        * <code>optional int64 accountTotal = 2;</code>
        */
       public Builder setAccountTotal(long value) {
-
+        
         accountTotal_ = value;
         onChanged();
         return this;
@@ -7740,7 +8441,7 @@ public final class Foamcoin {
        * <code>optional int64 accountTotal = 2;</code>
        */
       public Builder clearAccountTotal() {
-
+        
         accountTotal_ = 0L;
         onChanged();
         return this;
@@ -7757,7 +8458,7 @@ public final class Foamcoin {
        * <code>optional int64 txoutTotal = 3;</code>
        */
       public Builder setTxoutTotal(long value) {
-
+        
         txoutTotal_ = value;
         onChanged();
         return this;
@@ -7766,7 +8467,7 @@ public final class Foamcoin {
        * <code>optional int64 txoutTotal = 3;</code>
        */
       public Builder clearTxoutTotal() {
-
+        
         txoutTotal_ = 0L;
         onChanged();
         return this;
@@ -7783,7 +8484,7 @@ public final class Foamcoin {
        * <code>optional int64 txTotal = 4;</code>
        */
       public Builder setTxTotal(long value) {
-
+        
         txTotal_ = value;
         onChanged();
         return this;
@@ -7792,30 +8493,147 @@ public final class Foamcoin {
        * <code>optional int64 txTotal = 4;</code>
        */
       public Builder clearTxTotal() {
-
+        
         txTotal_ = 0L;
         onChanged();
         return this;
       }
 
-      private Object placeholder_ = "";
+      private protos.Foamcoin.HydruscoinInfo.POVSession session_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protos.Foamcoin.HydruscoinInfo.POVSession, protos.Foamcoin.HydruscoinInfo.POVSession.Builder, protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder> sessionBuilder_;
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public boolean hasSession() {
+        return sessionBuilder_ != null || session_ != null;
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public protos.Foamcoin.HydruscoinInfo.POVSession getSession() {
+        if (sessionBuilder_ == null) {
+          return session_ == null ? protos.Foamcoin.HydruscoinInfo.POVSession.getDefaultInstance() : session_;
+        } else {
+          return sessionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public Builder setSession(protos.Foamcoin.HydruscoinInfo.POVSession value) {
+        if (sessionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          session_ = value;
+          onChanged();
+        } else {
+          sessionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public Builder setSession(
+          protos.Foamcoin.HydruscoinInfo.POVSession.Builder builderForValue) {
+        if (sessionBuilder_ == null) {
+          session_ = builderForValue.build();
+          onChanged();
+        } else {
+          sessionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public Builder mergeSession(protos.Foamcoin.HydruscoinInfo.POVSession value) {
+        if (sessionBuilder_ == null) {
+          if (session_ != null) {
+            session_ =
+              protos.Foamcoin.HydruscoinInfo.POVSession.newBuilder(session_).mergeFrom(value).buildPartial();
+          } else {
+            session_ = value;
+          }
+          onChanged();
+        } else {
+          sessionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public Builder clearSession() {
+        if (sessionBuilder_ == null) {
+          session_ = null;
+          onChanged();
+        } else {
+          session_ = null;
+          sessionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public protos.Foamcoin.HydruscoinInfo.POVSession.Builder getSessionBuilder() {
+        
+        onChanged();
+        return getSessionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      public protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder getSessionOrBuilder() {
+        if (sessionBuilder_ != null) {
+          return sessionBuilder_.getMessageOrBuilder();
+        } else {
+          return session_ == null ?
+              protos.Foamcoin.HydruscoinInfo.POVSession.getDefaultInstance() : session_;
+        }
+      }
+      /**
+       * <code>optional .protos.HydruscoinInfo.POVSession session = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          protos.Foamcoin.HydruscoinInfo.POVSession, protos.Foamcoin.HydruscoinInfo.POVSession.Builder, protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder> 
+          getSessionFieldBuilder() {
+        if (sessionBuilder_ == null) {
+          sessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              protos.Foamcoin.HydruscoinInfo.POVSession, protos.Foamcoin.HydruscoinInfo.POVSession.Builder, protos.Foamcoin.HydruscoinInfo.POVSessionOrBuilder>(
+                  getSession(),
+                  getParentForChildren(),
+                  isClean());
+          session_ = null;
+        }
+        return sessionBuilder_;
+      }
+
+      private java.lang.Object placeholder_ = "";
       /**
        * <pre>
        * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
        * </pre>
        *
-       * <code>optional string placeholder = 5;</code>
+       * <code>optional string placeholder = 6;</code>
        */
-      public String getPlaceholder() {
-        Object ref = placeholder_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getPlaceholder() {
+        java.lang.Object ref = placeholder_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           placeholder_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -7823,15 +8641,15 @@ public final class Foamcoin {
        * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
        * </pre>
        *
-       * <code>optional string placeholder = 5;</code>
+       * <code>optional string placeholder = 6;</code>
        */
       public com.google.protobuf.ByteString
           getPlaceholderBytes() {
-        Object ref = placeholder_;
+        java.lang.Object ref = placeholder_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           placeholder_ = b;
           return b;
         } else {
@@ -7843,14 +8661,14 @@ public final class Foamcoin {
        * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
        * </pre>
        *
-       * <code>optional string placeholder = 5;</code>
+       * <code>optional string placeholder = 6;</code>
        */
       public Builder setPlaceholder(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         placeholder_ = value;
         onChanged();
         return this;
@@ -7860,10 +8678,10 @@ public final class Foamcoin {
        * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
        * </pre>
        *
-       * <code>optional string placeholder = 5;</code>
+       * <code>optional string placeholder = 6;</code>
        */
       public Builder clearPlaceholder() {
-
+        
         placeholder_ = getDefaultInstance().getPlaceholder();
         onChanged();
         return this;
@@ -7873,7 +8691,7 @@ public final class Foamcoin {
        * when you init, you put other valiables into 0, so message bytes will be nil, can't be put into states
        * </pre>
        *
-       * <code>optional string placeholder = 5;</code>
+       * <code>optional string placeholder = 6;</code>
        */
       public Builder setPlaceholderBytes(
           com.google.protobuf.ByteString value) {
@@ -7881,7 +8699,7 @@ public final class Foamcoin {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         placeholder_ = value;
         onChanged();
         return this;
@@ -7924,7 +8742,7 @@ public final class Foamcoin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<HydruscoinInfo> getParserForType() {
       return PARSER;
     }
@@ -7935,61 +8753,629 @@ public final class Foamcoin {
 
   }
 
+  public interface TestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protos.Test)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int64 INCENT_T0 = 1;</code>
+     */
+    long getINCENTT0();
+
+    /**
+     * <code>optional int64 INCENT_ALPHA0 = 2;</code>
+     */
+    long getINCENTALPHA0();
+
+    /**
+     * <code>optional int64 INCENT_THREADSHOLD = 3;</code>
+     */
+    long getINCENTTHREADSHOLD();
+  }
+  /**
+   * Protobuf type {@code protos.Test}
+   */
+  public  static final class Test extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protos.Test)
+      TestOrBuilder {
+    // Use Test.newBuilder() to construct.
+    private Test(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Test() {
+      iNCENTT0_ = 0L;
+      iNCENTALPHA0_ = 0L;
+      iNCENTTHREADSHOLD_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Test(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              iNCENTT0_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              iNCENTALPHA0_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              iNCENTTHREADSHOLD_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return protos.Foamcoin.internal_static_protos_Test_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return protos.Foamcoin.internal_static_protos_Test_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              protos.Foamcoin.Test.class, protos.Foamcoin.Test.Builder.class);
+    }
+
+    public static final int INCENT_T0_FIELD_NUMBER = 1;
+    private long iNCENTT0_;
+    /**
+     * <code>optional int64 INCENT_T0 = 1;</code>
+     */
+    public long getINCENTT0() {
+      return iNCENTT0_;
+    }
+
+    public static final int INCENT_ALPHA0_FIELD_NUMBER = 2;
+    private long iNCENTALPHA0_;
+    /**
+     * <code>optional int64 INCENT_ALPHA0 = 2;</code>
+     */
+    public long getINCENTALPHA0() {
+      return iNCENTALPHA0_;
+    }
+
+    public static final int INCENT_THREADSHOLD_FIELD_NUMBER = 3;
+    private long iNCENTTHREADSHOLD_;
+    /**
+     * <code>optional int64 INCENT_THREADSHOLD = 3;</code>
+     */
+    public long getINCENTTHREADSHOLD() {
+      return iNCENTTHREADSHOLD_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (iNCENTT0_ != 0L) {
+        output.writeInt64(1, iNCENTT0_);
+      }
+      if (iNCENTALPHA0_ != 0L) {
+        output.writeInt64(2, iNCENTALPHA0_);
+      }
+      if (iNCENTTHREADSHOLD_ != 0L) {
+        output.writeInt64(3, iNCENTTHREADSHOLD_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (iNCENTT0_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, iNCENTT0_);
+      }
+      if (iNCENTALPHA0_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, iNCENTALPHA0_);
+      }
+      if (iNCENTTHREADSHOLD_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, iNCENTTHREADSHOLD_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof protos.Foamcoin.Test)) {
+        return super.equals(obj);
+      }
+      protos.Foamcoin.Test other = (protos.Foamcoin.Test) obj;
+
+      boolean result = true;
+      result = result && (getINCENTT0()
+          == other.getINCENTT0());
+      result = result && (getINCENTALPHA0()
+          == other.getINCENTALPHA0());
+      result = result && (getINCENTTHREADSHOLD()
+          == other.getINCENTTHREADSHOLD());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + INCENT_T0_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getINCENTT0());
+      hash = (37 * hash) + INCENT_ALPHA0_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getINCENTALPHA0());
+      hash = (37 * hash) + INCENT_THREADSHOLD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getINCENTTHREADSHOLD());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static protos.Foamcoin.Test parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protos.Foamcoin.Test parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protos.Foamcoin.Test parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static protos.Foamcoin.Test parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static protos.Foamcoin.Test parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protos.Foamcoin.Test parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protos.Foamcoin.Test parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static protos.Foamcoin.Test parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static protos.Foamcoin.Test parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static protos.Foamcoin.Test parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(protos.Foamcoin.Test prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protos.Test}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protos.Test)
+        protos.Foamcoin.TestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return protos.Foamcoin.internal_static_protos_Test_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return protos.Foamcoin.internal_static_protos_Test_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                protos.Foamcoin.Test.class, protos.Foamcoin.Test.Builder.class);
+      }
+
+      // Construct using protos.Foamcoin.Test.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        iNCENTT0_ = 0L;
+
+        iNCENTALPHA0_ = 0L;
+
+        iNCENTTHREADSHOLD_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return protos.Foamcoin.internal_static_protos_Test_descriptor;
+      }
+
+      public protos.Foamcoin.Test getDefaultInstanceForType() {
+        return protos.Foamcoin.Test.getDefaultInstance();
+      }
+
+      public protos.Foamcoin.Test build() {
+        protos.Foamcoin.Test result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public protos.Foamcoin.Test buildPartial() {
+        protos.Foamcoin.Test result = new protos.Foamcoin.Test(this);
+        result.iNCENTT0_ = iNCENTT0_;
+        result.iNCENTALPHA0_ = iNCENTALPHA0_;
+        result.iNCENTTHREADSHOLD_ = iNCENTTHREADSHOLD_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof protos.Foamcoin.Test) {
+          return mergeFrom((protos.Foamcoin.Test)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(protos.Foamcoin.Test other) {
+        if (other == protos.Foamcoin.Test.getDefaultInstance()) return this;
+        if (other.getINCENTT0() != 0L) {
+          setINCENTT0(other.getINCENTT0());
+        }
+        if (other.getINCENTALPHA0() != 0L) {
+          setINCENTALPHA0(other.getINCENTALPHA0());
+        }
+        if (other.getINCENTTHREADSHOLD() != 0L) {
+          setINCENTTHREADSHOLD(other.getINCENTTHREADSHOLD());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        protos.Foamcoin.Test parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (protos.Foamcoin.Test) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long iNCENTT0_ ;
+      /**
+       * <code>optional int64 INCENT_T0 = 1;</code>
+       */
+      public long getINCENTT0() {
+        return iNCENTT0_;
+      }
+      /**
+       * <code>optional int64 INCENT_T0 = 1;</code>
+       */
+      public Builder setINCENTT0(long value) {
+        
+        iNCENTT0_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 INCENT_T0 = 1;</code>
+       */
+      public Builder clearINCENTT0() {
+        
+        iNCENTT0_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long iNCENTALPHA0_ ;
+      /**
+       * <code>optional int64 INCENT_ALPHA0 = 2;</code>
+       */
+      public long getINCENTALPHA0() {
+        return iNCENTALPHA0_;
+      }
+      /**
+       * <code>optional int64 INCENT_ALPHA0 = 2;</code>
+       */
+      public Builder setINCENTALPHA0(long value) {
+        
+        iNCENTALPHA0_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 INCENT_ALPHA0 = 2;</code>
+       */
+      public Builder clearINCENTALPHA0() {
+        
+        iNCENTALPHA0_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long iNCENTTHREADSHOLD_ ;
+      /**
+       * <code>optional int64 INCENT_THREADSHOLD = 3;</code>
+       */
+      public long getINCENTTHREADSHOLD() {
+        return iNCENTTHREADSHOLD_;
+      }
+      /**
+       * <code>optional int64 INCENT_THREADSHOLD = 3;</code>
+       */
+      public Builder setINCENTTHREADSHOLD(long value) {
+        
+        iNCENTTHREADSHOLD_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 INCENT_THREADSHOLD = 3;</code>
+       */
+      public Builder clearINCENTTHREADSHOLD() {
+        
+        iNCENTTHREADSHOLD_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protos.Test)
+    }
+
+    // @@protoc_insertion_point(class_scope:protos.Test)
+    private static final protos.Foamcoin.Test DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new protos.Foamcoin.Test();
+    }
+
+    public static protos.Foamcoin.Test getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Test>
+        PARSER = new com.google.protobuf.AbstractParser<Test>() {
+      public Test parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Test(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Test> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Test> getParserForType() {
+      return PARSER;
+    }
+
+    public protos.Foamcoin.Test getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_Account_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_Account_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_Account_TxoutsEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_Account_TxoutsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_AccountSlice_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_AccountSlice_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_TxoutMap_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_TxoutMap_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_TX_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_TX_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_TX_TXIN_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_TX_TXIN_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_TX_TXOUT_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_TX_TXOUT_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_ExecResult_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_ExecResult_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_QueryAddrResults_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_QueryAddrResults_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_QueryAddrResults_AccountsEntry_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_QueryAddrResults_AccountsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_HydruscoinInfo_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_HydruscoinInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_HydruscoinInfo_POVSession_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_HydruscoinInfo_POVSession_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protos_Test_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protos_Test_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7998,7 +9384,7 @@ public final class Foamcoin {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\016foamcoin.proto\022\006protos\"\226\001\n\007Account\022\014\n\004" +
       "addr\030\001 \001(\t\022\017\n\007balance\030\002 \001(\003\022+\n\006txouts\030\003 " +
       "\003(\0132\033.protos.Account.TxoutsEntry\032?\n\013Txou" +
@@ -8019,11 +9405,16 @@ public final class Foamcoin {
       "utputs\030\002 \001(\003\"\216\001\n\020QueryAddrResults\0228\n\010acc" +
       "ounts\030\001 \003(\0132&.protos.QueryAddrResults.Ac" +
       "countsEntry\032@\n\rAccountsEntry\022\013\n\003key\030\001 \001(",
-      "\t\022\036\n\005value\030\002 \001(\0132\017.protos.Account:\0028\001\"s\n" +
-      "\016HydruscoinInfo\022\021\n\tcoinTotal\030\001 \001(\003\022\024\n\014ac" +
-      "countTotal\030\002 \001(\003\022\022\n\ntxoutTotal\030\003 \001(\003\022\017\n\007" +
-      "txTotal\030\004 \001(\003\022\023\n\013placeholder\030\005 \001(\tb\006prot" +
-      "o3"
+      "\t\022\036\n\005value\030\002 \001(\0132\017.protos.Account:\0028\001\"\216\002" +
+      "\n\016HydruscoinInfo\022\021\n\tcoinTotal\030\001 \001(\003\022\024\n\014a" +
+      "ccountTotal\030\002 \001(\003\022\022\n\ntxoutTotal\030\003 \001(\003\022\017\n" +
+      "\007txTotal\030\004 \001(\003\0222\n\007session\030\005 \001(\0132!.protos" +
+      ".HydruscoinInfo.POVSession\022\023\n\013placeholde" +
+      "r\030\006 \001(\t\032e\n\nPOVSession\022\017\n\007txCount\030\001 \001(\003\022\021" +
+      "\n\tthreshold\030\002 \001(\003\022\035\n\025currentTotalIncenti" +
+      "ve\030\003 \001(\003\022\024\n\014currentAlpha\030\004 \001(\002\"L\n\004Test\022\021" +
+      "\n\tINCENT_T0\030\001 \001(\003\022\025\n\rINCENT_ALPHA0\030\002 \001(\003" +
+      "\022\032\n\022INCENT_THREADSHOLD\030\003 \001(\003b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8042,67 +9433,79 @@ public final class Foamcoin {
     internal_static_protos_Account_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Account_descriptor,
-        new String[] { "Addr", "Balance", "Txouts", });
+        new java.lang.String[] { "Addr", "Balance", "Txouts", });
     internal_static_protos_Account_TxoutsEntry_descriptor =
       internal_static_protos_Account_descriptor.getNestedTypes().get(0);
     internal_static_protos_Account_TxoutsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Account_TxoutsEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_protos_AccountSlice_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protos_AccountSlice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_AccountSlice_descriptor,
-        new String[] { "Addr", "Balance", "Txoutmap", });
+        new java.lang.String[] { "Addr", "Balance", "Txoutmap", });
     internal_static_protos_TxoutMap_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_protos_TxoutMap_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TxoutMap_descriptor,
-        new String[] { "Key", "Txouts", });
+        new java.lang.String[] { "Key", "Txouts", });
     internal_static_protos_TX_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_protos_TX_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TX_descriptor,
-        new String[] { "Version", "Timestamp", "Txin", "Txout", "Founder", });
+        new java.lang.String[] { "Version", "Timestamp", "Txin", "Txout", "Founder", });
     internal_static_protos_TX_TXIN_descriptor =
       internal_static_protos_TX_descriptor.getNestedTypes().get(0);
     internal_static_protos_TX_TXIN_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TX_TXIN_descriptor,
-        new String[] { "Ix", "SourceHash", "Addr", "Script", "Undefined", });
+        new java.lang.String[] { "Ix", "SourceHash", "Addr", "Script", "Undefined", });
     internal_static_protos_TX_TXOUT_descriptor =
       internal_static_protos_TX_descriptor.getNestedTypes().get(1);
     internal_static_protos_TX_TXOUT_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TX_TXOUT_descriptor,
-        new String[] { "Value", "Addr", "Until", "ScriptPubKey", "Undefined", });
+        new java.lang.String[] { "Value", "Addr", "Until", "ScriptPubKey", "Undefined", });
     internal_static_protos_ExecResult_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_protos_ExecResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_ExecResult_descriptor,
-        new String[] { "SumCurrentOutputs", "SumPriorOutputs", });
+        new java.lang.String[] { "SumCurrentOutputs", "SumPriorOutputs", });
     internal_static_protos_QueryAddrResults_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_protos_QueryAddrResults_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_QueryAddrResults_descriptor,
-        new String[] { "Accounts", });
+        new java.lang.String[] { "Accounts", });
     internal_static_protos_QueryAddrResults_AccountsEntry_descriptor =
       internal_static_protos_QueryAddrResults_descriptor.getNestedTypes().get(0);
     internal_static_protos_QueryAddrResults_AccountsEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_QueryAddrResults_AccountsEntry_descriptor,
-        new String[] { "Key", "Value", });
+        new java.lang.String[] { "Key", "Value", });
     internal_static_protos_HydruscoinInfo_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_protos_HydruscoinInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_HydruscoinInfo_descriptor,
-        new String[] { "CoinTotal", "AccountTotal", "TxoutTotal", "TxTotal", "Placeholder", });
+        new java.lang.String[] { "CoinTotal", "AccountTotal", "TxoutTotal", "TxTotal", "Session", "Placeholder", });
+    internal_static_protos_HydruscoinInfo_POVSession_descriptor =
+      internal_static_protos_HydruscoinInfo_descriptor.getNestedTypes().get(0);
+    internal_static_protos_HydruscoinInfo_POVSession_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_HydruscoinInfo_POVSession_descriptor,
+        new java.lang.String[] { "TxCount", "Threshold", "CurrentTotalIncentive", "CurrentAlpha", });
+    internal_static_protos_Test_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_protos_Test_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protos_Test_descriptor,
+        new java.lang.String[] { "INCENTT0", "INCENTALPHA0", "INCENTTHREADSHOLD", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

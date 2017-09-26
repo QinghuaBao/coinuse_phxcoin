@@ -14,7 +14,7 @@ public class CoinTest {
         CoinFactory f = new CoinFactory();
         PhxCoinInterface post = f.getCoinInstance();
 
-        int a = 3;
+        int a = 0;
         String s;
         switch (a){
             case 0:

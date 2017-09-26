@@ -136,4 +136,7 @@ public interface PhxCoinInterface{
     public String doCoinbase(String addr, String pubKey, long value, long until)throws IOException;
     public void setADD_URL(String ADD_URL);
     public String getSendJson();
+    public void invokeBuyTicket(String tel,String orderId,String ticketId,long price,long num,String txhash,String transferParam) throws IOException;
+    public String getTest()throws IOException;
+    public String doTest(long InCent_T0, long Incent_Alpha0, long Incent_ThreadsHold) throws IOException;
 }

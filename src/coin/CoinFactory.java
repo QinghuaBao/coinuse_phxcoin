@@ -8,6 +8,7 @@ import invoke.Invoke;
 import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;
 import org.json.JSONObject;
 import protos.Foamcoin;
+import protos.Ticket;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -68,6 +69,48 @@ public class CoinFactory {
             }
             String invokeParam = generateTransferInvokeParam(res, toAddr, value, founder, until, pubstring, pristring);
             return invokeParam;
+        }
+
+        public String doTest(long InCent_T0, long Incent_Alpha0, long Incent_ThreadsHold) throws IOException{
+            Foamcoin.Test.Builder test = Foamcoin.Test.newBuilder();
+            test.setINCENTT0(InCent_T0);
+            test.setINCENTALPHA0(Incent_Alpha0);
+            test.setINCENTTHREADSHOLD(Incent_ThreadsHold);
+
+            String base64 = Base64.encode(test.build().toByteArray());
+            String[] param = { base64 };
+            String res = postRequest("invoke", "coinbase", 3, "invoke_test", param);
+            return res;
+        }
+
+        public String getTest()throws IOException{
+            String[] param = { };
+            String res = postRequest("query", "coinbase", 3, "query_test", param);
+            if (res.contains("\"error\"")) {
+                Controller.warning("获得test失败！" + res);
+                return "";
+            }
+            JSONObject jsonObject = generateTest(res);
+            return jsonObject.toString();
+        }
+
+
+        public JSONObject generateTest(String res) throws InvalidProtocolBufferException{
+            JSONObject jsonObject = new JSONObject(res);
+            JSONObject result = jsonObject.getJSONObject("result");
+            String data = result.getString("message");
+
+            byte[] byteData;
+            byteData = Base64.decode(data);
+
+            Foamcoin.Test test = Foamcoin.Test.parseFrom(byteData);
+
+            JSONObject temp = new JSONObject();
+            temp.put("INCENT_T0", test.getINCENTT0());
+            temp.put("INCENT_ALPHA0", test.getINCENTALPHA0());
+            temp.put("INCENT_THREADSHOLD", test.getINCENTTHREADSHOLD());
+
+            return temp;
         }
 
         public String getTxHash(String param) throws IOException {
@@ -188,6 +231,12 @@ public class CoinFactory {
             return res;
         }
 
+        public String getCoin()throws IOException{
+            String[] param = { };
+            String res = postRequest("query", "coinbase", 1, "query_coin", param);
+            return res;
+        }
+
         public String getTransaction(String txHash) throws IOException {
 //            getAddressUrl();
             String[] param = { txHash };
@@ -289,7 +338,10 @@ public class CoinFactory {
             JSONObject result = jsonObject.getJSONObject("result");
             String data = result.getString("message");
 
-            Foamcoin.HydruscoinInfo coinInfo = Foamcoin.HydruscoinInfo.parseFrom(data.getBytes());
+            byte[] byteData;
+            byteData = Base64.decode(data);
+
+            Foamcoin.HydruscoinInfo coinInfo = Foamcoin.HydruscoinInfo.parseFrom(byteData);
 
             JSONObject temp = new JSONObject();
             temp.put("coinTotal", coinInfo.getCoinTotal());
@@ -297,6 +349,10 @@ public class CoinFactory {
             temp.put("txoutTotal", coinInfo.getTxoutTotal());
             temp.put("txTotal", coinInfo.getTxTotal());
             temp.put("placeHolder", coinInfo.getPlaceholder());
+            JSONObject povSession = new JSONObject();
+            povSession.put("txcount", coinInfo.getSession().getTxCount());
+            povSession.put("currentAlpa", coinInfo.getSession().getCurrentAlpha());
+            temp.put("povSession", povSession);
             return temp;
         }
 
@@ -356,6 +412,25 @@ public class CoinFactory {
 
         public void setADD_URL(String ADD_URL) {
             this.ADD_URL = ADD_URL;
+        }
+
+        /**
+         *  调智能合约购票
+         * (电话,订单号,门票编号,价格,购买数量,交易hash,转账参数)
+         */
+        public void invokeBuyTicket(String tel,String orderId,String ticketId,long price,long num,String txhash,String transferParam) throws IOException{
+            //生成购票对象
+            Ticket.UnusedTicketElem.Builder ticketElem= Ticket.UnusedTicketElem.newBuilder();
+            ticketElem.setOrderId(orderId);
+            ticketElem.setTicketId(ticketId);
+            ticketElem.setTicketUnitPrice(price);
+            ticketElem.setTicketNumber(num);
+            ticketElem.setBuyTXhash(txhash);
+            //序列化
+            String str=new String(org.spongycastle.util.encoders.Base64.encode(ticketElem.build().toByteArray()));
+            String[] param={tel,str,transferParam};
+            //http请求
+            String resultString= contractPostRequest("invoke", "ticket",3 , "invoke_buy_ticket", param);
         }
 
         /**
@@ -434,6 +509,67 @@ public class CoinFactory {
             return jsonObject;
         }
 
+
+        /**
+         *   合约http请求
+         */
+        public String contractPostRequest(String method, String chaincodeName, int id, String function, String[] param)
+                throws IOException {
+
+            HttpURLConnection connection = connectToBlockChain();
+            connection.connect();
+
+            // POST Request
+            DataOutputStream out = new DataOutputStream(connection.getOutputStream());
+
+            ArrayList<String> ctorMsg = new ArrayList<>();
+            Collections.addAll(ctorMsg, param);
+            JSONObject jsonObject = contractGenerateJson(method, chaincodeName,function, ctorMsg.toArray(new String[ctorMsg.size()]),
+                    id);
+            System.out.println(jsonObject.toString());
+            out.writeBytes(jsonObject.toString());
+            out.flush();
+            out.close();
+
+            // Response
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String lines;
+            StringBuilder stringBuilder = new StringBuilder("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                stringBuilder.append(lines);
+            }
+            reader.close();
+            // disconnect
+            connection.disconnect();
+            return stringBuilder.toString();
+        }
+
+        /**
+         *   合约生成json参数
+         */
+        public JSONObject contractGenerateJson(String method, String chaincodeName,String function, String[] args, int id) {
+            JSONObject jsonObject = new JSONObject();
+            JSONObject paramsJson = new JSONObject();
+
+            JSONObject chaincodeIDJson = new JSONObject();
+            chaincodeIDJson.put("name", chaincodeName);
+            JSONObject ctorMsgJson = new JSONObject();
+            ctorMsgJson.put("args", args);
+            ctorMsgJson.put("function", function);
+
+            paramsJson.put("type", 1);
+            paramsJson.put("chaincodeID", chaincodeIDJson);
+            paramsJson.put("ctorMsg", ctorMsgJson);
+
+            jsonObject.put("jsonrpc", "2.0");
+            jsonObject.put("method", method);
+            jsonObject.put("params", paramsJson);
+            jsonObject.put("id", id);
+
+            return jsonObject;
+        }
+
         public String getSendJson() {
             return sendJson;
         }
@@ -441,6 +577,8 @@ public class CoinFactory {
         public String getReturnJson() {
             return returnJson;
         }
+
+
     }
 }
 

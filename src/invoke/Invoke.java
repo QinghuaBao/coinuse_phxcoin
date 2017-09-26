@@ -89,6 +89,7 @@ public class Invoke {
         coinBaseTransfer.setVersion(version);
         coinBaseTransfer.addAllTxin(txins);
         coinBaseTransfer.addAllTxout(txouts);
+        coinBaseTransfer.setTimestamp(System.currentTimeMillis());
 
         byte[] script = new byte[0];
         try {

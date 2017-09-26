@@ -1,5 +1,6 @@
 package address;
 
+import coinuse.Controller;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class AddressUtil {
 
     public static KeyPair generateECKey()
             throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, IOException{
+        Controller.warning("addProvider");
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA","BC");
         ECGenParameterSpec ecSpec = new ECGenParameterSpec("secp256k1");
@@ -24,8 +26,11 @@ public class AddressUtil {
 
     public static Address generatAddress()
             throws NoSuchAlgorithmException, NoSuchProviderException, InvalidAlgorithmParameterException, IOException, InvalidKeySpecException {
+//        Controller.warning("addProvider");
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+//        Controller.warning("generataeECKey");
         KeyPair keyPair = AddressUtil.generateECKey();
+//        Controller.warning("getInstance");
         KeyFactory fact = KeyFactory.getInstance("ECDSA", "BC");
         PublicKey publicKey = fact.generatePublic(new X509EncodedKeySpec(keyPair.getPublic().getEncoded()));
         PrivateKey privateKeyc = fact.generatePrivate(new PKCS8EncodedKeySpec(keyPair.getPrivate().getEncoded()));
