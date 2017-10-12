@@ -93,7 +93,7 @@ public class Controller {
         String tranParam = null;
         try {
             tranParam = post.getTransferParam(address,
-                    "ga7Lm7i45tDgT26TVEB7XSnhiGoPayFfU", 100000000, "foam",-1, pubKey, priKey);
+                    "eAVHz1qKaNHzBxv9ZAEdvQPX3PuLWbARj", 100000, "foam",-1, pubKey, priKey);
             //得到交易hash
             txhash = post.getTxHash(tranParam);
             //调用方法
