@@ -5,6 +5,14 @@ import address.Sha256Hash;
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import ecdsa.ECKey;
 import org.bouncycastle.asn1.ASN1Integer;
+import org.spongycastle.asn1.x9.X9ECParameters;
+import org.spongycastle.crypto.ec.CustomNamedCurves;
+import org.spongycastle.crypto.params.ECDomainParameters;
+import org.spongycastle.crypto.params.ECPrivateKeyParameters;
+import org.spongycastle.crypto.params.ECPublicKeyParameters;
+import org.spongycastle.math.ec.ECMultiplier;
+import org.spongycastle.math.ec.ECPoint;
+import org.spongycastle.math.ec.FixedPointCombMultiplier;
 import org.spongycastle.util.encoders.Base64;
 import protos.Foamcoin;
 import sun.security.provider.DSAPrivateKey;
@@ -76,7 +84,7 @@ public class Invoke {
         Foamcoin.TX.TXOUT.Builder txout = Foamcoin.TX.TXOUT.newBuilder();
         txout.setValue(value);
         txout.setAddr(des);
-        txout.setScriptPubKey(new String(Base64.encode(key.getPubKey())));
+        txout.setScriptPubKey(new String(Base64.encode(pubkeyFromBigInteger(key.getPriv()))));
         txout.setUntil(until);
         txout.setUndefined("");
 
@@ -105,7 +113,7 @@ public class Invoke {
         Foamcoin.TX.TXIN.Builder txin;
         for (int i = 0; i < txins.size(); i++) {
             txin = txins.get(i).toBuilder();
-            txin.setScript(new String(HexBin.encode(script)));
+            txin.setScript(new String(Base64.encode(script)));
             coinBaseTransfer.addTxin(txin.build());
         }
         return Base64.encode(coinBaseTransfer.build().toByteArray());
@@ -115,9 +123,12 @@ public class Invoke {
     public static byte[] newsignScript(ECKey key, Foamcoin.TX coinBaseTransfer)
             throws SignatureException, InvalidKeyException, NoSuchAlgorithmException {
         byte[] txHashBytes = txHash(coinBaseTransfer);
+        String temp = new String(Base64.encode(txHashBytes));
+//        System.out.println(txHashBytes.toString());
+        //txHashBytes = java.util.Base64.getDecoder().decode("xSXBmQVjIQ6FUkcR4C1eTR+G5WzFojeN4+JKKvMHo24=");
         ECKey.Signature signature = key.sign(txHashBytes);
-        String xString = java.util.Base64.getEncoder().encodeToString(signature.Serialize());
-        return xString.getBytes();
+        //String xString = java.util.Base64.getEncoder().encodeToString(signature.Serialize());
+        return signature.Serialize();
     }
 
     public static byte[] signScript(PrivateKey privateKey, Foamcoin.TX coinBaseTransfer)
@@ -144,4 +155,15 @@ public class Invoke {
         return lhash;
     }
 
+    private static byte[] pubkeyFromBigInteger(BigInteger bigInteger){
+        X9ECParameters CURVE_PARAMS = CustomNamedCurves.getByName("secp256k1");
+        ECPrivateKeyParameters privParams = new ECPrivateKeyParameters(bigInteger, new ECDomainParameters(CURVE_PARAMS.getCurve(), CURVE_PARAMS.getG(), CURVE_PARAMS.getN(),
+                CURVE_PARAMS.getH()));
+
+        ECMultiplier ecMultiplier = new FixedPointCombMultiplier();
+        ECPoint Q = ecMultiplier.multiply(privParams.getParameters().getG(), bigInteger);
+        ECPublicKeyParameters pubParams = new ECPublicKeyParameters(Q, privParams.getParameters());
+        byte[] pub = pubParams.getQ().getEncoded(false);
+        return pub;
+    }
 }

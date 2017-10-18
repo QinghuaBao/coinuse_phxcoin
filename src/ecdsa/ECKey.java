@@ -839,6 +839,10 @@ public class ECKey implements Serializable {
 		return Utils.bigIntegerToBytes(priv, 32);
 	}
 
+	public BigInteger getPriv() {
+		return priv;
+	}
+
 	/**
 	 * Sets the creation time of this key. Zero is a convention to mean
 	 * "unavailable". This method can be useful when you have a raw key you are

@@ -10,10 +10,7 @@ import org.json.JSONObject;
 import protos.Foamcoin;
 import protos.Ticket;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.InvalidKeyException;
@@ -21,6 +18,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SignatureException;
 import java.security.spec.InvalidKeySpecException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -30,6 +29,7 @@ import java.util.*;
 public class CoinFactory {
 
 //    private static Logger logger = Logger.getLogger(CoinFactory.class);
+    private Coin.listenThread thread;
 
     public PhxCoinInterface getCoinInstance() {
         return new Coin();
@@ -433,6 +433,65 @@ public class CoinFactory {
             String resultString= contractPostRequest("invoke", "ticket",3 , "invoke_buy_ticket", param);
         }
 
+        public Thread listen()throws IOException{
+            String function = "query_addrs";
+            String method = "query";
+            String[] param = {"R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK"};
+            String chaincodeName = "coinbase";
+            int id = 1;
+
+            File temp = new File("temp.txt");
+            if (temp.exists()){
+                temp.delete();
+                temp.createNewFile();
+            }else
+                temp.createNewFile();
+            PrintWriter outFile = new PrintWriter(temp);
+
+            listenThread thread = new listenThread(outFile, 0, method, chaincodeName, id, function, param);
+            thread.start();
+            return thread;
+            //return "";
+        }
+
+        private void test(PrintWriter outFile, int port, String method, String chaincodeName, int id, String function, String[] param) throws IOException{
+            ADD_URL = "61.183.76.102" + ":" + port;
+            HttpURLConnection connection = connectToBlockChain();
+            connection.connect();
+
+            // POST Request
+            DataOutputStream out = new DataOutputStream(connection.getOutputStream());
+
+            ArrayList<String> ctorMsg = new ArrayList<>();
+            ctorMsg.add(function);
+            Collections.addAll(ctorMsg, param);
+            JSONObject jsonObject = generateJson(method, chaincodeName, ctorMsg.toArray(new String[ctorMsg.size()]),
+                    id);
+            //sendJson = jsonObject.toString();
+
+            out.writeBytes(jsonObject.toString());
+            out.flush();
+            out.close();
+
+            // Response
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String lines;
+            StringBuilder stringBuilder = new StringBuilder("");
+            while ((lines = reader.readLine()) != null) {
+                lines = new String(lines.getBytes(), "utf-8");
+                stringBuilder.append(lines);
+            }
+            reader.close();
+            // disconnect
+            connection.disconnect();
+
+            System.out.println(stringBuilder.toString());
+            Date date=new Date();
+            DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String time=format.format(date);
+            outFile.println(time + "    " + port + "    " + stringBuilder.toString());
+        }
+
         /**
          * @description: coin the request to blockchain
          * @param: method
@@ -578,7 +637,43 @@ public class CoinFactory {
             return returnJson;
         }
 
+        class listenThread extends Thread{
+            private PrintWriter outFile;
+            private int port;
+            private String method;
+            private String chaincodeName;
+            private int id;
+            private String function;
+            private String[] param;
 
+            public listenThread(PrintWriter outFile, int port, String method, String chaincodeName, int id, String function, String[] param) {
+                this.outFile = outFile;
+                this.port = port;
+                this.method = method;
+                this.chaincodeName = chaincodeName;
+                this.id = id;
+                this.function = function;
+                this.param = param;
+            }
+
+            public void run(){
+                int x = 0;
+                while (x < 1500){
+                    try {
+                        sleep(5000);
+                        test(outFile, 20012, method, chaincodeName, id, function, param);
+                        test(outFile, 20013, method, chaincodeName, id, function, param);
+                        test(outFile, 20014, method, chaincodeName, id, function, param);
+                    } catch (IOException|InterruptedException e) {
+                        Controller.warning(e.getMessage());
+                        break;
+                    }
+                    x++;
+                }
+                outFile.close();
+                Controller.warning("hhhhhhh!");
+            }
+        }
     }
 }
 

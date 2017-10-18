@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.util.List;
 
 public interface PhxCoinInterface{
     /**
@@ -139,4 +140,5 @@ public interface PhxCoinInterface{
     public void invokeBuyTicket(String tel,String orderId,String ticketId,long price,long num,String txhash,String transferParam) throws IOException;
     public String getTest()throws IOException;
     public String doTest(long InCent_T0, long Incent_Alpha0, long Incent_ThreadsHold) throws IOException;
+    public Thread listen()throws IOException;
 }

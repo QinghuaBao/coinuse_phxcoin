@@ -55,16 +55,16 @@ public class Controller {
     private TextField historyIdTextField;
 
     private PhxCoinInterface post;
-    private String address = "R37DAbhzvHjEUBN3bX1k5eSigxkZBmciK";
-    private String priKey = "MIGNAgEAMBAGByqGSM49AgEGBSuBBAAKBHYwdAIBAQQguML2lEXwVVYEkpNN19AcIxQ4AuYBndHrYcTjxBMvyb2gBwY" +
-            "FK4EEAAqhRANCAASPJveHbTGv5CEXmib0+XoXMA3xi1aNNC55FlRFwQhgeeLZSpATYvXZ0i33Hknlh9aqEDKDLBrRFBa7oVb5djGS";
-    private String pubKey = "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjyb3h20xr+QhF5om9Pl6FzAN8YtWjTQueRZURcEIYHni2UqQE2L12dIt9x5" +
-            "J5YfWqhAygywa0RQWu6FW+XYxkg==";
+    private String address = "kX4iyrXNDat9BUYhjTYaNYfnMb2xmJCB3";
+    private String priKey = "UgseBWdcJRsLT5ydBldtRyDJcsRUkNJDAbjZBc0XKYU=";
+    private String pubKey = "BHyuKae8nf5lbpUObujpllLnc3JeVBAwDjwJ09h1NFsgIPfBNzimUyPeG6MGb6m4buijDnjNZqm7tinYgJZ/cBI=";
     private long coinbaseValue = 100000L;
     private long transferValue = 100000L;
     private long coinbaseUntil = -1L;
     private long transferUntil = -1L;
-    private String transferAddress = "ga7Lm7i45tDgT26TVEB7XSnhiGoPayFfU";
+    private String transferAddress = "cobEkxZ1WKYGZhuCRSsjNrq7iaMdhTA6i";
+    private boolean start = false;
+    private Thread thread;
 
     @FXML
     private void initialize(){
@@ -190,6 +190,20 @@ public class Controller {
 //            warning("连接成功！");
 //            flag = true;
 //        }
+    }
+
+    @FXML
+    private void handleListen()throws IOException{
+        if (start){
+            thread.stop();
+            warning("监听关闭");
+        }else{
+            thread = post.listen();
+            start = true;
+            warning("监听启动");
+        }
+
+
     }
 
     @FXML
