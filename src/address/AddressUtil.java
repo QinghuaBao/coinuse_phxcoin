@@ -1,6 +1,5 @@
 package address;
 
-import coinuse.Controller;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import org.spongycastle.asn1.x9.X9ECParameters;
 import org.spongycastle.crypto.AsymmetricCipherKeyPair;
@@ -14,10 +13,7 @@ import org.spongycastle.crypto.params.ECPublicKeyParameters;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.*;
-import java.security.spec.ECGenParameterSpec;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.X509EncodedKeySpec;
 
 public class AddressUtil {
     public final static int version = 1;
@@ -53,7 +49,7 @@ public class AddressUtil {
         AsymmetricCipherKeyPair keyPair = AddressUtil.generateECKey();
 //        Controller.warning("getInstance");
         ECPrivateKeyParameters privateKeyParameters = (ECPrivateKeyParameters)keyPair.getPrivate();
-        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keyPair.getPrivate();
+        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keyPair.getPublic();
         BigInteger x = privateKeyParameters.getD();
 
         byte[] pub = pubParams.getQ().getEncoded(false);
