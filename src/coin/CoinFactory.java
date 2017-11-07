@@ -36,7 +36,7 @@ public class CoinFactory {
     }
 
     private static final class Coin implements PhxCoinInterface {
-        private String ADD_URL;
+        private String ADD_URL="192.168.36.135:7050";
         private String returnJson = "";
         private String sendJson = "";
 
@@ -59,16 +59,61 @@ public class CoinFactory {
         // "http://192.168.65.129:7050/chaincode";//改为随机选择链上节点ip
         public String getTransferParam(String fromAddr, String toAddr, long value, String founder, long until,
                                        String pubstring, String pristring) throws IOException {
-//            getAddressUrl();
-            String[] param = { fromAddr };
-            String res = postRequest("query", "coinbase", 1, "query_addrs", param);
-			/* wzt修改7/12----如果查询出错,则返回null */
-            if (res.contains("\"error\"")) {
-                Controller.warning("获得账户[" + fromAddr + "]失败，无法签名！");
-                return "";
+//查询缓存中是否保存了txout
+            RedisCache redisCache = new RedisCache();
+            String invokeParam = "";
+            if(redisCache.isConnected()){//若可以使用redis
+                Map<String, Foamcoin.TX.TXOUT> txoutMap = redisCache.getTxout(fromAddr,value);//从缓存或链上获取的txout集合
+                //遍历一遍map ,看是否足量
+                long countAmount = 0;
+                for(Map.Entry<String, Foamcoin.TX.TXOUT> txout:txoutMap.entrySet()) {
+                    countAmount += txout.getValue().getValue();
+                }
+                int loopTimes = 2; //最多重复执行3遍
+                for (int times = 0; times < loopTimes; times++) {
+                    if(countAmount < value){//若缓存不足
+                        String[] param = { fromAddr };
+                        String res = postRequest("query", "coinbase", 1, "query_addrs", param);
+                        if (res.contains("\"error\"")) {
+                            Controller.warning("获得账户[" + fromAddr + "]失败，无法签名！");
+                            return "";
+                        }
+                        JSONObject jsonObject = new JSONObject(res);
+                        JSONObject result = jsonObject.getJSONObject("result");
+                        String base64ByteDate = result.getString("message");
+                        byte[] byteData = Base64.decode(base64ByteDate);
+                        Foamcoin.QueryAddrResults queryAddrResults = Foamcoin.QueryAddrResults.parseFrom(byteData);
+                        Map<String, Foamcoin.TX.TXOUT> txoutMapTemp = queryAddrResults.getAccountsMap().entrySet().iterator().next().getValue().getTxoutsMap();
+                        redisCache.saveTxout(fromAddr,txoutMapTemp);//将请求到的txout缓存到redis中
+                        redisCache.getTxoutFromRedis(fromAddr,value,txoutMap,countAmount);//继续获取不足的txout
+                        /* TODO 存在并发量过大,并且txout时,txouts迅速被抢光的情况,但此时txoutMap依旧没有满
+                         解决方案: 再次执行一遍获取txout, 存入redis后 再从redis中取的方案
+                         */
+                    }else{
+                        break;
+                    }
+                }
+//                if(countAmount < value){
+//                    Controller.warning("账户[" + fromAddr + "]txout生成数量不足，无法签名！");
+//                }
+                //开始invoke
+                try {
+                    invokeParam = new String(Invoke.invoke(txoutMap, toAddr, value, founder, until, pubstring, pristring));
+                } catch (NoSuchProviderException | NoSuchAlgorithmException | InvalidKeySpecException | SignatureException
+                        | InvalidKeyException e) {
+                    e.printStackTrace();
+                }
+                return invokeParam;
+            }else{//若无法使用redis,则依旧全部使用
+                String[] param = { fromAddr };
+                String res = postRequest("query", "coinbase", 1, "query_addrs", param);
+                if (res.contains("\"error\"")) {
+                    Controller.warning("获得账户[" + fromAddr + "]失败，无法签名！");
+                    return "";
+                }
+                invokeParam = generateTransferInvokeParam(res, toAddr, value, founder, until, pubstring, pristring);
+                return invokeParam;
             }
-            String invokeParam = generateTransferInvokeParam(res, toAddr, value, founder, until, pubstring, pristring);
-            return invokeParam;
         }
 
         public String doTest(long InCent_T0, long Incent_Alpha0, long Incent_ThreadsHold) throws IOException{
