@@ -57,53 +57,57 @@ public final class Ticket {
     long getTicketNumber();
 
     /**
-     * <code>optional int64 Time_of_buy_ticket = 5;</code>
-     */
-    long getTimeOfBuyTicket();
-
-    /**
-     * <code>optional string Buy_TXhash = 6;</code>
+     * <code>optional string Buy_TXhash = 5;</code>
      */
     java.lang.String getBuyTXhash();
     /**
-     * <code>optional string Buy_TXhash = 6;</code>
+     * <code>optional string Buy_TXhash = 5;</code>
      */
     com.google.protobuf.ByteString
         getBuyTXhashBytes();
 
     /**
      * <pre>
-     *0,unuse; 1,used; 2,refund
+     *0,pay_successful   1,pay_failed
      * </pre>
      *
-     * <code>optional int64 Ticket_state = 7;</code>
+     * <code>optional int64 Ticket_state = 6;</code>
      */
     long getTicketState();
 
     /**
-     * <code>optional int64 Time_of_state_changed = 8;</code>
+     * <code>optional string Pay_return = 7;</code>
      */
-    long getTimeOfStateChanged();
-
+    java.lang.String getPayReturn();
     /**
-     * <code>optional string Refund_TXhash = 9;</code>
-     */
-    java.lang.String getRefundTXhash();
-    /**
-     * <code>optional string Refund_TXhash = 9;</code>
+     * <code>optional string Pay_return = 7;</code>
      */
     com.google.protobuf.ByteString
-        getRefundTXhashBytes();
+        getPayReturnBytes();
 
     /**
-     * <code>optional string Admin_pass = 10;</code>
+     * <pre>
+     *	string Admin_pass = 7;
+     *	int64 Time_of_buy_ticket = 5;
+     *	int64 Time_of_state_changed = 8;
+     *	string Refund_TXhash = 9;
+     * </pre>
+     *
+     * <code>optional string Error_state = 8;</code>
      */
-    java.lang.String getAdminPass();
+    java.lang.String getErrorState();
     /**
-     * <code>optional string Admin_pass = 10;</code>
+     * <pre>
+     *	string Admin_pass = 7;
+     *	int64 Time_of_buy_ticket = 5;
+     *	int64 Time_of_state_changed = 8;
+     *	string Refund_TXhash = 9;
+     * </pre>
+     *
+     * <code>optional string Error_state = 8;</code>
      */
     com.google.protobuf.ByteString
-        getAdminPassBytes();
+        getErrorStateBytes();
   }
   /**
    * Protobuf type {@code protos.TicketElem}
@@ -121,12 +125,10 @@ public final class Ticket {
       ticketId_ = "";
       ticketUnitPrice_ = 0L;
       ticketNumber_ = 0L;
-      timeOfBuyTicket_ = 0L;
       buyTXhash_ = "";
       ticketState_ = 0L;
-      timeOfStateChanged_ = 0L;
-      refundTXhash_ = "";
-      adminPass_ = "";
+      payReturn_ = "";
+      errorState_ = "";
     }
 
     @java.lang.Override
@@ -176,37 +178,27 @@ public final class Ticket {
               ticketNumber_ = input.readInt64();
               break;
             }
-            case 40: {
-
-              timeOfBuyTicket_ = input.readInt64();
-              break;
-            }
-            case 50: {
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
               buyTXhash_ = s;
               break;
             }
-            case 56: {
+            case 48: {
 
               ticketState_ = input.readInt64();
               break;
             }
-            case 64: {
-
-              timeOfStateChanged_ = input.readInt64();
-              break;
-            }
-            case 74: {
+            case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              refundTXhash_ = s;
+              payReturn_ = s;
               break;
             }
-            case 82: {
+            case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              adminPass_ = s;
+              errorState_ = s;
               break;
             }
           }
@@ -326,19 +318,10 @@ public final class Ticket {
       return ticketNumber_;
     }
 
-    public static final int TIME_OF_BUY_TICKET_FIELD_NUMBER = 5;
-    private long timeOfBuyTicket_;
-    /**
-     * <code>optional int64 Time_of_buy_ticket = 5;</code>
-     */
-    public long getTimeOfBuyTicket() {
-      return timeOfBuyTicket_;
-    }
-
-    public static final int BUY_TXHASH_FIELD_NUMBER = 6;
+    public static final int BUY_TXHASH_FIELD_NUMBER = 5;
     private volatile java.lang.Object buyTXhash_;
     /**
-     * <code>optional string Buy_TXhash = 6;</code>
+     * <code>optional string Buy_TXhash = 5;</code>
      */
     public java.lang.String getBuyTXhash() {
       java.lang.Object ref = buyTXhash_;
@@ -353,7 +336,7 @@ public final class Ticket {
       }
     }
     /**
-     * <code>optional string Buy_TXhash = 6;</code>
+     * <code>optional string Buy_TXhash = 5;</code>
      */
     public com.google.protobuf.ByteString
         getBuyTXhashBytes() {
@@ -369,90 +352,95 @@ public final class Ticket {
       }
     }
 
-    public static final int TICKET_STATE_FIELD_NUMBER = 7;
+    public static final int TICKET_STATE_FIELD_NUMBER = 6;
     private long ticketState_;
     /**
      * <pre>
-     *0,unuse; 1,used; 2,refund
+     *0,pay_successful   1,pay_failed
      * </pre>
      *
-     * <code>optional int64 Ticket_state = 7;</code>
+     * <code>optional int64 Ticket_state = 6;</code>
      */
     public long getTicketState() {
       return ticketState_;
     }
 
-    public static final int TIME_OF_STATE_CHANGED_FIELD_NUMBER = 8;
-    private long timeOfStateChanged_;
+    public static final int PAY_RETURN_FIELD_NUMBER = 7;
+    private volatile java.lang.Object payReturn_;
     /**
-     * <code>optional int64 Time_of_state_changed = 8;</code>
+     * <code>optional string Pay_return = 7;</code>
      */
-    public long getTimeOfStateChanged() {
-      return timeOfStateChanged_;
-    }
-
-    public static final int REFUND_TXHASH_FIELD_NUMBER = 9;
-    private volatile java.lang.Object refundTXhash_;
-    /**
-     * <code>optional string Refund_TXhash = 9;</code>
-     */
-    public java.lang.String getRefundTXhash() {
-      java.lang.Object ref = refundTXhash_;
+    public java.lang.String getPayReturn() {
+      java.lang.Object ref = payReturn_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        refundTXhash_ = s;
+        payReturn_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string Refund_TXhash = 9;</code>
+     * <code>optional string Pay_return = 7;</code>
      */
     public com.google.protobuf.ByteString
-        getRefundTXhashBytes() {
-      java.lang.Object ref = refundTXhash_;
+        getPayReturnBytes() {
+      java.lang.Object ref = payReturn_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        refundTXhash_ = b;
+        payReturn_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int ADMIN_PASS_FIELD_NUMBER = 10;
-    private volatile java.lang.Object adminPass_;
+    public static final int ERROR_STATE_FIELD_NUMBER = 8;
+    private volatile java.lang.Object errorState_;
     /**
-     * <code>optional string Admin_pass = 10;</code>
+     * <pre>
+     *	string Admin_pass = 7;
+     *	int64 Time_of_buy_ticket = 5;
+     *	int64 Time_of_state_changed = 8;
+     *	string Refund_TXhash = 9;
+     * </pre>
+     *
+     * <code>optional string Error_state = 8;</code>
      */
-    public java.lang.String getAdminPass() {
-      java.lang.Object ref = adminPass_;
+    public java.lang.String getErrorState() {
+      java.lang.Object ref = errorState_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        adminPass_ = s;
+        errorState_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string Admin_pass = 10;</code>
+     * <pre>
+     *	string Admin_pass = 7;
+     *	int64 Time_of_buy_ticket = 5;
+     *	int64 Time_of_state_changed = 8;
+     *	string Refund_TXhash = 9;
+     * </pre>
+     *
+     * <code>optional string Error_state = 8;</code>
      */
     public com.google.protobuf.ByteString
-        getAdminPassBytes() {
-      java.lang.Object ref = adminPass_;
+        getErrorStateBytes() {
+      java.lang.Object ref = errorState_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        adminPass_ = b;
+        errorState_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -483,23 +471,17 @@ public final class Ticket {
       if (ticketNumber_ != 0L) {
         output.writeInt64(4, ticketNumber_);
       }
-      if (timeOfBuyTicket_ != 0L) {
-        output.writeInt64(5, timeOfBuyTicket_);
-      }
       if (!getBuyTXhashBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, buyTXhash_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, buyTXhash_);
       }
       if (ticketState_ != 0L) {
-        output.writeInt64(7, ticketState_);
+        output.writeInt64(6, ticketState_);
       }
-      if (timeOfStateChanged_ != 0L) {
-        output.writeInt64(8, timeOfStateChanged_);
+      if (!getPayReturnBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, payReturn_);
       }
-      if (!getRefundTXhashBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, refundTXhash_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, adminPass_);
+      if (!getErrorStateBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, errorState_);
       }
     }
 
@@ -522,26 +504,18 @@ public final class Ticket {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, ticketNumber_);
       }
-      if (timeOfBuyTicket_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, timeOfBuyTicket_);
-      }
       if (!getBuyTXhashBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, buyTXhash_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, buyTXhash_);
       }
       if (ticketState_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, ticketState_);
+          .computeInt64Size(6, ticketState_);
       }
-      if (timeOfStateChanged_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(8, timeOfStateChanged_);
+      if (!getPayReturnBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, payReturn_);
       }
-      if (!getRefundTXhashBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, refundTXhash_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, adminPass_);
+      if (!getErrorStateBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, errorState_);
       }
       memoizedSize = size;
       return size;
@@ -567,18 +541,14 @@ public final class Ticket {
           == other.getTicketUnitPrice());
       result = result && (getTicketNumber()
           == other.getTicketNumber());
-      result = result && (getTimeOfBuyTicket()
-          == other.getTimeOfBuyTicket());
       result = result && getBuyTXhash()
           .equals(other.getBuyTXhash());
       result = result && (getTicketState()
           == other.getTicketState());
-      result = result && (getTimeOfStateChanged()
-          == other.getTimeOfStateChanged());
-      result = result && getRefundTXhash()
-          .equals(other.getRefundTXhash());
-      result = result && getAdminPass()
-          .equals(other.getAdminPass());
+      result = result && getPayReturn()
+          .equals(other.getPayReturn());
+      result = result && getErrorState()
+          .equals(other.getErrorState());
       return result;
     }
 
@@ -599,21 +569,15 @@ public final class Ticket {
       hash = (37 * hash) + TICKET_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTicketNumber());
-      hash = (37 * hash) + TIME_OF_BUY_TICKET_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTimeOfBuyTicket());
       hash = (37 * hash) + BUY_TXHASH_FIELD_NUMBER;
       hash = (53 * hash) + getBuyTXhash().hashCode();
       hash = (37 * hash) + TICKET_STATE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTicketState());
-      hash = (37 * hash) + TIME_OF_STATE_CHANGED_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getTimeOfStateChanged());
-      hash = (37 * hash) + REFUND_TXHASH_FIELD_NUMBER;
-      hash = (53 * hash) + getRefundTXhash().hashCode();
-      hash = (37 * hash) + ADMIN_PASS_FIELD_NUMBER;
-      hash = (53 * hash) + getAdminPass().hashCode();
+      hash = (37 * hash) + PAY_RETURN_FIELD_NUMBER;
+      hash = (53 * hash) + getPayReturn().hashCode();
+      hash = (37 * hash) + ERROR_STATE_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorState().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -740,17 +704,13 @@ public final class Ticket {
 
         ticketNumber_ = 0L;
 
-        timeOfBuyTicket_ = 0L;
-
         buyTXhash_ = "";
 
         ticketState_ = 0L;
 
-        timeOfStateChanged_ = 0L;
+        payReturn_ = "";
 
-        refundTXhash_ = "";
-
-        adminPass_ = "";
+        errorState_ = "";
 
         return this;
       }
@@ -778,12 +738,10 @@ public final class Ticket {
         result.ticketId_ = ticketId_;
         result.ticketUnitPrice_ = ticketUnitPrice_;
         result.ticketNumber_ = ticketNumber_;
-        result.timeOfBuyTicket_ = timeOfBuyTicket_;
         result.buyTXhash_ = buyTXhash_;
         result.ticketState_ = ticketState_;
-        result.timeOfStateChanged_ = timeOfStateChanged_;
-        result.refundTXhash_ = refundTXhash_;
-        result.adminPass_ = adminPass_;
+        result.payReturn_ = payReturn_;
+        result.errorState_ = errorState_;
         onBuilt();
         return result;
       }
@@ -839,9 +797,6 @@ public final class Ticket {
         if (other.getTicketNumber() != 0L) {
           setTicketNumber(other.getTicketNumber());
         }
-        if (other.getTimeOfBuyTicket() != 0L) {
-          setTimeOfBuyTicket(other.getTimeOfBuyTicket());
-        }
         if (!other.getBuyTXhash().isEmpty()) {
           buyTXhash_ = other.buyTXhash_;
           onChanged();
@@ -849,15 +804,12 @@ public final class Ticket {
         if (other.getTicketState() != 0L) {
           setTicketState(other.getTicketState());
         }
-        if (other.getTimeOfStateChanged() != 0L) {
-          setTimeOfStateChanged(other.getTimeOfStateChanged());
-        }
-        if (!other.getRefundTXhash().isEmpty()) {
-          refundTXhash_ = other.refundTXhash_;
+        if (!other.getPayReturn().isEmpty()) {
+          payReturn_ = other.payReturn_;
           onChanged();
         }
-        if (!other.getAdminPass().isEmpty()) {
-          adminPass_ = other.adminPass_;
+        if (!other.getErrorState().isEmpty()) {
+          errorState_ = other.errorState_;
           onChanged();
         }
         onChanged();
@@ -1096,35 +1048,9 @@ public final class Ticket {
         return this;
       }
 
-      private long timeOfBuyTicket_ ;
-      /**
-       * <code>optional int64 Time_of_buy_ticket = 5;</code>
-       */
-      public long getTimeOfBuyTicket() {
-        return timeOfBuyTicket_;
-      }
-      /**
-       * <code>optional int64 Time_of_buy_ticket = 5;</code>
-       */
-      public Builder setTimeOfBuyTicket(long value) {
-        
-        timeOfBuyTicket_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 Time_of_buy_ticket = 5;</code>
-       */
-      public Builder clearTimeOfBuyTicket() {
-        
-        timeOfBuyTicket_ = 0L;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object buyTXhash_ = "";
       /**
-       * <code>optional string Buy_TXhash = 6;</code>
+       * <code>optional string Buy_TXhash = 5;</code>
        */
       public java.lang.String getBuyTXhash() {
         java.lang.Object ref = buyTXhash_;
@@ -1139,7 +1065,7 @@ public final class Ticket {
         }
       }
       /**
-       * <code>optional string Buy_TXhash = 6;</code>
+       * <code>optional string Buy_TXhash = 5;</code>
        */
       public com.google.protobuf.ByteString
           getBuyTXhashBytes() {
@@ -1155,7 +1081,7 @@ public final class Ticket {
         }
       }
       /**
-       * <code>optional string Buy_TXhash = 6;</code>
+       * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder setBuyTXhash(
           java.lang.String value) {
@@ -1168,7 +1094,7 @@ public final class Ticket {
         return this;
       }
       /**
-       * <code>optional string Buy_TXhash = 6;</code>
+       * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder clearBuyTXhash() {
         
@@ -1177,7 +1103,7 @@ public final class Ticket {
         return this;
       }
       /**
-       * <code>optional string Buy_TXhash = 6;</code>
+       * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder setBuyTXhashBytes(
           com.google.protobuf.ByteString value) {
@@ -1194,20 +1120,20 @@ public final class Ticket {
       private long ticketState_ ;
       /**
        * <pre>
-       *0,unuse; 1,used; 2,refund
+       *0,pay_successful   1,pay_failed
        * </pre>
        *
-       * <code>optional int64 Ticket_state = 7;</code>
+       * <code>optional int64 Ticket_state = 6;</code>
        */
       public long getTicketState() {
         return ticketState_;
       }
       /**
        * <pre>
-       *0,unuse; 1,used; 2,refund
+       *0,pay_successful   1,pay_failed
        * </pre>
        *
-       * <code>optional int64 Ticket_state = 7;</code>
+       * <code>optional int64 Ticket_state = 6;</code>
        */
       public Builder setTicketState(long value) {
         
@@ -1217,10 +1143,10 @@ public final class Ticket {
       }
       /**
        * <pre>
-       *0,unuse; 1,used; 2,refund
+       *0,pay_successful   1,pay_failed
        * </pre>
        *
-       * <code>optional int64 Ticket_state = 7;</code>
+       * <code>optional int64 Ticket_state = 6;</code>
        */
       public Builder clearTicketState() {
         
@@ -1229,166 +1155,175 @@ public final class Ticket {
         return this;
       }
 
-      private long timeOfStateChanged_ ;
+      private java.lang.Object payReturn_ = "";
       /**
-       * <code>optional int64 Time_of_state_changed = 8;</code>
+       * <code>optional string Pay_return = 7;</code>
        */
-      public long getTimeOfStateChanged() {
-        return timeOfStateChanged_;
-      }
-      /**
-       * <code>optional int64 Time_of_state_changed = 8;</code>
-       */
-      public Builder setTimeOfStateChanged(long value) {
-        
-        timeOfStateChanged_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 Time_of_state_changed = 8;</code>
-       */
-      public Builder clearTimeOfStateChanged() {
-        
-        timeOfStateChanged_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object refundTXhash_ = "";
-      /**
-       * <code>optional string Refund_TXhash = 9;</code>
-       */
-      public java.lang.String getRefundTXhash() {
-        java.lang.Object ref = refundTXhash_;
+      public java.lang.String getPayReturn() {
+        java.lang.Object ref = payReturn_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          refundTXhash_ = s;
+          payReturn_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string Refund_TXhash = 9;</code>
+       * <code>optional string Pay_return = 7;</code>
        */
       public com.google.protobuf.ByteString
-          getRefundTXhashBytes() {
-        java.lang.Object ref = refundTXhash_;
+          getPayReturnBytes() {
+        java.lang.Object ref = payReturn_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          refundTXhash_ = b;
+          payReturn_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string Refund_TXhash = 9;</code>
+       * <code>optional string Pay_return = 7;</code>
        */
-      public Builder setRefundTXhash(
+      public Builder setPayReturn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        refundTXhash_ = value;
+        payReturn_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Refund_TXhash = 9;</code>
+       * <code>optional string Pay_return = 7;</code>
        */
-      public Builder clearRefundTXhash() {
+      public Builder clearPayReturn() {
         
-        refundTXhash_ = getDefaultInstance().getRefundTXhash();
+        payReturn_ = getDefaultInstance().getPayReturn();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Refund_TXhash = 9;</code>
+       * <code>optional string Pay_return = 7;</code>
        */
-      public Builder setRefundTXhashBytes(
+      public Builder setPayReturnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        refundTXhash_ = value;
+        payReturn_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object adminPass_ = "";
+      private java.lang.Object errorState_ = "";
       /**
-       * <code>optional string Admin_pass = 10;</code>
+       * <pre>
+       *	string Admin_pass = 7;
+       *	int64 Time_of_buy_ticket = 5;
+       *	int64 Time_of_state_changed = 8;
+       *	string Refund_TXhash = 9;
+       * </pre>
+       *
+       * <code>optional string Error_state = 8;</code>
        */
-      public java.lang.String getAdminPass() {
-        java.lang.Object ref = adminPass_;
+      public java.lang.String getErrorState() {
+        java.lang.Object ref = errorState_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          adminPass_ = s;
+          errorState_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string Admin_pass = 10;</code>
+       * <pre>
+       *	string Admin_pass = 7;
+       *	int64 Time_of_buy_ticket = 5;
+       *	int64 Time_of_state_changed = 8;
+       *	string Refund_TXhash = 9;
+       * </pre>
+       *
+       * <code>optional string Error_state = 8;</code>
        */
       public com.google.protobuf.ByteString
-          getAdminPassBytes() {
-        java.lang.Object ref = adminPass_;
+          getErrorStateBytes() {
+        java.lang.Object ref = errorState_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          adminPass_ = b;
+          errorState_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string Admin_pass = 10;</code>
+       * <pre>
+       *	string Admin_pass = 7;
+       *	int64 Time_of_buy_ticket = 5;
+       *	int64 Time_of_state_changed = 8;
+       *	string Refund_TXhash = 9;
+       * </pre>
+       *
+       * <code>optional string Error_state = 8;</code>
        */
-      public Builder setAdminPass(
+      public Builder setErrorState(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        adminPass_ = value;
+        errorState_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Admin_pass = 10;</code>
+       * <pre>
+       *	string Admin_pass = 7;
+       *	int64 Time_of_buy_ticket = 5;
+       *	int64 Time_of_state_changed = 8;
+       *	string Refund_TXhash = 9;
+       * </pre>
+       *
+       * <code>optional string Error_state = 8;</code>
        */
-      public Builder clearAdminPass() {
+      public Builder clearErrorState() {
         
-        adminPass_ = getDefaultInstance().getAdminPass();
+        errorState_ = getDefaultInstance().getErrorState();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Admin_pass = 10;</code>
+       * <pre>
+       *	string Admin_pass = 7;
+       *	int64 Time_of_buy_ticket = 5;
+       *	int64 Time_of_state_changed = 8;
+       *	string Refund_TXhash = 9;
+       * </pre>
+       *
+       * <code>optional string Error_state = 8;</code>
        */
-      public Builder setAdminPassBytes(
+      public Builder setErrorStateBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        adminPass_ = value;
+        errorState_ = value;
         onChanged();
         return this;
       }
@@ -1465,12 +1400,12 @@ public final class Ticket {
 
     /**
      * <pre>
-     *record the number
+     *	int64 Unused_ticket_number = 2;   //record the number
      * </pre>
      *
-     * <code>optional int64 Unused_ticket_number = 2;</code>
+     * <code>optional int64 Pay_failed_number = 2;</code>
      */
-    long getUnusedTicketNumber();
+    long getPayFailedNumber();
 
     /**
      * <code>repeated .protos.TicketElem TicketInfo = 3;</code>
@@ -1513,7 +1448,7 @@ public final class Ticket {
     }
     private TicketOfUser() {
       phonenumber_ = "";
-      unusedTicketNumber_ = 0L;
+      payFailedNumber_ = 0L;
       ticketInfo_ = java.util.Collections.emptyList();
     }
 
@@ -1550,7 +1485,7 @@ public final class Ticket {
             }
             case 16: {
 
-              unusedTicketNumber_ = input.readInt64();
+              payFailedNumber_ = input.readInt64();
               break;
             }
             case 26: {
@@ -1631,17 +1566,17 @@ public final class Ticket {
       }
     }
 
-    public static final int UNUSED_TICKET_NUMBER_FIELD_NUMBER = 2;
-    private long unusedTicketNumber_;
+    public static final int PAY_FAILED_NUMBER_FIELD_NUMBER = 2;
+    private long payFailedNumber_;
     /**
      * <pre>
-     *record the number
+     *	int64 Unused_ticket_number = 2;   //record the number
      * </pre>
      *
-     * <code>optional int64 Unused_ticket_number = 2;</code>
+     * <code>optional int64 Pay_failed_number = 2;</code>
      */
-    public long getUnusedTicketNumber() {
-      return unusedTicketNumber_;
+    public long getPayFailedNumber() {
+      return payFailedNumber_;
     }
 
     public static final int TICKETINFO_FIELD_NUMBER = 3;
@@ -1694,8 +1629,8 @@ public final class Ticket {
       if (!getPhonenumberBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, phonenumber_);
       }
-      if (unusedTicketNumber_ != 0L) {
-        output.writeInt64(2, unusedTicketNumber_);
+      if (payFailedNumber_ != 0L) {
+        output.writeInt64(2, payFailedNumber_);
       }
       for (int i = 0; i < ticketInfo_.size(); i++) {
         output.writeMessage(3, ticketInfo_.get(i));
@@ -1710,9 +1645,9 @@ public final class Ticket {
       if (!getPhonenumberBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, phonenumber_);
       }
-      if (unusedTicketNumber_ != 0L) {
+      if (payFailedNumber_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, unusedTicketNumber_);
+          .computeInt64Size(2, payFailedNumber_);
       }
       for (int i = 0; i < ticketInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -1736,8 +1671,8 @@ public final class Ticket {
       boolean result = true;
       result = result && getPhonenumber()
           .equals(other.getPhonenumber());
-      result = result && (getUnusedTicketNumber()
-          == other.getUnusedTicketNumber());
+      result = result && (getPayFailedNumber()
+          == other.getPayFailedNumber());
       result = result && getTicketInfoList()
           .equals(other.getTicketInfoList());
       return result;
@@ -1752,9 +1687,9 @@ public final class Ticket {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + PHONENUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getPhonenumber().hashCode();
-      hash = (37 * hash) + UNUSED_TICKET_NUMBER_FIELD_NUMBER;
+      hash = (37 * hash) + PAY_FAILED_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getUnusedTicketNumber());
+          getPayFailedNumber());
       if (getTicketInfoCount() > 0) {
         hash = (37 * hash) + TICKETINFO_FIELD_NUMBER;
         hash = (53 * hash) + getTicketInfoList().hashCode();
@@ -1884,7 +1819,7 @@ public final class Ticket {
         super.clear();
         phonenumber_ = "";
 
-        unusedTicketNumber_ = 0L;
+        payFailedNumber_ = 0L;
 
         if (ticketInfoBuilder_ == null) {
           ticketInfo_ = java.util.Collections.emptyList();
@@ -1917,7 +1852,7 @@ public final class Ticket {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.phonenumber_ = phonenumber_;
-        result.unusedTicketNumber_ = unusedTicketNumber_;
+        result.payFailedNumber_ = payFailedNumber_;
         if (ticketInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             ticketInfo_ = java.util.Collections.unmodifiableList(ticketInfo_);
@@ -1973,8 +1908,8 @@ public final class Ticket {
           phonenumber_ = other.phonenumber_;
           onChanged();
         }
-        if (other.getUnusedTicketNumber() != 0L) {
-          setUnusedTicketNumber(other.getUnusedTicketNumber());
+        if (other.getPayFailedNumber() != 0L) {
+          setPayFailedNumber(other.getPayFailedNumber());
         }
         if (ticketInfoBuilder_ == null) {
           if (!other.ticketInfo_.isEmpty()) {
@@ -2118,40 +2053,40 @@ public final class Ticket {
         return this;
       }
 
-      private long unusedTicketNumber_ ;
+      private long payFailedNumber_ ;
       /**
        * <pre>
-       *record the number
+       *	int64 Unused_ticket_number = 2;   //record the number
        * </pre>
        *
-       * <code>optional int64 Unused_ticket_number = 2;</code>
+       * <code>optional int64 Pay_failed_number = 2;</code>
        */
-      public long getUnusedTicketNumber() {
-        return unusedTicketNumber_;
+      public long getPayFailedNumber() {
+        return payFailedNumber_;
       }
       /**
        * <pre>
-       *record the number
+       *	int64 Unused_ticket_number = 2;   //record the number
        * </pre>
        *
-       * <code>optional int64 Unused_ticket_number = 2;</code>
+       * <code>optional int64 Pay_failed_number = 2;</code>
        */
-      public Builder setUnusedTicketNumber(long value) {
+      public Builder setPayFailedNumber(long value) {
         
-        unusedTicketNumber_ = value;
+        payFailedNumber_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *record the number
+       *	int64 Unused_ticket_number = 2;   //record the number
        * </pre>
        *
-       * <code>optional int64 Unused_ticket_number = 2;</code>
+       * <code>optional int64 Pay_failed_number = 2;</code>
        */
-      public Builder clearUnusedTicketNumber() {
+      public Builder clearPayFailedNumber() {
         
-        unusedTicketNumber_ = 0L;
+        payFailedNumber_ = 0L;
         onChanged();
         return this;
       }
@@ -2444,8 +2379,8 @@ public final class Ticket {
 
   }
 
-  public interface UnusedTicketElemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protos.UnusedTicketElem)
+  public interface BuyTicketElemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protos.BuyTicketElem)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2479,27 +2414,35 @@ public final class Ticket {
     long getTicketNumber();
 
     /**
+     * <pre>
+     *	int64 Time_of_buy_ticket = 6;
+     * </pre>
+     *
      * <code>optional string Buy_TXhash = 5;</code>
      */
     java.lang.String getBuyTXhash();
     /**
+     * <pre>
+     *	int64 Time_of_buy_ticket = 6;
+     * </pre>
+     *
      * <code>optional string Buy_TXhash = 5;</code>
      */
     com.google.protobuf.ByteString
         getBuyTXhashBytes();
   }
   /**
-   * Protobuf type {@code protos.UnusedTicketElem}
+   * Protobuf type {@code protos.BuyTicketElem}
    */
-  public  static final class UnusedTicketElem extends
+  public  static final class BuyTicketElem extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protos.UnusedTicketElem)
-      UnusedTicketElemOrBuilder {
-    // Use UnusedTicketElem.newBuilder() to construct.
-    private UnusedTicketElem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:protos.BuyTicketElem)
+      BuyTicketElemOrBuilder {
+    // Use BuyTicketElem.newBuilder() to construct.
+    private BuyTicketElem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private UnusedTicketElem() {
+    private BuyTicketElem() {
       orderId_ = "";
       ticketId_ = "";
       ticketUnitPrice_ = 0L;
@@ -2512,7 +2455,7 @@ public final class Ticket {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private UnusedTicketElem(
+    private BuyTicketElem(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2573,14 +2516,14 @@ public final class Ticket {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return protos.Ticket.internal_static_protos_UnusedTicketElem_descriptor;
+      return protos.Ticket.internal_static_protos_BuyTicketElem_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return protos.Ticket.internal_static_protos_UnusedTicketElem_fieldAccessorTable
+      return protos.Ticket.internal_static_protos_BuyTicketElem_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              protos.Ticket.UnusedTicketElem.class, protos.Ticket.UnusedTicketElem.Builder.class);
+              protos.Ticket.BuyTicketElem.class, protos.Ticket.BuyTicketElem.Builder.class);
     }
 
     public static final int ORDER_ID_FIELD_NUMBER = 1;
@@ -2672,6 +2615,10 @@ public final class Ticket {
     public static final int BUY_TXHASH_FIELD_NUMBER = 5;
     private volatile java.lang.Object buyTXhash_;
     /**
+     * <pre>
+     *	int64 Time_of_buy_ticket = 6;
+     * </pre>
+     *
      * <code>optional string Buy_TXhash = 5;</code>
      */
     public java.lang.String getBuyTXhash() {
@@ -2687,6 +2634,10 @@ public final class Ticket {
       }
     }
     /**
+     * <pre>
+     *	int64 Time_of_buy_ticket = 6;
+     * </pre>
+     *
      * <code>optional string Buy_TXhash = 5;</code>
      */
     public com.google.protobuf.ByteString
@@ -2764,10 +2715,10 @@ public final class Ticket {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof protos.Ticket.UnusedTicketElem)) {
+      if (!(obj instanceof protos.Ticket.BuyTicketElem)) {
         return super.equals(obj);
       }
-      protos.Ticket.UnusedTicketElem other = (protos.Ticket.UnusedTicketElem) obj;
+      protos.Ticket.BuyTicketElem other = (protos.Ticket.BuyTicketElem) obj;
 
       boolean result = true;
       result = result && getOrderId()
@@ -2807,58 +2758,58 @@ public final class Ticket {
       return hash;
     }
 
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(byte[] data)
+    public static protos.Ticket.BuyTicketElem parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(java.io.InputStream input)
+    public static protos.Ticket.BuyTicketElem parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static protos.Ticket.UnusedTicketElem parseDelimitedFrom(java.io.InputStream input)
+    public static protos.Ticket.BuyTicketElem parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static protos.Ticket.UnusedTicketElem parseDelimitedFrom(
+    public static protos.Ticket.BuyTicketElem parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static protos.Ticket.UnusedTicketElem parseFrom(
+    public static protos.Ticket.BuyTicketElem parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2870,7 +2821,7 @@ public final class Ticket {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(protos.Ticket.UnusedTicketElem prototype) {
+    public static Builder newBuilder(protos.Ticket.BuyTicketElem prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2885,25 +2836,25 @@ public final class Ticket {
       return builder;
     }
     /**
-     * Protobuf type {@code protos.UnusedTicketElem}
+     * Protobuf type {@code protos.BuyTicketElem}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protos.UnusedTicketElem)
-        protos.Ticket.UnusedTicketElemOrBuilder {
+        // @@protoc_insertion_point(builder_implements:protos.BuyTicketElem)
+        protos.Ticket.BuyTicketElemOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return protos.Ticket.internal_static_protos_UnusedTicketElem_descriptor;
+        return protos.Ticket.internal_static_protos_BuyTicketElem_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return protos.Ticket.internal_static_protos_UnusedTicketElem_fieldAccessorTable
+        return protos.Ticket.internal_static_protos_BuyTicketElem_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                protos.Ticket.UnusedTicketElem.class, protos.Ticket.UnusedTicketElem.Builder.class);
+                protos.Ticket.BuyTicketElem.class, protos.Ticket.BuyTicketElem.Builder.class);
       }
 
-      // Construct using protos.Ticket.UnusedTicketElem.newBuilder()
+      // Construct using protos.Ticket.BuyTicketElem.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2935,23 +2886,23 @@ public final class Ticket {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return protos.Ticket.internal_static_protos_UnusedTicketElem_descriptor;
+        return protos.Ticket.internal_static_protos_BuyTicketElem_descriptor;
       }
 
-      public protos.Ticket.UnusedTicketElem getDefaultInstanceForType() {
-        return protos.Ticket.UnusedTicketElem.getDefaultInstance();
+      public protos.Ticket.BuyTicketElem getDefaultInstanceForType() {
+        return protos.Ticket.BuyTicketElem.getDefaultInstance();
       }
 
-      public protos.Ticket.UnusedTicketElem build() {
-        protos.Ticket.UnusedTicketElem result = buildPartial();
+      public protos.Ticket.BuyTicketElem build() {
+        protos.Ticket.BuyTicketElem result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public protos.Ticket.UnusedTicketElem buildPartial() {
-        protos.Ticket.UnusedTicketElem result = new protos.Ticket.UnusedTicketElem(this);
+      public protos.Ticket.BuyTicketElem buildPartial() {
+        protos.Ticket.BuyTicketElem result = new protos.Ticket.BuyTicketElem(this);
         result.orderId_ = orderId_;
         result.ticketId_ = ticketId_;
         result.ticketUnitPrice_ = ticketUnitPrice_;
@@ -2988,16 +2939,16 @@ public final class Ticket {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protos.Ticket.UnusedTicketElem) {
-          return mergeFrom((protos.Ticket.UnusedTicketElem)other);
+        if (other instanceof protos.Ticket.BuyTicketElem) {
+          return mergeFrom((protos.Ticket.BuyTicketElem)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(protos.Ticket.UnusedTicketElem other) {
-        if (other == protos.Ticket.UnusedTicketElem.getDefaultInstance()) return this;
+      public Builder mergeFrom(protos.Ticket.BuyTicketElem other) {
+        if (other == protos.Ticket.BuyTicketElem.getDefaultInstance()) return this;
         if (!other.getOrderId().isEmpty()) {
           orderId_ = other.orderId_;
           onChanged();
@@ -3028,11 +2979,11 @@ public final class Ticket {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protos.Ticket.UnusedTicketElem parsedMessage = null;
+        protos.Ticket.BuyTicketElem parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protos.Ticket.UnusedTicketElem) e.getUnfinishedMessage();
+          parsedMessage = (protos.Ticket.BuyTicketElem) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3234,6 +3185,10 @@ public final class Ticket {
 
       private java.lang.Object buyTXhash_ = "";
       /**
+       * <pre>
+       *	int64 Time_of_buy_ticket = 6;
+       * </pre>
+       *
        * <code>optional string Buy_TXhash = 5;</code>
        */
       public java.lang.String getBuyTXhash() {
@@ -3249,6 +3204,10 @@ public final class Ticket {
         }
       }
       /**
+       * <pre>
+       *	int64 Time_of_buy_ticket = 6;
+       * </pre>
+       *
        * <code>optional string Buy_TXhash = 5;</code>
        */
       public com.google.protobuf.ByteString
@@ -3265,6 +3224,10 @@ public final class Ticket {
         }
       }
       /**
+       * <pre>
+       *	int64 Time_of_buy_ticket = 6;
+       * </pre>
+       *
        * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder setBuyTXhash(
@@ -3278,6 +3241,10 @@ public final class Ticket {
         return this;
       }
       /**
+       * <pre>
+       *	int64 Time_of_buy_ticket = 6;
+       * </pre>
+       *
        * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder clearBuyTXhash() {
@@ -3287,6 +3254,10 @@ public final class Ticket {
         return this;
       }
       /**
+       * <pre>
+       *	int64 Time_of_buy_ticket = 6;
+       * </pre>
+       *
        * <code>optional string Buy_TXhash = 5;</code>
        */
       public Builder setBuyTXhashBytes(
@@ -3311,2282 +3282,39 @@ public final class Ticket {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:protos.UnusedTicketElem)
+      // @@protoc_insertion_point(builder_scope:protos.BuyTicketElem)
     }
 
-    // @@protoc_insertion_point(class_scope:protos.UnusedTicketElem)
-    private static final protos.Ticket.UnusedTicketElem DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:protos.BuyTicketElem)
+    private static final protos.Ticket.BuyTicketElem DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new protos.Ticket.UnusedTicketElem();
+      DEFAULT_INSTANCE = new protos.Ticket.BuyTicketElem();
     }
 
-    public static protos.Ticket.UnusedTicketElem getDefaultInstance() {
+    public static protos.Ticket.BuyTicketElem getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<UnusedTicketElem>
-        PARSER = new com.google.protobuf.AbstractParser<UnusedTicketElem>() {
-      public UnusedTicketElem parsePartialFrom(
+    private static final com.google.protobuf.Parser<BuyTicketElem>
+        PARSER = new com.google.protobuf.AbstractParser<BuyTicketElem>() {
+      public BuyTicketElem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UnusedTicketElem(input, extensionRegistry);
+          return new BuyTicketElem(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<UnusedTicketElem> parser() {
+    public static com.google.protobuf.Parser<BuyTicketElem> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<UnusedTicketElem> getParserForType() {
+    public com.google.protobuf.Parser<BuyTicketElem> getParserForType() {
       return PARSER;
     }
 
-    public protos.Ticket.UnusedTicketElem getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface UnusedTicketOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protos.UnusedTicket)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional int64 Unused_ticket_number = 1;</code>
-     */
-    long getUnusedTicketNumber();
-
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    java.util.List<protos.Ticket.UnusedTicketElem> 
-        getUnsedTicketInfoList();
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    protos.Ticket.UnusedTicketElem getUnsedTicketInfo(int index);
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    int getUnsedTicketInfoCount();
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    java.util.List<? extends protos.Ticket.UnusedTicketElemOrBuilder> 
-        getUnsedTicketInfoOrBuilderList();
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    protos.Ticket.UnusedTicketElemOrBuilder getUnsedTicketInfoOrBuilder(
-        int index);
-  }
-  /**
-   * <pre>
-   *return the result of query_buying_ticket
-   * </pre>
-   *
-   * Protobuf type {@code protos.UnusedTicket}
-   */
-  public  static final class UnusedTicket extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protos.UnusedTicket)
-      UnusedTicketOrBuilder {
-    // Use UnusedTicket.newBuilder() to construct.
-    private UnusedTicket(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private UnusedTicket() {
-      unusedTicketNumber_ = 0L;
-      unsedTicketInfo_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private UnusedTicket(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              unusedTicketNumber_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                unsedTicketInfo_ = new java.util.ArrayList<protos.Ticket.UnusedTicketElem>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              unsedTicketInfo_.add(
-                  input.readMessage(protos.Ticket.UnusedTicketElem.parser(), extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          unsedTicketInfo_ = java.util.Collections.unmodifiableList(unsedTicketInfo_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protos.Ticket.internal_static_protos_UnusedTicket_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protos.Ticket.internal_static_protos_UnusedTicket_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protos.Ticket.UnusedTicket.class, protos.Ticket.UnusedTicket.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int UNUSED_TICKET_NUMBER_FIELD_NUMBER = 1;
-    private long unusedTicketNumber_;
-    /**
-     * <code>optional int64 Unused_ticket_number = 1;</code>
-     */
-    public long getUnusedTicketNumber() {
-      return unusedTicketNumber_;
-    }
-
-    public static final int UNSEDTICKETINFO_FIELD_NUMBER = 2;
-    private java.util.List<protos.Ticket.UnusedTicketElem> unsedTicketInfo_;
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    public java.util.List<protos.Ticket.UnusedTicketElem> getUnsedTicketInfoList() {
-      return unsedTicketInfo_;
-    }
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    public java.util.List<? extends protos.Ticket.UnusedTicketElemOrBuilder> 
-        getUnsedTicketInfoOrBuilderList() {
-      return unsedTicketInfo_;
-    }
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    public int getUnsedTicketInfoCount() {
-      return unsedTicketInfo_.size();
-    }
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    public protos.Ticket.UnusedTicketElem getUnsedTicketInfo(int index) {
-      return unsedTicketInfo_.get(index);
-    }
-    /**
-     * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-     */
-    public protos.Ticket.UnusedTicketElemOrBuilder getUnsedTicketInfoOrBuilder(
-        int index) {
-      return unsedTicketInfo_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (unusedTicketNumber_ != 0L) {
-        output.writeInt64(1, unusedTicketNumber_);
-      }
-      for (int i = 0; i < unsedTicketInfo_.size(); i++) {
-        output.writeMessage(2, unsedTicketInfo_.get(i));
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (unusedTicketNumber_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, unusedTicketNumber_);
-      }
-      for (int i = 0; i < unsedTicketInfo_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, unsedTicketInfo_.get(i));
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protos.Ticket.UnusedTicket)) {
-        return super.equals(obj);
-      }
-      protos.Ticket.UnusedTicket other = (protos.Ticket.UnusedTicket) obj;
-
-      boolean result = true;
-      result = result && (getUnusedTicketNumber()
-          == other.getUnusedTicketNumber());
-      result = result && getUnsedTicketInfoList()
-          .equals(other.getUnsedTicketInfoList());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + UNUSED_TICKET_NUMBER_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getUnusedTicketNumber());
-      if (getUnsedTicketInfoCount() > 0) {
-        hash = (37 * hash) + UNSEDTICKETINFO_FIELD_NUMBER;
-        hash = (53 * hash) + getUnsedTicketInfoList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protos.Ticket.UnusedTicket parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.UnusedTicket parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.UnusedTicket parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.UnusedTicket parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protos.Ticket.UnusedTicket prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *return the result of query_buying_ticket
-     * </pre>
-     *
-     * Protobuf type {@code protos.UnusedTicket}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protos.UnusedTicket)
-        protos.Ticket.UnusedTicketOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protos.Ticket.internal_static_protos_UnusedTicket_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protos.Ticket.internal_static_protos_UnusedTicket_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protos.Ticket.UnusedTicket.class, protos.Ticket.UnusedTicket.Builder.class);
-      }
-
-      // Construct using protos.Ticket.UnusedTicket.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getUnsedTicketInfoFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        unusedTicketNumber_ = 0L;
-
-        if (unsedTicketInfoBuilder_ == null) {
-          unsedTicketInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          unsedTicketInfoBuilder_.clear();
-        }
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protos.Ticket.internal_static_protos_UnusedTicket_descriptor;
-      }
-
-      public protos.Ticket.UnusedTicket getDefaultInstanceForType() {
-        return protos.Ticket.UnusedTicket.getDefaultInstance();
-      }
-
-      public protos.Ticket.UnusedTicket build() {
-        protos.Ticket.UnusedTicket result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protos.Ticket.UnusedTicket buildPartial() {
-        protos.Ticket.UnusedTicket result = new protos.Ticket.UnusedTicket(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.unusedTicketNumber_ = unusedTicketNumber_;
-        if (unsedTicketInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            unsedTicketInfo_ = java.util.Collections.unmodifiableList(unsedTicketInfo_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.unsedTicketInfo_ = unsedTicketInfo_;
-        } else {
-          result.unsedTicketInfo_ = unsedTicketInfoBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protos.Ticket.UnusedTicket) {
-          return mergeFrom((protos.Ticket.UnusedTicket)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protos.Ticket.UnusedTicket other) {
-        if (other == protos.Ticket.UnusedTicket.getDefaultInstance()) return this;
-        if (other.getUnusedTicketNumber() != 0L) {
-          setUnusedTicketNumber(other.getUnusedTicketNumber());
-        }
-        if (unsedTicketInfoBuilder_ == null) {
-          if (!other.unsedTicketInfo_.isEmpty()) {
-            if (unsedTicketInfo_.isEmpty()) {
-              unsedTicketInfo_ = other.unsedTicketInfo_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureUnsedTicketInfoIsMutable();
-              unsedTicketInfo_.addAll(other.unsedTicketInfo_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.unsedTicketInfo_.isEmpty()) {
-            if (unsedTicketInfoBuilder_.isEmpty()) {
-              unsedTicketInfoBuilder_.dispose();
-              unsedTicketInfoBuilder_ = null;
-              unsedTicketInfo_ = other.unsedTicketInfo_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              unsedTicketInfoBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getUnsedTicketInfoFieldBuilder() : null;
-            } else {
-              unsedTicketInfoBuilder_.addAllMessages(other.unsedTicketInfo_);
-            }
-          }
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protos.Ticket.UnusedTicket parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protos.Ticket.UnusedTicket) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private long unusedTicketNumber_ ;
-      /**
-       * <code>optional int64 Unused_ticket_number = 1;</code>
-       */
-      public long getUnusedTicketNumber() {
-        return unusedTicketNumber_;
-      }
-      /**
-       * <code>optional int64 Unused_ticket_number = 1;</code>
-       */
-      public Builder setUnusedTicketNumber(long value) {
-        
-        unusedTicketNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 Unused_ticket_number = 1;</code>
-       */
-      public Builder clearUnusedTicketNumber() {
-        
-        unusedTicketNumber_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<protos.Ticket.UnusedTicketElem> unsedTicketInfo_ =
-        java.util.Collections.emptyList();
-      private void ensureUnsedTicketInfoIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          unsedTicketInfo_ = new java.util.ArrayList<protos.Ticket.UnusedTicketElem>(unsedTicketInfo_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          protos.Ticket.UnusedTicketElem, protos.Ticket.UnusedTicketElem.Builder, protos.Ticket.UnusedTicketElemOrBuilder> unsedTicketInfoBuilder_;
-
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public java.util.List<protos.Ticket.UnusedTicketElem> getUnsedTicketInfoList() {
-        if (unsedTicketInfoBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(unsedTicketInfo_);
-        } else {
-          return unsedTicketInfoBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public int getUnsedTicketInfoCount() {
-        if (unsedTicketInfoBuilder_ == null) {
-          return unsedTicketInfo_.size();
-        } else {
-          return unsedTicketInfoBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public protos.Ticket.UnusedTicketElem getUnsedTicketInfo(int index) {
-        if (unsedTicketInfoBuilder_ == null) {
-          return unsedTicketInfo_.get(index);
-        } else {
-          return unsedTicketInfoBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder setUnsedTicketInfo(
-          int index, protos.Ticket.UnusedTicketElem value) {
-        if (unsedTicketInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.set(index, value);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder setUnsedTicketInfo(
-          int index, protos.Ticket.UnusedTicketElem.Builder builderForValue) {
-        if (unsedTicketInfoBuilder_ == null) {
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder addUnsedTicketInfo(protos.Ticket.UnusedTicketElem value) {
-        if (unsedTicketInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.add(value);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder addUnsedTicketInfo(
-          int index, protos.Ticket.UnusedTicketElem value) {
-        if (unsedTicketInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.add(index, value);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder addUnsedTicketInfo(
-          protos.Ticket.UnusedTicketElem.Builder builderForValue) {
-        if (unsedTicketInfoBuilder_ == null) {
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.add(builderForValue.build());
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder addUnsedTicketInfo(
-          int index, protos.Ticket.UnusedTicketElem.Builder builderForValue) {
-        if (unsedTicketInfoBuilder_ == null) {
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder addAllUnsedTicketInfo(
-          java.lang.Iterable<? extends protos.Ticket.UnusedTicketElem> values) {
-        if (unsedTicketInfoBuilder_ == null) {
-          ensureUnsedTicketInfoIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, unsedTicketInfo_);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder clearUnsedTicketInfo() {
-        if (unsedTicketInfoBuilder_ == null) {
-          unsedTicketInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public Builder removeUnsedTicketInfo(int index) {
-        if (unsedTicketInfoBuilder_ == null) {
-          ensureUnsedTicketInfoIsMutable();
-          unsedTicketInfo_.remove(index);
-          onChanged();
-        } else {
-          unsedTicketInfoBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public protos.Ticket.UnusedTicketElem.Builder getUnsedTicketInfoBuilder(
-          int index) {
-        return getUnsedTicketInfoFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public protos.Ticket.UnusedTicketElemOrBuilder getUnsedTicketInfoOrBuilder(
-          int index) {
-        if (unsedTicketInfoBuilder_ == null) {
-          return unsedTicketInfo_.get(index);  } else {
-          return unsedTicketInfoBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public java.util.List<? extends protos.Ticket.UnusedTicketElemOrBuilder> 
-           getUnsedTicketInfoOrBuilderList() {
-        if (unsedTicketInfoBuilder_ != null) {
-          return unsedTicketInfoBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(unsedTicketInfo_);
-        }
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public protos.Ticket.UnusedTicketElem.Builder addUnsedTicketInfoBuilder() {
-        return getUnsedTicketInfoFieldBuilder().addBuilder(
-            protos.Ticket.UnusedTicketElem.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public protos.Ticket.UnusedTicketElem.Builder addUnsedTicketInfoBuilder(
-          int index) {
-        return getUnsedTicketInfoFieldBuilder().addBuilder(
-            index, protos.Ticket.UnusedTicketElem.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .protos.UnusedTicketElem UnsedTicketInfo = 2;</code>
-       */
-      public java.util.List<protos.Ticket.UnusedTicketElem.Builder> 
-           getUnsedTicketInfoBuilderList() {
-        return getUnsedTicketInfoFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          protos.Ticket.UnusedTicketElem, protos.Ticket.UnusedTicketElem.Builder, protos.Ticket.UnusedTicketElemOrBuilder> 
-          getUnsedTicketInfoFieldBuilder() {
-        if (unsedTicketInfoBuilder_ == null) {
-          unsedTicketInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              protos.Ticket.UnusedTicketElem, protos.Ticket.UnusedTicketElem.Builder, protos.Ticket.UnusedTicketElemOrBuilder>(
-                  unsedTicketInfo_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
-                  getParentForChildren(),
-                  isClean());
-          unsedTicketInfo_ = null;
-        }
-        return unsedTicketInfoBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protos.UnusedTicket)
-    }
-
-    // @@protoc_insertion_point(class_scope:protos.UnusedTicket)
-    private static final protos.Ticket.UnusedTicket DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protos.Ticket.UnusedTicket();
-    }
-
-    public static protos.Ticket.UnusedTicket getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<UnusedTicket>
-        PARSER = new com.google.protobuf.AbstractParser<UnusedTicket>() {
-      public UnusedTicket parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UnusedTicket(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<UnusedTicket> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<UnusedTicket> getParserForType() {
-      return PARSER;
-    }
-
-    public protos.Ticket.UnusedTicket getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface CheckTicketElemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protos.CheckTicketElem)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    java.lang.String getOrderId();
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getOrderIdBytes();
-
-    /**
-     * <code>optional string Admin_pass = 2;</code>
-     */
-    java.lang.String getAdminPass();
-    /**
-     * <code>optional string Admin_pass = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getAdminPassBytes();
-  }
-  /**
-   * <pre>
-   *for checking ticket
-   * </pre>
-   *
-   * Protobuf type {@code protos.CheckTicketElem}
-   */
-  public  static final class CheckTicketElem extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protos.CheckTicketElem)
-      CheckTicketElemOrBuilder {
-    // Use CheckTicketElem.newBuilder() to construct.
-    private CheckTicketElem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private CheckTicketElem() {
-      orderId_ = "";
-      adminPass_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private CheckTicketElem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              orderId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              adminPass_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protos.Ticket.internal_static_protos_CheckTicketElem_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protos.Ticket.internal_static_protos_CheckTicketElem_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protos.Ticket.CheckTicketElem.class, protos.Ticket.CheckTicketElem.Builder.class);
-    }
-
-    public static final int ORDER_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object orderId_;
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    public java.lang.String getOrderId() {
-      java.lang.Object ref = orderId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        orderId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrderIdBytes() {
-      java.lang.Object ref = orderId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        orderId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ADMIN_PASS_FIELD_NUMBER = 2;
-    private volatile java.lang.Object adminPass_;
-    /**
-     * <code>optional string Admin_pass = 2;</code>
-     */
-    public java.lang.String getAdminPass() {
-      java.lang.Object ref = adminPass_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        adminPass_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Admin_pass = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAdminPassBytes() {
-      java.lang.Object ref = adminPass_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        adminPass_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getOrderIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, adminPass_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getOrderIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, adminPass_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protos.Ticket.CheckTicketElem)) {
-        return super.equals(obj);
-      }
-      protos.Ticket.CheckTicketElem other = (protos.Ticket.CheckTicketElem) obj;
-
-      boolean result = true;
-      result = result && getOrderId()
-          .equals(other.getOrderId());
-      result = result && getAdminPass()
-          .equals(other.getAdminPass());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + ORDER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getOrderId().hashCode();
-      hash = (37 * hash) + ADMIN_PASS_FIELD_NUMBER;
-      hash = (53 * hash) + getAdminPass().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.CheckTicketElem parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.CheckTicketElem parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.CheckTicketElem parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protos.Ticket.CheckTicketElem prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *for checking ticket
-     * </pre>
-     *
-     * Protobuf type {@code protos.CheckTicketElem}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protos.CheckTicketElem)
-        protos.Ticket.CheckTicketElemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protos.Ticket.internal_static_protos_CheckTicketElem_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protos.Ticket.internal_static_protos_CheckTicketElem_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protos.Ticket.CheckTicketElem.class, protos.Ticket.CheckTicketElem.Builder.class);
-      }
-
-      // Construct using protos.Ticket.CheckTicketElem.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        orderId_ = "";
-
-        adminPass_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protos.Ticket.internal_static_protos_CheckTicketElem_descriptor;
-      }
-
-      public protos.Ticket.CheckTicketElem getDefaultInstanceForType() {
-        return protos.Ticket.CheckTicketElem.getDefaultInstance();
-      }
-
-      public protos.Ticket.CheckTicketElem build() {
-        protos.Ticket.CheckTicketElem result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protos.Ticket.CheckTicketElem buildPartial() {
-        protos.Ticket.CheckTicketElem result = new protos.Ticket.CheckTicketElem(this);
-        result.orderId_ = orderId_;
-        result.adminPass_ = adminPass_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protos.Ticket.CheckTicketElem) {
-          return mergeFrom((protos.Ticket.CheckTicketElem)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protos.Ticket.CheckTicketElem other) {
-        if (other == protos.Ticket.CheckTicketElem.getDefaultInstance()) return this;
-        if (!other.getOrderId().isEmpty()) {
-          orderId_ = other.orderId_;
-          onChanged();
-        }
-        if (!other.getAdminPass().isEmpty()) {
-          adminPass_ = other.adminPass_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protos.Ticket.CheckTicketElem parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protos.Ticket.CheckTicketElem) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object orderId_ = "";
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public java.lang.String getOrderId() {
-        java.lang.Object ref = orderId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          orderId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getOrderIdBytes() {
-        java.lang.Object ref = orderId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          orderId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder setOrderId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        orderId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder clearOrderId() {
-        
-        orderId_ = getDefaultInstance().getOrderId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder setOrderIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        orderId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object adminPass_ = "";
-      /**
-       * <code>optional string Admin_pass = 2;</code>
-       */
-      public java.lang.String getAdminPass() {
-        java.lang.Object ref = adminPass_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          adminPass_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Admin_pass = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAdminPassBytes() {
-        java.lang.Object ref = adminPass_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          adminPass_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Admin_pass = 2;</code>
-       */
-      public Builder setAdminPass(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        adminPass_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Admin_pass = 2;</code>
-       */
-      public Builder clearAdminPass() {
-        
-        adminPass_ = getDefaultInstance().getAdminPass();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Admin_pass = 2;</code>
-       */
-      public Builder setAdminPassBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        adminPass_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protos.CheckTicketElem)
-    }
-
-    // @@protoc_insertion_point(class_scope:protos.CheckTicketElem)
-    private static final protos.Ticket.CheckTicketElem DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protos.Ticket.CheckTicketElem();
-    }
-
-    public static protos.Ticket.CheckTicketElem getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<CheckTicketElem>
-        PARSER = new com.google.protobuf.AbstractParser<CheckTicketElem>() {
-      public CheckTicketElem parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CheckTicketElem(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<CheckTicketElem> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CheckTicketElem> getParserForType() {
-      return PARSER;
-    }
-
-    public protos.Ticket.CheckTicketElem getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface RefundTicketElemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protos.RefundTicketElem)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    java.lang.String getOrderId();
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getOrderIdBytes();
-
-    /**
-     * <code>optional string Refund_TXhash = 2;</code>
-     */
-    java.lang.String getRefundTXhash();
-    /**
-     * <code>optional string Refund_TXhash = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getRefundTXhashBytes();
-
-    /**
-     * <code>optional string Admin_pass = 3;</code>
-     */
-    java.lang.String getAdminPass();
-    /**
-     * <code>optional string Admin_pass = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getAdminPassBytes();
-  }
-  /**
-   * <pre>
-   *for refunding ticket
-   * </pre>
-   *
-   * Protobuf type {@code protos.RefundTicketElem}
-   */
-  public  static final class RefundTicketElem extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protos.RefundTicketElem)
-      RefundTicketElemOrBuilder {
-    // Use RefundTicketElem.newBuilder() to construct.
-    private RefundTicketElem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RefundTicketElem() {
-      orderId_ = "";
-      refundTXhash_ = "";
-      adminPass_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private RefundTicketElem(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              orderId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              refundTXhash_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              adminPass_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return protos.Ticket.internal_static_protos_RefundTicketElem_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return protos.Ticket.internal_static_protos_RefundTicketElem_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              protos.Ticket.RefundTicketElem.class, protos.Ticket.RefundTicketElem.Builder.class);
-    }
-
-    public static final int ORDER_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object orderId_;
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    public java.lang.String getOrderId() {
-      java.lang.Object ref = orderId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        orderId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Order_id = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getOrderIdBytes() {
-      java.lang.Object ref = orderId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        orderId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int REFUND_TXHASH_FIELD_NUMBER = 2;
-    private volatile java.lang.Object refundTXhash_;
-    /**
-     * <code>optional string Refund_TXhash = 2;</code>
-     */
-    public java.lang.String getRefundTXhash() {
-      java.lang.Object ref = refundTXhash_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        refundTXhash_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Refund_TXhash = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRefundTXhashBytes() {
-      java.lang.Object ref = refundTXhash_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        refundTXhash_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ADMIN_PASS_FIELD_NUMBER = 3;
-    private volatile java.lang.Object adminPass_;
-    /**
-     * <code>optional string Admin_pass = 3;</code>
-     */
-    public java.lang.String getAdminPass() {
-      java.lang.Object ref = adminPass_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        adminPass_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Admin_pass = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAdminPassBytes() {
-      java.lang.Object ref = adminPass_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        adminPass_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getOrderIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orderId_);
-      }
-      if (!getRefundTXhashBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, refundTXhash_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, adminPass_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getOrderIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orderId_);
-      }
-      if (!getRefundTXhashBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, refundTXhash_);
-      }
-      if (!getAdminPassBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, adminPass_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof protos.Ticket.RefundTicketElem)) {
-        return super.equals(obj);
-      }
-      protos.Ticket.RefundTicketElem other = (protos.Ticket.RefundTicketElem) obj;
-
-      boolean result = true;
-      result = result && getOrderId()
-          .equals(other.getOrderId());
-      result = result && getRefundTXhash()
-          .equals(other.getRefundTXhash());
-      result = result && getAdminPass()
-          .equals(other.getAdminPass());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + ORDER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getOrderId().hashCode();
-      hash = (37 * hash) + REFUND_TXHASH_FIELD_NUMBER;
-      hash = (53 * hash) + getRefundTXhash().hashCode();
-      hash = (37 * hash) + ADMIN_PASS_FIELD_NUMBER;
-      hash = (53 * hash) + getAdminPass().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.RefundTicketElem parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.RefundTicketElem parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static protos.Ticket.RefundTicketElem parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(protos.Ticket.RefundTicketElem prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *for refunding ticket
-     * </pre>
-     *
-     * Protobuf type {@code protos.RefundTicketElem}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protos.RefundTicketElem)
-        protos.Ticket.RefundTicketElemOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return protos.Ticket.internal_static_protos_RefundTicketElem_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return protos.Ticket.internal_static_protos_RefundTicketElem_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                protos.Ticket.RefundTicketElem.class, protos.Ticket.RefundTicketElem.Builder.class);
-      }
-
-      // Construct using protos.Ticket.RefundTicketElem.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        orderId_ = "";
-
-        refundTXhash_ = "";
-
-        adminPass_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return protos.Ticket.internal_static_protos_RefundTicketElem_descriptor;
-      }
-
-      public protos.Ticket.RefundTicketElem getDefaultInstanceForType() {
-        return protos.Ticket.RefundTicketElem.getDefaultInstance();
-      }
-
-      public protos.Ticket.RefundTicketElem build() {
-        protos.Ticket.RefundTicketElem result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public protos.Ticket.RefundTicketElem buildPartial() {
-        protos.Ticket.RefundTicketElem result = new protos.Ticket.RefundTicketElem(this);
-        result.orderId_ = orderId_;
-        result.refundTXhash_ = refundTXhash_;
-        result.adminPass_ = adminPass_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof protos.Ticket.RefundTicketElem) {
-          return mergeFrom((protos.Ticket.RefundTicketElem)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(protos.Ticket.RefundTicketElem other) {
-        if (other == protos.Ticket.RefundTicketElem.getDefaultInstance()) return this;
-        if (!other.getOrderId().isEmpty()) {
-          orderId_ = other.orderId_;
-          onChanged();
-        }
-        if (!other.getRefundTXhash().isEmpty()) {
-          refundTXhash_ = other.refundTXhash_;
-          onChanged();
-        }
-        if (!other.getAdminPass().isEmpty()) {
-          adminPass_ = other.adminPass_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        protos.Ticket.RefundTicketElem parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protos.Ticket.RefundTicketElem) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object orderId_ = "";
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public java.lang.String getOrderId() {
-        java.lang.Object ref = orderId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          orderId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getOrderIdBytes() {
-        java.lang.Object ref = orderId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          orderId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder setOrderId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        orderId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder clearOrderId() {
-        
-        orderId_ = getDefaultInstance().getOrderId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Order_id = 1;</code>
-       */
-      public Builder setOrderIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        orderId_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object refundTXhash_ = "";
-      /**
-       * <code>optional string Refund_TXhash = 2;</code>
-       */
-      public java.lang.String getRefundTXhash() {
-        java.lang.Object ref = refundTXhash_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          refundTXhash_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Refund_TXhash = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getRefundTXhashBytes() {
-        java.lang.Object ref = refundTXhash_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          refundTXhash_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Refund_TXhash = 2;</code>
-       */
-      public Builder setRefundTXhash(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        refundTXhash_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Refund_TXhash = 2;</code>
-       */
-      public Builder clearRefundTXhash() {
-        
-        refundTXhash_ = getDefaultInstance().getRefundTXhash();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Refund_TXhash = 2;</code>
-       */
-      public Builder setRefundTXhashBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        refundTXhash_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object adminPass_ = "";
-      /**
-       * <code>optional string Admin_pass = 3;</code>
-       */
-      public java.lang.String getAdminPass() {
-        java.lang.Object ref = adminPass_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          adminPass_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Admin_pass = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAdminPassBytes() {
-        java.lang.Object ref = adminPass_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          adminPass_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Admin_pass = 3;</code>
-       */
-      public Builder setAdminPass(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        adminPass_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Admin_pass = 3;</code>
-       */
-      public Builder clearAdminPass() {
-        
-        adminPass_ = getDefaultInstance().getAdminPass();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Admin_pass = 3;</code>
-       */
-      public Builder setAdminPassBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        adminPass_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protos.RefundTicketElem)
-    }
-
-    // @@protoc_insertion_point(class_scope:protos.RefundTicketElem)
-    private static final protos.Ticket.RefundTicketElem DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new protos.Ticket.RefundTicketElem();
-    }
-
-    public static protos.Ticket.RefundTicketElem getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<RefundTicketElem>
-        PARSER = new com.google.protobuf.AbstractParser<RefundTicketElem>() {
-      public RefundTicketElem parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RefundTicketElem(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RefundTicketElem> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RefundTicketElem> getParserForType() {
-      return PARSER;
-    }
-
-    public protos.Ticket.RefundTicketElem getDefaultInstanceForType() {
+    public protos.Ticket.BuyTicketElem getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5603,25 +3331,10 @@ public final class Ticket {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_TicketOfUser_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_UnusedTicketElem_descriptor;
+    internal_static_protos_BuyTicketElem_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protos_UnusedTicketElem_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_UnusedTicket_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protos_UnusedTicket_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_CheckTicketElem_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protos_CheckTicketElem_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_RefundTicketElem_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protos_RefundTicketElem_fieldAccessorTable;
+      internal_static_protos_BuyTicketElem_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5631,25 +3344,18 @@ public final class Ticket {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014ticket.proto\022\006protos\"\363\001\n\nTicketElem\022\020\n" +
+      "\n\014ticket.proto\022\006protos\"\266\001\n\nTicketElem\022\020\n" +
       "\010Order_id\030\001 \001(\t\022\021\n\tTicket_id\030\002 \001(\t\022\031\n\021Ti" +
       "cket_unit_price\030\003 \001(\003\022\025\n\rTicket_number\030\004" +
-      " \001(\003\022\032\n\022Time_of_buy_ticket\030\005 \001(\003\022\022\n\nBuy_" +
-      "TXhash\030\006 \001(\t\022\024\n\014Ticket_state\030\007 \001(\003\022\035\n\025Ti" +
-      "me_of_state_changed\030\010 \001(\003\022\025\n\rRefund_TXha" +
-      "sh\030\t \001(\t\022\022\n\nAdmin_pass\030\n \001(\t\"i\n\014TicketOf" +
-      "User\022\023\n\013Phonenumber\030\001 \001(\t\022\034\n\024Unused_tick" +
-      "et_number\030\002 \001(\003\022&\n\nTicketInfo\030\003 \003(\0132\022.pr" +
-      "otos.TicketElem\"}\n\020UnusedTicketElem\022\020\n\010O",
-      "rder_id\030\001 \001(\t\022\021\n\tTicket_id\030\002 \001(\t\022\031\n\021Tick" +
-      "et_unit_price\030\003 \001(\003\022\025\n\rTicket_number\030\004 \001" +
-      "(\003\022\022\n\nBuy_TXhash\030\005 \001(\t\"_\n\014UnusedTicket\022\034" +
-      "\n\024Unused_ticket_number\030\001 \001(\003\0221\n\017UnsedTic" +
-      "ketInfo\030\002 \003(\0132\030.protos.UnusedTicketElem\"" +
-      "7\n\017CheckTicketElem\022\020\n\010Order_id\030\001 \001(\t\022\022\n\n" +
-      "Admin_pass\030\002 \001(\t\"O\n\020RefundTicketElem\022\020\n\010" +
-      "Order_id\030\001 \001(\t\022\025\n\rRefund_TXhash\030\002 \001(\t\022\022\n" +
-      "\nAdmin_pass\030\003 \001(\tb\006proto3"
+      " \001(\003\022\022\n\nBuy_TXhash\030\005 \001(\t\022\024\n\014Ticket_state" +
+      "\030\006 \001(\003\022\022\n\nPay_return\030\007 \001(\t\022\023\n\013Error_stat" +
+      "e\030\010 \001(\t\"f\n\014TicketOfUser\022\023\n\013Phonenumber\030\001" +
+      " \001(\t\022\031\n\021Pay_failed_number\030\002 \001(\003\022&\n\nTicke" +
+      "tInfo\030\003 \003(\0132\022.protos.TicketElem\"z\n\rBuyTi" +
+      "cketElem\022\020\n\010Order_id\030\001 \001(\t\022\021\n\tTicket_id\030" +
+      "\002 \001(\t\022\031\n\021Ticket_unit_price\030\003 \001(\003\022\025\n\rTick",
+      "et_number\030\004 \001(\003\022\022\n\nBuy_TXhash\030\005 \001(\tb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5668,37 +3374,19 @@ public final class Ticket {
     internal_static_protos_TicketElem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TicketElem_descriptor,
-        new java.lang.String[] { "OrderId", "TicketId", "TicketUnitPrice", "TicketNumber", "TimeOfBuyTicket", "BuyTXhash", "TicketState", "TimeOfStateChanged", "RefundTXhash", "AdminPass", });
+        new java.lang.String[] { "OrderId", "TicketId", "TicketUnitPrice", "TicketNumber", "BuyTXhash", "TicketState", "PayReturn", "ErrorState", });
     internal_static_protos_TicketOfUser_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protos_TicketOfUser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_TicketOfUser_descriptor,
-        new java.lang.String[] { "Phonenumber", "UnusedTicketNumber", "TicketInfo", });
-    internal_static_protos_UnusedTicketElem_descriptor =
+        new java.lang.String[] { "Phonenumber", "PayFailedNumber", "TicketInfo", });
+    internal_static_protos_BuyTicketElem_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_protos_UnusedTicketElem_fieldAccessorTable = new
+    internal_static_protos_BuyTicketElem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protos_UnusedTicketElem_descriptor,
+        internal_static_protos_BuyTicketElem_descriptor,
         new java.lang.String[] { "OrderId", "TicketId", "TicketUnitPrice", "TicketNumber", "BuyTXhash", });
-    internal_static_protos_UnusedTicket_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_protos_UnusedTicket_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protos_UnusedTicket_descriptor,
-        new java.lang.String[] { "UnusedTicketNumber", "UnsedTicketInfo", });
-    internal_static_protos_CheckTicketElem_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_protos_CheckTicketElem_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protos_CheckTicketElem_descriptor,
-        new java.lang.String[] { "OrderId", "AdminPass", });
-    internal_static_protos_RefundTicketElem_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_protos_RefundTicketElem_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protos_RefundTicketElem_descriptor,
-        new java.lang.String[] { "OrderId", "RefundTXhash", "AdminPass", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

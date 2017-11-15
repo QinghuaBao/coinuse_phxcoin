@@ -420,7 +420,7 @@ public class CoinFactory {
          */
         public void invokeBuyTicket(String tel,String orderId,String ticketId,long price,long num,String txhash,String transferParam) throws IOException{
             //生成购票对象
-            Ticket.UnusedTicketElem.Builder ticketElem= Ticket.UnusedTicketElem.newBuilder();
+            Ticket.BuyTicketElem.Builder ticketElem= Ticket.BuyTicketElem.newBuilder();
             ticketElem.setOrderId(orderId);
             ticketElem.setTicketId(ticketId);
             ticketElem.setTicketUnitPrice(price);
@@ -428,7 +428,7 @@ public class CoinFactory {
             ticketElem.setBuyTXhash(txhash);
             //序列化
             String str=new String(org.spongycastle.util.encoders.Base64.encode(ticketElem.build().toByteArray()));
-            String[] param={tel,str,transferParam};
+            String[] param={tel, str, transferParam};
             //http请求
             String resultString= contractPostRequest("invoke", "ticket",3 , "invoke_buy_ticket", param);
         }

@@ -97,12 +97,12 @@ public class Controller {
         String tranParam = null;
         try {
             tranParam = post.getTransferParam(address,
-                    "eAVHz1qKaNHzBxv9ZAEdvQPX3PuLWbARj", 100000, "foam",-1, pubKey, priKey);
+                    "eAVHz1qKaNHzBxv9ZAEdvQPX3PuLWbARj", 10, "foam",-1, pubKey, priKey);
             //得到交易hash
             txhash = post.getTxHash(tranParam);
             //调用方法
             //方法参数（电话，订单id，门票id，门票单价,门票数量,交易hash，转账参数）；
-            post.invokeBuyTicket("15000000001", "P5aa7fd360d54412daaf39089ed2010t", "95", 10000, 1, txhash, tranParam);
+            post.invokeBuyTicket("15000000001", "P5aa7fd360d54412daaf39089ed2010t", "95", 10, 1, txhash, tranParam);
         } catch (IOException e) {
             warning(e.getMessage());
             return;
